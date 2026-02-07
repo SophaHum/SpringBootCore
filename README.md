@@ -26,13 +26,13 @@ A demo project for practicing with Spring Boot, Docker, database integration, an
 ```yaml
 services:
   postgres:
-    image: 'postgres:latest'
+    image: "postgres:latest"
     environment:
-      - 'POSTGRES_DB=springbootdb'
-      - 'POSTGRES_PASSWORD=pa$$w0rd'
-      - 'POSTGRES_USER=sopha'
+      - "POSTGRES_DB=springbootdb"
+      - "POSTGRES_PASSWORD=passwordSopha123"
+      - "POSTGRES_USER=sopha"
     ports:
-      - '5431:5432'
+      - "5431:5432"
 ```
 
 - Start the database:
@@ -43,62 +43,57 @@ services:
 ### 5. Configure Spring Boot for Database
 - See `src/main/resources/application.properties`:
 
-```
+```properties
 spring.datasource.url=jdbc:postgresql://localhost:5431/springbootdb
-spring.datasource.username=user
-spring.datasource.password=pa$$w0rd
+spring.datasource.username=sopha
+spring.datasource.password=passwordSopha123
 spring.jpa.hibernate.ddl-auto=validate
 spring.jpa.show-sql=true
 spring.flyway.enabled=true
+logging.file.name=logs/application.log
 ```
 
 - Use Flyway for DB migrations (place SQL files in `src/main/resources/db/migration`).
 
-### 6. Build Your Application
-- Create entities, repositories, services, and controllers.
-- Use `@Service`, `@Repository`, `@Controller` for separation of concerns.
-- Use DTOs for API communication.
+### 6. Run the Application
+- The application is configured to run with Maven:
+  ```sh
+  mvn spring-boot:run
+  ```
+- The application will start on port 8080.
 
-### 7. Code Readability & Reusability
+### 7. API Endpoints
+- **GET /**: Returns a greeting message ("Hello, Spring Boot! from Sopha").
+
+### 8. Logging
+- Application logs are written to a file for easier debugging:
+  - **File:** `logs/application.log`
+  - This file captures startup info, errors, and standard output.
+
+### 9. Code Readability & Reusability
 - Use meaningful class/method/variable names.
 - Apply SOLID principles.
 - Use Lombok to reduce boilerplate.
 - Modularize code (utility classes, service layers).
 - Write Javadoc and comments where necessary.
 
-### 8. Performance Best Practices
+### 10. Performance Best Practices
 - Use pagination for large DB queries.
 - Use indexes in the database.
 - Avoid N+1 query problems (use fetch joins or `@EntityGraph`).
 - Profile and monitor with Spring Actuator.
 
-### 9. Security Best Practices
+### 11. Security Best Practices
 - Use Spring Security for authentication/authorization.
 - Store secrets (DB passwords, tokens) securely (environment variables, not in code).
 - Validate and sanitize all user inputs.
 - Use HTTPS in production.
 
-### 10. Testing
+### 12. Testing
 - Write unit and integration tests (Spring Boot Test, Mockito).
 - Use test containers for DB integration tests.
 
-### 11. Dockerize Your Application
-- Example Dockerfile:
-
-```dockerfile
-FROM eclipse-temurin:21-jre
-COPY target/*.jar app.jar
-ENTRYPOINT ["java", "-jar", "/app.jar"]
-```
-
-- Build and run your app with Docker:
-  ```sh
-  mvn clean package
-  docker build -t my-spring-app .
-  docker run --network="host" my-spring-app
-  ```
-
-### 12. Documentation & Maintenance
+### 13. Documentation & Maintenance
 - Document your API (Swagger/OpenAPI).
 - Keep dependencies up to date.
 - Regularly review code for improvements.
