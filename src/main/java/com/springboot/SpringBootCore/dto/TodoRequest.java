@@ -1,10 +1,10 @@
 package com.springboot.SpringBootCore.dto;
 
-import java.sql.Date;
+import java.time.LocalDateTime;
 
 public record TodoRequest(
-        String title,
-        String description,
-        Date created_at,
-        Date updated_at) {
+                String title,
+                String description,
+                LocalDateTime created_at,
+                LocalDateTime updated_at) {
 }
