@@ -1,2 +1,4 @@
-select *
-from todo_lists;
+SELECT *
+FROM users;
+SELECT *
+FROM todos;

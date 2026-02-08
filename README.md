@@ -55,7 +55,6 @@ logging.file.name=logs/application.log
 
 - Use Flyway for DB migrations (place SQL files in `src/main/resources/db/migration`).
 
-
 ### 6. Run the Application
 
 - The application is configured to run with Maven:
@@ -65,17 +64,18 @@ logging.file.name=logs/application.log
   ```
 
 - The application will start on port 8080.
+- **Base URL:** `http://localhost:8080/springbootcore`
 
 ### 7. API Endpoints
 
-#### User API (`/api/users`)
+#### User API (`/springbootcore/api/users`)
 
 | Method | Endpoint | Description |
 | --- | --- | --- |
-| POST | `/api/users/` | Create a new user |
-| GET | `/api/users/{id}` | Get user by ID |
-| PUT | `/api/users/{id}` | Update user by ID |
-| DELETE | `/api/users/{id}` | Delete user by ID |
+| POST | `/springbootcore/api/users/` | Create a new user |
+| GET | `/springbootcore/api/users/{id}` | Get user by ID |
+| PUT | `/springbootcore/api/users/{id}` | Update user by ID |
+| DELETE | `/springbootcore/api/users/{id}` | Delete user by ID |
 
 **User Request Body:**
 
@@ -88,15 +88,15 @@ logging.file.name=logs/application.log
 }
 ```
 
-#### Todo API (`/api/todos`)
+#### Todo API (`/springbootcore/api/todos`)
 
 | Method | Endpoint | Description |
 | --- | --- | --- |
-| GET | `/api/todos/{userId}` | Get all todos for a user |
-| POST | `/api/todos/{userId}` | Create a todo for a user |
-| GET | `/api/todos/{id}` | Get todo by ID |
-| PUT | `/api/todos/{id}` | Update todo by ID |
-| DELETE | `/api/todos/{id}` | Delete todo by ID |
+| GET | `/springbootcore/api/todos/{userId}` | Get all todos for a user |
+| POST | `/springbootcore/api/todos/{userId}` | Create a todo for a user |
+| GET | `/springbootcore/api/todos/{id}` | Get todo by ID |
+| PUT | `/springbootcore/api/todos/{id}` | Update todo by ID |
+| DELETE | `/springbootcore/api/todos/{id}` | Delete todo by ID |
 
 **Todo Request Body:**
 
@@ -115,11 +115,14 @@ Application logs are written to a file for easier debugging.
 
 - **File Path:** `logs/application.log`
 - **Check Logs (Linux/Terminal):**
+
   ```sh
   # View the last 100 lines
   tail -n 100 logs/application.log
+  ```
 
-  # Follow logs in real-time
+- **Follow logs in real-time:**
+  ```sh
   tail -f logs/application.log
   ```
 - **LogLevel:** Configured via `logging.level.root` or specific packages in `application.properties`.
@@ -167,13 +170,16 @@ docker ps | grep postgres
 ```
 
 #### Access Database via Terminal
+
 ```sh
 # Enter the container
 docker exec -it <container_id_or_name> bash
-
-# Connect to PostgreSQL (Use credentials from compose.yaml)
-psql -U sopha -d springbootdb
 ```
+
+- **Connect to PostgreSQL (Use credentials from compose.yaml):**
+  ```sh
+  psql -U sopha -d springbootdb
+  ```
 
 #### Common psql Commands
 - `\l` : List all databases
