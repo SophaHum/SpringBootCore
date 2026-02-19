@@ -1,26 +1,29 @@
-2026-02-08T16:58:17.343+07:00  INFO 80898 --- [SpringBootCore] [restartedMain] c.s.S.SpringBootCoreApplication          : Starting SpringBootCoreApplication using Java 21.0.10 with PID 80898 (/home/dev01/projects/All-Tech-Stacks/SpringBootCore/target/classes started by dev01 in /home/dev01/projects/All-Tech-Stacks/SpringBootCore)
-2026-02-08T16:58:17.345+07:00  INFO 80898 --- [SpringBootCore] [restartedMain] c.s.S.SpringBootCoreApplication          : No active profile set, falling back to 1 default profile: "default"
-2026-02-08T16:58:17.382+07:00  INFO 80898 --- [SpringBootCore] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2026-02-08T16:58:17.382+07:00  INFO 80898 --- [SpringBootCore] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2026-02-08T16:58:17.401+07:00  INFO 80898 --- [SpringBootCore] [restartedMain] .s.b.d.c.l.DockerComposeLifecycleManager : Using Docker Compose file /home/dev01/projects/All-Tech-Stacks/SpringBootCore/compose.yaml
-2026-02-08T16:58:17.855+07:00  INFO 80898 --- [SpringBootCore] [restartedMain] .s.b.d.c.l.DockerComposeLifecycleManager : There are already Docker Compose services running, skipping startup
-2026-02-08T16:58:18.328+07:00  INFO 80898 --- [SpringBootCore] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2026-02-08T16:58:18.374+07:00  INFO 80898 --- [SpringBootCore] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 37 ms. Found 2 JPA repository interfaces.
-2026-02-08T16:58:18.734+07:00  INFO 80898 --- [SpringBootCore] [restartedMain] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 8080 (http)
-2026-02-08T16:58:18.744+07:00  INFO 80898 --- [SpringBootCore] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2026-02-08T16:58:18.745+07:00  INFO 80898 --- [SpringBootCore] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.18]
-2026-02-08T16:58:18.770+07:00  INFO 80898 --- [SpringBootCore] [restartedMain] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 910 ms
-2026-02-08T16:58:19.202+07:00  INFO 80898 --- [SpringBootCore] [restartedMain] org.flywaydb.core.FlywayExecutor         : Database: jdbc:postgresql://127.0.0.1:5431/springbootdb?ApplicationName=SpringBootCore (PostgreSQL 18.1)
-2026-02-08T16:58:19.262+07:00  INFO 80898 --- [SpringBootCore] [restartedMain] o.f.core.internal.command.DbValidate     : Successfully validated 4 migrations (execution time 00:00.025s)
-2026-02-08T16:58:19.297+07:00  INFO 80898 --- [SpringBootCore] [restartedMain] o.f.core.internal.command.DbMigrate      : Current version of schema "public": 4
-2026-02-08T16:58:19.300+07:00  INFO 80898 --- [SpringBootCore] [restartedMain] o.f.core.internal.command.DbMigrate      : Schema "public" is up to date. No migration necessary.
-2026-02-08T16:58:19.372+07:00  INFO 80898 --- [SpringBootCore] [restartedMain] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
-2026-02-08T16:58:19.413+07:00  INFO 80898 --- [SpringBootCore] [restartedMain] org.hibernate.orm.core                   : HHH000001: Hibernate ORM core version 7.2.3.Final
-2026-02-08T16:58:19.781+07:00  INFO 80898 --- [SpringBootCore] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2026-02-08T16:58:19.803+07:00  INFO 80898 --- [SpringBootCore] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2026-02-08T16:58:19.827+07:00  INFO 80898 --- [SpringBootCore] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@6e16dec6
-2026-02-08T16:58:19.829+07:00  INFO 80898 --- [SpringBootCore] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2026-02-08T16:58:19.877+07:00  INFO 80898 --- [SpringBootCore] [restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+2026-02-19T21:17:32.147+07:00  INFO 10521 --- [SpringBootCore] [restartedMain] c.s.S.SpringBootCoreApplication          : Starting SpringBootCoreApplication using Java 21.0.10 with PID 10521 (/home/dev01/projects/All-Tech-Stacks/SpringBootCore/target/classes started by dev01 in /home/dev01/projects/All-Tech-Stacks/SpringBootCore)
+2026-02-19T21:17:32.153+07:00  INFO 10521 --- [SpringBootCore] [restartedMain] c.s.S.SpringBootCoreApplication          : No active profile set, falling back to 1 default profile: "default"
+2026-02-19T21:17:32.192+07:00  INFO 10521 --- [SpringBootCore] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2026-02-19T21:17:32.192+07:00  INFO 10521 --- [SpringBootCore] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2026-02-19T21:17:32.211+07:00  INFO 10521 --- [SpringBootCore] [restartedMain] .s.b.d.c.l.DockerComposeLifecycleManager : Using Docker Compose file /home/dev01/projects/All-Tech-Stacks/SpringBootCore/compose.yaml
+2026-02-19T21:17:33.028+07:00  INFO 10521 --- [SpringBootCore] [OutputReader-stderr] o.s.boot.docker.compose.core.DockerCli   :  Container springbootcore-postgres-1 Starting 
+2026-02-19T21:17:33.547+07:00  INFO 10521 --- [SpringBootCore] [OutputReader-stderr] o.s.boot.docker.compose.core.DockerCli   :  Container springbootcore-postgres-1 Started 
+2026-02-19T21:17:33.547+07:00  INFO 10521 --- [SpringBootCore] [OutputReader-stderr] o.s.boot.docker.compose.core.DockerCli   :  Container springbootcore-postgres-1 Waiting 
+2026-02-19T21:17:34.056+07:00  INFO 10521 --- [SpringBootCore] [OutputReader-stderr] o.s.boot.docker.compose.core.DockerCli   :  Container springbootcore-postgres-1 Healthy 
+2026-02-19T21:17:34.950+07:00  INFO 10521 --- [SpringBootCore] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-02-19T21:17:34.997+07:00  INFO 10521 --- [SpringBootCore] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 38 ms. Found 2 JPA repository interfaces.
+2026-02-19T21:17:35.380+07:00  INFO 10521 --- [SpringBootCore] [restartedMain] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 8080 (http)
+2026-02-19T21:17:35.392+07:00  INFO 10521 --- [SpringBootCore] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-02-19T21:17:35.393+07:00  INFO 10521 --- [SpringBootCore] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.18]
+2026-02-19T21:17:35.419+07:00  INFO 10521 --- [SpringBootCore] [restartedMain] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 981 ms
+2026-02-19T21:17:35.901+07:00  INFO 10521 --- [SpringBootCore] [restartedMain] org.flywaydb.core.FlywayExecutor         : Database: jdbc:postgresql://127.0.0.1:5431/springbootdb?ApplicationName=SpringBootCore (PostgreSQL 18.1)
+2026-02-19T21:17:35.982+07:00  INFO 10521 --- [SpringBootCore] [restartedMain] o.f.core.internal.command.DbValidate     : Successfully validated 4 migrations (execution time 00:00.028s)
+2026-02-19T21:17:36.013+07:00  INFO 10521 --- [SpringBootCore] [restartedMain] o.f.core.internal.command.DbMigrate      : Current version of schema "public": 4
+2026-02-19T21:17:36.017+07:00  INFO 10521 --- [SpringBootCore] [restartedMain] o.f.core.internal.command.DbMigrate      : Schema "public" is up to date. No migration necessary.
+2026-02-19T21:17:36.092+07:00  INFO 10521 --- [SpringBootCore] [restartedMain] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-02-19T21:17:36.157+07:00  INFO 10521 --- [SpringBootCore] [restartedMain] org.hibernate.orm.core                   : HHH000001: Hibernate ORM core version 7.2.4.Final
+2026-02-19T21:17:36.546+07:00  INFO 10521 --- [SpringBootCore] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-02-19T21:17:36.577+07:00  INFO 10521 --- [SpringBootCore] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-02-19T21:17:36.602+07:00  INFO 10521 --- [SpringBootCore] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@3df2ab25
+2026-02-19T21:17:36.604+07:00  INFO 10521 --- [SpringBootCore] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-02-19T21:17:36.658+07:00  INFO 10521 --- [SpringBootCore] [restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
 	Database JDBC URL [jdbc:postgresql://127.0.0.1:5431/springbootdb?ApplicationName=SpringBootCore]
 	Database driver: PostgreSQL JDBC Driver
 	Database dialect: PostgreSQLDialect
@@ -32,39 +35,39 @@
 	Pool: DataSourceConnectionProvider
 	Minimum pool size: undefined/unknown
 	Maximum pool size: undefined/unknown
-2026-02-08T16:58:20.675+07:00  INFO 80898 --- [SpringBootCore] [restartedMain] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2026-02-08T16:58:20.711+07:00  INFO 80898 --- [SpringBootCore] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2026-02-08T16:58:20.788+07:00  INFO 80898 --- [SpringBootCore] [restartedMain] o.s.d.j.r.query.QueryEnhancerFactories   : Hibernate is in classpath; If applicable, HQL parser will be used.
-2026-02-08T16:58:20.973+07:00  WARN 80898 --- [SpringBootCore] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2026-02-08T16:58:21.205+07:00  INFO 80898 --- [SpringBootCore] [restartedMain] o.s.b.h.a.H2ConsoleAutoConfiguration     : H2 console available at '/h2-console'. Database available at 'jdbc:postgresql://127.0.0.1:5431/springbootdb?ApplicationName=SpringBootCore'
-2026-02-08T16:58:21.241+07:00  INFO 80898 --- [SpringBootCore] [restartedMain] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 8080 (http) with context path '/springbootcore'
-2026-02-08T16:58:21.245+07:00  INFO 80898 --- [SpringBootCore] [restartedMain] c.s.S.SpringBootCoreApplication          : Started SpringBootCoreApplication in 4.221 seconds (process running for 4.571)
-2026-02-08T16:58:40.712+07:00  INFO 80898 --- [SpringBootCore] [http-nio-8080-exec-1] o.a.c.c.C.[.[.[/springbootcore]          : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2026-02-08T16:58:40.713+07:00  INFO 80898 --- [SpringBootCore] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2026-02-08T16:58:40.716+07:00  INFO 80898 --- [SpringBootCore] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 3 ms
-2026-02-08T16:59:13.563+07:00  INFO 81521 --- [SpringBootCore] [restartedMain] c.s.S.SpringBootCoreApplication          : Starting SpringBootCoreApplication using Java 21.0.10 with PID 81521 (/home/dev01/projects/All-Tech-Stacks/SpringBootCore/target/classes started by dev01 in /home/dev01/projects/All-Tech-Stacks/SpringBootCore)
-2026-02-08T16:59:13.565+07:00  INFO 81521 --- [SpringBootCore] [restartedMain] c.s.S.SpringBootCoreApplication          : No active profile set, falling back to 1 default profile: "default"
-2026-02-08T16:59:13.605+07:00  INFO 81521 --- [SpringBootCore] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2026-02-08T16:59:13.606+07:00  INFO 81521 --- [SpringBootCore] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2026-02-08T16:59:13.624+07:00  INFO 81521 --- [SpringBootCore] [restartedMain] .s.b.d.c.l.DockerComposeLifecycleManager : Using Docker Compose file /home/dev01/projects/All-Tech-Stacks/SpringBootCore/compose.yaml
-2026-02-08T16:59:14.089+07:00  INFO 81521 --- [SpringBootCore] [restartedMain] .s.b.d.c.l.DockerComposeLifecycleManager : There are already Docker Compose services running, skipping startup
-2026-02-08T16:59:14.581+07:00  INFO 81521 --- [SpringBootCore] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2026-02-08T16:59:14.624+07:00  INFO 81521 --- [SpringBootCore] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 35 ms. Found 2 JPA repository interfaces.
-2026-02-08T16:59:14.997+07:00  INFO 81521 --- [SpringBootCore] [restartedMain] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 8080 (http)
-2026-02-08T16:59:15.014+07:00  INFO 81521 --- [SpringBootCore] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2026-02-08T16:59:15.015+07:00  INFO 81521 --- [SpringBootCore] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.18]
-2026-02-08T16:59:15.050+07:00  INFO 81521 --- [SpringBootCore] [restartedMain] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 955 ms
-2026-02-08T16:59:15.488+07:00  INFO 81521 --- [SpringBootCore] [restartedMain] org.flywaydb.core.FlywayExecutor         : Database: jdbc:postgresql://127.0.0.1:5431/springbootdb?ApplicationName=SpringBootCore (PostgreSQL 18.1)
-2026-02-08T16:59:15.546+07:00  INFO 81521 --- [SpringBootCore] [restartedMain] o.f.core.internal.command.DbValidate     : Successfully validated 4 migrations (execution time 00:00.022s)
-2026-02-08T16:59:15.576+07:00  INFO 81521 --- [SpringBootCore] [restartedMain] o.f.core.internal.command.DbMigrate      : Current version of schema "public": 4
-2026-02-08T16:59:15.579+07:00  INFO 81521 --- [SpringBootCore] [restartedMain] o.f.core.internal.command.DbMigrate      : Schema "public" is up to date. No migration necessary.
-2026-02-08T16:59:15.648+07:00  INFO 81521 --- [SpringBootCore] [restartedMain] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
-2026-02-08T16:59:15.684+07:00  INFO 81521 --- [SpringBootCore] [restartedMain] org.hibernate.orm.core                   : HHH000001: Hibernate ORM core version 7.2.3.Final
-2026-02-08T16:59:16.004+07:00  INFO 81521 --- [SpringBootCore] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2026-02-08T16:59:16.027+07:00  INFO 81521 --- [SpringBootCore] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2026-02-08T16:59:16.052+07:00  INFO 81521 --- [SpringBootCore] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@30848241
-2026-02-08T16:59:16.053+07:00  INFO 81521 --- [SpringBootCore] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2026-02-08T16:59:16.099+07:00  INFO 81521 --- [SpringBootCore] [restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+2026-02-19T21:17:37.419+07:00  INFO 10521 --- [SpringBootCore] [restartedMain] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-02-19T21:17:37.470+07:00  INFO 10521 --- [SpringBootCore] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-02-19T21:17:37.531+07:00  INFO 10521 --- [SpringBootCore] [restartedMain] o.s.d.j.r.query.QueryEnhancerFactories   : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-02-19T21:17:37.701+07:00  WARN 10521 --- [SpringBootCore] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-02-19T21:17:37.911+07:00  INFO 10521 --- [SpringBootCore] [restartedMain] o.s.b.h.a.H2ConsoleAutoConfiguration     : H2 console available at '/h2-console'. Database available at 'jdbc:postgresql://127.0.0.1:5431/springbootdb?ApplicationName=SpringBootCore'
+2026-02-19T21:17:37.954+07:00  INFO 10521 --- [SpringBootCore] [restartedMain] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 8080 (http) with context path '/springbootcore'
+2026-02-19T21:17:37.958+07:00  INFO 10521 --- [SpringBootCore] [restartedMain] c.s.S.SpringBootCoreApplication          : Started SpringBootCoreApplication in 6.175 seconds (process running for 6.63)
+2026-02-19T21:23:13.840+07:00  INFO 10521 --- [SpringBootCore] [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2026-02-19T21:23:13.860+07:00  INFO 10521 --- [SpringBootCore] [Thread-1] o.s.boot.tomcat.GracefulShutdown         : Commencing graceful shutdown. Waiting for active requests to complete
+2026-02-19T21:23:13.865+07:00  INFO 10521 --- [SpringBootCore] [tomcat-shutdown] o.s.boot.tomcat.GracefulShutdown         : Graceful shutdown complete
+2026-02-19T21:23:13.874+07:00  INFO 10521 --- [SpringBootCore] [Thread-1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-02-19T21:23:13.886+07:00  INFO 10521 --- [SpringBootCore] [Thread-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-02-19T21:23:13.894+07:00  INFO 10521 --- [SpringBootCore] [Thread-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2026-02-19T21:23:14.048+07:00  INFO 10521 --- [SpringBootCore] [restartedMain] c.s.S.SpringBootCoreApplication          : Starting SpringBootCoreApplication using Java 21.0.10 with PID 10521 (/home/dev01/projects/All-Tech-Stacks/SpringBootCore/target/classes started by dev01 in /home/dev01/projects/All-Tech-Stacks/SpringBootCore)
+2026-02-19T21:23:14.048+07:00  INFO 10521 --- [SpringBootCore] [restartedMain] c.s.S.SpringBootCoreApplication          : No active profile set, falling back to 1 default profile: "default"
+2026-02-19T21:23:14.054+07:00  INFO 10521 --- [SpringBootCore] [restartedMain] .s.b.d.c.l.DockerComposeLifecycleManager : Using Docker Compose file /home/dev01/projects/All-Tech-Stacks/SpringBootCore/compose.yaml
+2026-02-19T21:23:14.830+07:00  INFO 10521 --- [SpringBootCore] [restartedMain] .s.b.d.c.l.DockerComposeLifecycleManager : There are already Docker Compose services running, skipping startup
+2026-02-19T21:23:14.983+07:00  INFO 10521 --- [SpringBootCore] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-02-19T21:23:14.996+07:00  INFO 10521 --- [SpringBootCore] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 10 ms. Found 2 JPA repository interfaces.
+2026-02-19T21:23:15.112+07:00  INFO 10521 --- [SpringBootCore] [restartedMain] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 8080 (http)
+2026-02-19T21:23:15.115+07:00  INFO 10521 --- [SpringBootCore] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-02-19T21:23:15.115+07:00  INFO 10521 --- [SpringBootCore] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.18]
+2026-02-19T21:23:15.127+07:00  INFO 10521 --- [SpringBootCore] [restartedMain] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 297 ms
+2026-02-19T21:23:15.218+07:00  INFO 10521 --- [SpringBootCore] [restartedMain] org.flywaydb.core.FlywayExecutor         : Database: jdbc:postgresql://127.0.0.1:5431/springbootdb?ApplicationName=SpringBootCore (PostgreSQL 18.1)
+2026-02-19T21:23:15.241+07:00  INFO 10521 --- [SpringBootCore] [restartedMain] o.f.core.internal.command.DbValidate     : Successfully validated 4 migrations (execution time 00:00.007s)
+2026-02-19T21:23:15.265+07:00  INFO 10521 --- [SpringBootCore] [restartedMain] o.f.core.internal.command.DbMigrate      : Current version of schema "public": 4
+2026-02-19T21:23:15.266+07:00  INFO 10521 --- [SpringBootCore] [restartedMain] o.f.core.internal.command.DbMigrate      : Schema "public" is up to date. No migration necessary.
+2026-02-19T21:23:15.286+07:00  INFO 10521 --- [SpringBootCore] [restartedMain] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-02-19T21:23:15.308+07:00  INFO 10521 --- [SpringBootCore] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-02-19T21:23:15.309+07:00  INFO 10521 --- [SpringBootCore] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Starting...
+2026-02-19T21:23:15.332+07:00  INFO 10521 --- [SpringBootCore] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-2 - Added connection org.postgresql.jdbc.PgConnection@3008082a
+2026-02-19T21:23:15.332+07:00  INFO 10521 --- [SpringBootCore] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Start completed.
+2026-02-19T21:23:15.340+07:00  INFO 10521 --- [SpringBootCore] [restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
 	Database JDBC URL [jdbc:postgresql://127.0.0.1:5431/springbootdb?ApplicationName=SpringBootCore]
 	Database driver: PostgreSQL JDBC Driver
 	Database dialect: PostgreSQLDialect
@@ -76,55 +79,39 @@
 	Pool: DataSourceConnectionProvider
 	Minimum pool size: undefined/unknown
 	Maximum pool size: undefined/unknown
-2026-02-08T16:59:16.800+07:00  INFO 81521 --- [SpringBootCore] [restartedMain] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2026-02-08T16:59:16.838+07:00  INFO 81521 --- [SpringBootCore] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2026-02-08T16:59:16.902+07:00  INFO 81521 --- [SpringBootCore] [restartedMain] o.s.d.j.r.query.QueryEnhancerFactories   : Hibernate is in classpath; If applicable, HQL parser will be used.
-2026-02-08T16:59:17.063+07:00  WARN 81521 --- [SpringBootCore] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2026-02-08T16:59:17.284+07:00  INFO 81521 --- [SpringBootCore] [restartedMain] o.s.b.h.a.H2ConsoleAutoConfiguration     : H2 console available at '/h2-console'. Database available at 'jdbc:postgresql://127.0.0.1:5431/springbootdb?ApplicationName=SpringBootCore'
-2026-02-08T16:59:17.316+07:00  WARN 81521 --- [SpringBootCore] [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'
-2026-02-08T16:59:17.318+07:00  INFO 81521 --- [SpringBootCore] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2026-02-08T16:59:17.321+07:00  INFO 81521 --- [SpringBootCore] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2026-02-08T16:59:17.323+07:00  INFO 81521 --- [SpringBootCore] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2026-02-08T16:59:17.334+07:00  INFO 81521 --- [SpringBootCore] [restartedMain] .s.b.a.l.ConditionEvaluationReportLogger : 
-
-Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
-2026-02-08T16:59:17.344+07:00 ERROR 81521 --- [SpringBootCore] [restartedMain] o.s.b.d.LoggingFailureAnalysisReporter   : 
-
-***************************
-APPLICATION FAILED TO START
-***************************
-
-Description:
-
-Web server failed to start. Port 8080 was already in use.
-
-Action:
-
-Identify and stop the process that's listening on port 8080 or configure this application to listen on another port.
-
-2026-02-08T17:02:18.041+07:00  INFO 83110 --- [SpringBootCore] [restartedMain] c.s.S.SpringBootCoreApplication          : Starting SpringBootCoreApplication using Java 21.0.10 with PID 83110 (/home/dev01/projects/All-Tech-Stacks/SpringBootCore/target/classes started by dev01 in /home/dev01/projects/All-Tech-Stacks/SpringBootCore)
-2026-02-08T17:02:18.044+07:00  INFO 83110 --- [SpringBootCore] [restartedMain] c.s.S.SpringBootCoreApplication          : No active profile set, falling back to 1 default profile: "default"
-2026-02-08T17:02:18.078+07:00  INFO 83110 --- [SpringBootCore] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2026-02-08T17:02:18.079+07:00  INFO 83110 --- [SpringBootCore] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2026-02-08T17:02:18.094+07:00  INFO 83110 --- [SpringBootCore] [restartedMain] .s.b.d.c.l.DockerComposeLifecycleManager : Using Docker Compose file /home/dev01/projects/All-Tech-Stacks/SpringBootCore/compose.yaml
-2026-02-08T17:02:18.520+07:00  INFO 83110 --- [SpringBootCore] [restartedMain] .s.b.d.c.l.DockerComposeLifecycleManager : There are already Docker Compose services running, skipping startup
-2026-02-08T17:02:18.967+07:00  INFO 83110 --- [SpringBootCore] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2026-02-08T17:02:19.005+07:00  INFO 83110 --- [SpringBootCore] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 32 ms. Found 2 JPA repository interfaces.
-2026-02-08T17:02:19.339+07:00  INFO 83110 --- [SpringBootCore] [restartedMain] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 8080 (http)
-2026-02-08T17:02:19.351+07:00  INFO 83110 --- [SpringBootCore] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2026-02-08T17:02:19.352+07:00  INFO 83110 --- [SpringBootCore] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.18]
-2026-02-08T17:02:19.383+07:00  INFO 83110 --- [SpringBootCore] [restartedMain] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 857 ms
-2026-02-08T17:02:19.802+07:00  INFO 83110 --- [SpringBootCore] [restartedMain] org.flywaydb.core.FlywayExecutor         : Database: jdbc:postgresql://127.0.0.1:5431/springbootdb?ApplicationName=SpringBootCore (PostgreSQL 18.1)
-2026-02-08T17:02:19.858+07:00  INFO 83110 --- [SpringBootCore] [restartedMain] o.f.core.internal.command.DbValidate     : Successfully validated 4 migrations (execution time 00:00.022s)
-2026-02-08T17:02:19.889+07:00  INFO 83110 --- [SpringBootCore] [restartedMain] o.f.core.internal.command.DbMigrate      : Current version of schema "public": 4
-2026-02-08T17:02:19.892+07:00  INFO 83110 --- [SpringBootCore] [restartedMain] o.f.core.internal.command.DbMigrate      : Schema "public" is up to date. No migration necessary.
-2026-02-08T17:02:19.960+07:00  INFO 83110 --- [SpringBootCore] [restartedMain] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
-2026-02-08T17:02:19.999+07:00  INFO 83110 --- [SpringBootCore] [restartedMain] org.hibernate.orm.core                   : HHH000001: Hibernate ORM core version 7.2.3.Final
-2026-02-08T17:02:20.299+07:00  INFO 83110 --- [SpringBootCore] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2026-02-08T17:02:20.324+07:00  INFO 83110 --- [SpringBootCore] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2026-02-08T17:02:20.355+07:00  INFO 83110 --- [SpringBootCore] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@48b7f113
-2026-02-08T17:02:20.357+07:00  INFO 83110 --- [SpringBootCore] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2026-02-08T17:02:20.416+07:00  INFO 83110 --- [SpringBootCore] [restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+2026-02-19T21:23:15.423+07:00  INFO 10521 --- [SpringBootCore] [restartedMain] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-02-19T21:23:15.437+07:00  INFO 10521 --- [SpringBootCore] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-02-19T21:23:15.533+07:00  WARN 10521 --- [SpringBootCore] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-02-19T21:23:15.611+07:00  INFO 10521 --- [SpringBootCore] [restartedMain] o.s.b.h.a.H2ConsoleAutoConfiguration     : H2 console available at '/h2-console'. Database available at 'jdbc:postgresql://127.0.0.1:5431/springbootdb?ApplicationName=SpringBootCore'
+2026-02-19T21:23:15.625+07:00  INFO 10521 --- [SpringBootCore] [restartedMain] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 8080 (http) with context path '/springbootcore'
+2026-02-19T21:23:15.628+07:00  INFO 10521 --- [SpringBootCore] [restartedMain] c.s.S.SpringBootCoreApplication          : Started SpringBootCoreApplication in 1.611 seconds (process running for 344.232)
+2026-02-19T21:23:15.629+07:00  INFO 10521 --- [SpringBootCore] [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2026-02-19T21:24:06.100+07:00  INFO 10521 --- [SpringBootCore] [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2026-02-19T21:24:06.101+07:00  INFO 10521 --- [SpringBootCore] [Thread-21] o.s.boot.tomcat.GracefulShutdown         : Commencing graceful shutdown. Waiting for active requests to complete
+2026-02-19T21:24:06.103+07:00  INFO 10521 --- [SpringBootCore] [tomcat-shutdown] o.s.boot.tomcat.GracefulShutdown         : Graceful shutdown complete
+2026-02-19T21:24:06.105+07:00  INFO 10521 --- [SpringBootCore] [Thread-21] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-02-19T21:24:06.106+07:00  INFO 10521 --- [SpringBootCore] [Thread-21] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown initiated...
+2026-02-19T21:24:06.111+07:00  INFO 10521 --- [SpringBootCore] [Thread-21] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown completed.
+2026-02-19T21:24:06.179+07:00  INFO 10521 --- [SpringBootCore] [restartedMain] c.s.S.SpringBootCoreApplication          : Starting SpringBootCoreApplication using Java 21.0.10 with PID 10521 (/home/dev01/projects/All-Tech-Stacks/SpringBootCore/target/classes started by dev01 in /home/dev01/projects/All-Tech-Stacks/SpringBootCore)
+2026-02-19T21:24:06.179+07:00  INFO 10521 --- [SpringBootCore] [restartedMain] c.s.S.SpringBootCoreApplication          : No active profile set, falling back to 1 default profile: "default"
+2026-02-19T21:24:06.182+07:00  INFO 10521 --- [SpringBootCore] [restartedMain] .s.b.d.c.l.DockerComposeLifecycleManager : Using Docker Compose file /home/dev01/projects/All-Tech-Stacks/SpringBootCore/compose.yaml
+2026-02-19T21:24:06.505+07:00  INFO 10521 --- [SpringBootCore] [restartedMain] .s.b.d.c.l.DockerComposeLifecycleManager : There are already Docker Compose services running, skipping startup
+2026-02-19T21:24:06.610+07:00  INFO 10521 --- [SpringBootCore] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-02-19T21:24:06.618+07:00  INFO 10521 --- [SpringBootCore] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 6 ms. Found 2 JPA repository interfaces.
+2026-02-19T21:24:06.676+07:00  INFO 10521 --- [SpringBootCore] [restartedMain] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 8080 (http)
+2026-02-19T21:24:06.677+07:00  INFO 10521 --- [SpringBootCore] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-02-19T21:24:06.677+07:00  INFO 10521 --- [SpringBootCore] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.18]
+2026-02-19T21:24:06.684+07:00  INFO 10521 --- [SpringBootCore] [restartedMain] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 178 ms
+2026-02-19T21:24:06.739+07:00  INFO 10521 --- [SpringBootCore] [restartedMain] org.flywaydb.core.FlywayExecutor         : Database: jdbc:postgresql://127.0.0.1:5431/springbootdb?ApplicationName=SpringBootCore (PostgreSQL 18.1)
+2026-02-19T21:24:06.755+07:00  INFO 10521 --- [SpringBootCore] [restartedMain] o.f.core.internal.command.DbValidate     : Successfully validated 4 migrations (execution time 00:00.005s)
+2026-02-19T21:24:06.781+07:00  INFO 10521 --- [SpringBootCore] [restartedMain] o.f.core.internal.command.DbMigrate      : Current version of schema "public": 4
+2026-02-19T21:24:06.782+07:00  INFO 10521 --- [SpringBootCore] [restartedMain] o.f.core.internal.command.DbMigrate      : Schema "public" is up to date. No migration necessary.
+2026-02-19T21:24:06.795+07:00  INFO 10521 --- [SpringBootCore] [restartedMain] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-02-19T21:24:06.809+07:00  INFO 10521 --- [SpringBootCore] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-02-19T21:24:06.810+07:00  INFO 10521 --- [SpringBootCore] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Starting...
+2026-02-19T21:24:06.828+07:00  INFO 10521 --- [SpringBootCore] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-3 - Added connection org.postgresql.jdbc.PgConnection@1a70038a
+2026-02-19T21:24:06.828+07:00  INFO 10521 --- [SpringBootCore] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Start completed.
+2026-02-19T21:24:06.834+07:00  INFO 10521 --- [SpringBootCore] [restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
 	Database JDBC URL [jdbc:postgresql://127.0.0.1:5431/springbootdb?ApplicationName=SpringBootCore]
 	Database driver: PostgreSQL JDBC Driver
 	Database dialect: PostgreSQLDialect
@@ -136,55 +123,42 @@ Identify and stop the process that's listening on port 8080 or configure this ap
 	Pool: DataSourceConnectionProvider
 	Minimum pool size: undefined/unknown
 	Maximum pool size: undefined/unknown
-2026-02-08T17:02:21.134+07:00  INFO 83110 --- [SpringBootCore] [restartedMain] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2026-02-08T17:02:21.166+07:00  INFO 83110 --- [SpringBootCore] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2026-02-08T17:02:21.220+07:00  INFO 83110 --- [SpringBootCore] [restartedMain] o.s.d.j.r.query.QueryEnhancerFactories   : Hibernate is in classpath; If applicable, HQL parser will be used.
-2026-02-08T17:02:21.368+07:00  WARN 83110 --- [SpringBootCore] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2026-02-08T17:02:21.569+07:00  INFO 83110 --- [SpringBootCore] [restartedMain] o.s.b.h.a.H2ConsoleAutoConfiguration     : H2 console available at '/h2-console'. Database available at 'jdbc:postgresql://127.0.0.1:5431/springbootdb?ApplicationName=SpringBootCore'
-2026-02-08T17:02:21.599+07:00  WARN 83110 --- [SpringBootCore] [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'
-2026-02-08T17:02:21.601+07:00  INFO 83110 --- [SpringBootCore] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2026-02-08T17:02:21.604+07:00  INFO 83110 --- [SpringBootCore] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2026-02-08T17:02:21.609+07:00  INFO 83110 --- [SpringBootCore] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2026-02-08T17:02:21.619+07:00  INFO 83110 --- [SpringBootCore] [restartedMain] .s.b.a.l.ConditionEvaluationReportLogger : 
-
-Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
-2026-02-08T17:02:21.629+07:00 ERROR 83110 --- [SpringBootCore] [restartedMain] o.s.b.d.LoggingFailureAnalysisReporter   : 
-
-***************************
-APPLICATION FAILED TO START
-***************************
-
-Description:
-
-Web server failed to start. Port 8080 was already in use.
-
-Action:
-
-Identify and stop the process that's listening on port 8080 or configure this application to listen on another port.
-
-2026-02-08T17:05:24.468+07:00  INFO 84687 --- [SpringBootCore] [restartedMain] c.s.S.SpringBootCoreApplication          : Starting SpringBootCoreApplication using Java 21.0.10 with PID 84687 (/home/dev01/projects/All-Tech-Stacks/SpringBootCore/target/classes started by dev01 in /home/dev01/projects/All-Tech-Stacks/SpringBootCore)
-2026-02-08T17:05:24.470+07:00  INFO 84687 --- [SpringBootCore] [restartedMain] c.s.S.SpringBootCoreApplication          : No active profile set, falling back to 1 default profile: "default"
-2026-02-08T17:05:24.506+07:00  INFO 84687 --- [SpringBootCore] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2026-02-08T17:05:24.506+07:00  INFO 84687 --- [SpringBootCore] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2026-02-08T17:05:24.522+07:00  INFO 84687 --- [SpringBootCore] [restartedMain] .s.b.d.c.l.DockerComposeLifecycleManager : Using Docker Compose file /home/dev01/projects/All-Tech-Stacks/SpringBootCore/compose.yaml
-2026-02-08T17:05:24.951+07:00  INFO 84687 --- [SpringBootCore] [restartedMain] .s.b.d.c.l.DockerComposeLifecycleManager : There are already Docker Compose services running, skipping startup
-2026-02-08T17:05:25.403+07:00  INFO 84687 --- [SpringBootCore] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2026-02-08T17:05:25.442+07:00  INFO 84687 --- [SpringBootCore] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 32 ms. Found 2 JPA repository interfaces.
-2026-02-08T17:05:25.794+07:00  INFO 84687 --- [SpringBootCore] [restartedMain] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 8080 (http)
-2026-02-08T17:05:25.806+07:00  INFO 84687 --- [SpringBootCore] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2026-02-08T17:05:25.806+07:00  INFO 84687 --- [SpringBootCore] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.18]
-2026-02-08T17:05:25.834+07:00  INFO 84687 --- [SpringBootCore] [restartedMain] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 878 ms
-2026-02-08T17:05:26.224+07:00  INFO 84687 --- [SpringBootCore] [restartedMain] org.flywaydb.core.FlywayExecutor         : Database: jdbc:postgresql://127.0.0.1:5431/springbootdb?ApplicationName=SpringBootCore (PostgreSQL 18.1)
-2026-02-08T17:05:26.279+07:00  INFO 84687 --- [SpringBootCore] [restartedMain] o.f.core.internal.command.DbValidate     : Successfully validated 4 migrations (execution time 00:00.021s)
-2026-02-08T17:05:26.309+07:00  INFO 84687 --- [SpringBootCore] [restartedMain] o.f.core.internal.command.DbMigrate      : Current version of schema "public": 4
-2026-02-08T17:05:26.312+07:00  INFO 84687 --- [SpringBootCore] [restartedMain] o.f.core.internal.command.DbMigrate      : Schema "public" is up to date. No migration necessary.
-2026-02-08T17:05:26.376+07:00  INFO 84687 --- [SpringBootCore] [restartedMain] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
-2026-02-08T17:05:26.410+07:00  INFO 84687 --- [SpringBootCore] [restartedMain] org.hibernate.orm.core                   : HHH000001: Hibernate ORM core version 7.2.3.Final
-2026-02-08T17:05:26.711+07:00  INFO 84687 --- [SpringBootCore] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2026-02-08T17:05:26.733+07:00  INFO 84687 --- [SpringBootCore] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2026-02-08T17:05:26.757+07:00  INFO 84687 --- [SpringBootCore] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@48b7f113
-2026-02-08T17:05:26.759+07:00  INFO 84687 --- [SpringBootCore] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2026-02-08T17:05:26.804+07:00  INFO 84687 --- [SpringBootCore] [restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+2026-02-19T21:24:06.903+07:00  INFO 10521 --- [SpringBootCore] [restartedMain] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-02-19T21:24:06.915+07:00  INFO 10521 --- [SpringBootCore] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-02-19T21:24:06.978+07:00  WARN 10521 --- [SpringBootCore] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-02-19T21:24:07.055+07:00  INFO 10521 --- [SpringBootCore] [restartedMain] o.s.b.h.a.H2ConsoleAutoConfiguration     : H2 console available at '/h2-console'. Database available at 'jdbc:postgresql://127.0.0.1:5431/springbootdb?ApplicationName=SpringBootCore'
+2026-02-19T21:24:07.069+07:00  INFO 10521 --- [SpringBootCore] [restartedMain] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 8080 (http) with context path '/'
+2026-02-19T21:24:07.072+07:00  INFO 10521 --- [SpringBootCore] [restartedMain] c.s.S.SpringBootCoreApplication          : Started SpringBootCoreApplication in 0.912 seconds (process running for 395.644)
+2026-02-19T21:24:07.073+07:00  INFO 10521 --- [SpringBootCore] [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2026-02-19T21:24:35.536+07:00  INFO 10521 --- [SpringBootCore] [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-02-19T21:24:35.536+07:00  INFO 10521 --- [SpringBootCore] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-02-19T21:24:35.538+07:00  INFO 10521 --- [SpringBootCore] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2026-02-19T21:25:16.565+07:00  INFO 10521 --- [SpringBootCore] [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2026-02-19T21:25:16.567+07:00  INFO 10521 --- [SpringBootCore] [Thread-33] o.s.boot.tomcat.GracefulShutdown         : Commencing graceful shutdown. Waiting for active requests to complete
+2026-02-19T21:25:16.569+07:00  INFO 10521 --- [SpringBootCore] [tomcat-shutdown] o.s.boot.tomcat.GracefulShutdown         : Graceful shutdown complete
+2026-02-19T21:25:16.571+07:00  INFO 10521 --- [SpringBootCore] [Thread-33] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-02-19T21:25:16.572+07:00  INFO 10521 --- [SpringBootCore] [Thread-33] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Shutdown initiated...
+2026-02-19T21:25:16.575+07:00  INFO 10521 --- [SpringBootCore] [Thread-33] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Shutdown completed.
+2026-02-19T21:25:16.634+07:00  INFO 10521 --- [SpringBootCore] [restartedMain] c.s.S.SpringBootCoreApplication          : Starting SpringBootCoreApplication using Java 21.0.10 with PID 10521 (/home/dev01/projects/All-Tech-Stacks/SpringBootCore/target/classes started by dev01 in /home/dev01/projects/All-Tech-Stacks/SpringBootCore)
+2026-02-19T21:25:16.634+07:00  INFO 10521 --- [SpringBootCore] [restartedMain] c.s.S.SpringBootCoreApplication          : No active profile set, falling back to 1 default profile: "default"
+2026-02-19T21:25:16.638+07:00  INFO 10521 --- [SpringBootCore] [restartedMain] .s.b.d.c.l.DockerComposeLifecycleManager : Using Docker Compose file /home/dev01/projects/All-Tech-Stacks/SpringBootCore/compose.yaml
+2026-02-19T21:25:16.886+07:00  INFO 10521 --- [SpringBootCore] [restartedMain] .s.b.d.c.l.DockerComposeLifecycleManager : There are already Docker Compose services running, skipping startup
+2026-02-19T21:25:16.963+07:00  INFO 10521 --- [SpringBootCore] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-02-19T21:25:16.969+07:00  INFO 10521 --- [SpringBootCore] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 4 ms. Found 2 JPA repository interfaces.
+2026-02-19T21:25:17.027+07:00  INFO 10521 --- [SpringBootCore] [restartedMain] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 8080 (http)
+2026-02-19T21:25:17.028+07:00  INFO 10521 --- [SpringBootCore] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-02-19T21:25:17.028+07:00  INFO 10521 --- [SpringBootCore] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.18]
+2026-02-19T21:25:17.036+07:00  INFO 10521 --- [SpringBootCore] [restartedMain] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 149 ms
+2026-02-19T21:25:17.085+07:00  INFO 10521 --- [SpringBootCore] [restartedMain] org.flywaydb.core.FlywayExecutor         : Database: jdbc:postgresql://127.0.0.1:5431/springbootdb?ApplicationName=SpringBootCore (PostgreSQL 18.1)
+2026-02-19T21:25:17.099+07:00  INFO 10521 --- [SpringBootCore] [restartedMain] o.f.core.internal.command.DbValidate     : Successfully validated 4 migrations (execution time 00:00.004s)
+2026-02-19T21:25:17.120+07:00  INFO 10521 --- [SpringBootCore] [restartedMain] o.f.core.internal.command.DbMigrate      : Current version of schema "public": 4
+2026-02-19T21:25:17.120+07:00  INFO 10521 --- [SpringBootCore] [restartedMain] o.f.core.internal.command.DbMigrate      : Schema "public" is up to date. No migration necessary.
+2026-02-19T21:25:17.131+07:00  INFO 10521 --- [SpringBootCore] [restartedMain] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-02-19T21:25:17.148+07:00  INFO 10521 --- [SpringBootCore] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-02-19T21:25:17.149+07:00  INFO 10521 --- [SpringBootCore] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Starting...
+2026-02-19T21:25:17.172+07:00  INFO 10521 --- [SpringBootCore] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-4 - Added connection org.postgresql.jdbc.PgConnection@2cf1f2f8
+2026-02-19T21:25:17.172+07:00  INFO 10521 --- [SpringBootCore] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Start completed.
+2026-02-19T21:25:17.178+07:00  INFO 10521 --- [SpringBootCore] [restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
 	Database JDBC URL [jdbc:postgresql://127.0.0.1:5431/springbootdb?ApplicationName=SpringBootCore]
 	Database driver: PostgreSQL JDBC Driver
 	Database dialect: PostgreSQLDialect
@@ -196,13 +170,439 @@ Identify and stop the process that's listening on port 8080 or configure this ap
 	Pool: DataSourceConnectionProvider
 	Minimum pool size: undefined/unknown
 	Maximum pool size: undefined/unknown
-2026-02-08T17:05:27.449+07:00  INFO 84687 --- [SpringBootCore] [restartedMain] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2026-02-08T17:05:27.483+07:00  INFO 84687 --- [SpringBootCore] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2026-02-08T17:05:27.546+07:00  INFO 84687 --- [SpringBootCore] [restartedMain] o.s.d.j.r.query.QueryEnhancerFactories   : Hibernate is in classpath; If applicable, HQL parser will be used.
-2026-02-08T17:05:27.709+07:00  WARN 84687 --- [SpringBootCore] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2026-02-08T17:05:27.936+07:00  INFO 84687 --- [SpringBootCore] [restartedMain] o.s.b.h.a.H2ConsoleAutoConfiguration     : H2 console available at '/h2-console'. Database available at 'jdbc:postgresql://127.0.0.1:5431/springbootdb?ApplicationName=SpringBootCore'
-2026-02-08T17:05:27.981+07:00  INFO 84687 --- [SpringBootCore] [restartedMain] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 8080 (http) with context path '/springbootcore'
-2026-02-08T17:05:27.987+07:00  INFO 84687 --- [SpringBootCore] [restartedMain] c.s.S.SpringBootCoreApplication          : Started SpringBootCoreApplication in 3.831 seconds (process running for 4.194)
-2026-02-08T17:06:17.832+07:00  INFO 84687 --- [SpringBootCore] [http-nio-8080-exec-1] o.a.c.c.C.[.[.[/springbootcore]          : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2026-02-08T17:06:17.833+07:00  INFO 84687 --- [SpringBootCore] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2026-02-08T17:06:17.835+07:00  INFO 84687 --- [SpringBootCore] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2026-02-19T21:25:17.225+07:00  INFO 10521 --- [SpringBootCore] [restartedMain] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-02-19T21:25:17.235+07:00  INFO 10521 --- [SpringBootCore] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-02-19T21:25:17.283+07:00  WARN 10521 --- [SpringBootCore] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-02-19T21:25:17.331+07:00  INFO 10521 --- [SpringBootCore] [restartedMain] o.s.b.h.a.H2ConsoleAutoConfiguration     : H2 console available at '/h2-console'. Database available at 'jdbc:postgresql://127.0.0.1:5431/springbootdb?ApplicationName=SpringBootCore'
+2026-02-19T21:25:17.343+07:00  INFO 10521 --- [SpringBootCore] [restartedMain] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 8080 (http) with context path '/'
+2026-02-19T21:25:17.345+07:00  INFO 10521 --- [SpringBootCore] [restartedMain] c.s.S.SpringBootCoreApplication          : Started SpringBootCoreApplication in 0.727 seconds (process running for 465.89)
+2026-02-19T21:25:17.346+07:00  INFO 10521 --- [SpringBootCore] [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2026-02-19T21:49:25.513+07:00  INFO 10521 --- [SpringBootCore] [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-02-19T21:49:25.514+07:00  INFO 10521 --- [SpringBootCore] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-02-19T21:49:25.521+07:00  INFO 10521 --- [SpringBootCore] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 6 ms
+2026-02-19T21:52:52.256+07:00  INFO 10521 --- [SpringBootCore] [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2026-02-19T21:52:52.258+07:00  INFO 10521 --- [SpringBootCore] [Thread-45] o.s.boot.tomcat.GracefulShutdown         : Commencing graceful shutdown. Waiting for active requests to complete
+2026-02-19T21:52:52.260+07:00  INFO 10521 --- [SpringBootCore] [tomcat-shutdown] o.s.boot.tomcat.GracefulShutdown         : Graceful shutdown complete
+2026-02-19T21:52:52.262+07:00  INFO 10521 --- [SpringBootCore] [Thread-45] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-02-19T21:52:52.264+07:00  INFO 10521 --- [SpringBootCore] [Thread-45] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Shutdown initiated...
+2026-02-19T21:52:52.268+07:00  INFO 10521 --- [SpringBootCore] [Thread-45] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Shutdown completed.
+2026-02-19T21:52:52.347+07:00  INFO 10521 --- [SpringBootCore] [restartedMain] c.s.S.SpringBootCoreApplication          : Starting SpringBootCoreApplication using Java 21.0.10 with PID 10521 (/home/dev01/projects/All-Tech-Stacks/SpringBootCore/target/classes started by dev01 in /home/dev01/projects/All-Tech-Stacks/SpringBootCore)
+2026-02-19T21:52:52.348+07:00  INFO 10521 --- [SpringBootCore] [restartedMain] c.s.S.SpringBootCoreApplication          : No active profile set, falling back to 1 default profile: "default"
+2026-02-19T21:52:52.352+07:00  INFO 10521 --- [SpringBootCore] [restartedMain] .s.b.d.c.l.DockerComposeLifecycleManager : Using Docker Compose file /home/dev01/projects/All-Tech-Stacks/SpringBootCore/compose.yaml
+2026-02-19T21:52:52.784+07:00  INFO 10521 --- [SpringBootCore] [restartedMain] .s.b.d.c.l.DockerComposeLifecycleManager : There are already Docker Compose services running, skipping startup
+2026-02-19T21:52:52.919+07:00  INFO 10521 --- [SpringBootCore] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-02-19T21:52:52.927+07:00  INFO 10521 --- [SpringBootCore] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 6 ms. Found 2 JPA repository interfaces.
+2026-02-19T21:52:53.016+07:00  INFO 10521 --- [SpringBootCore] [restartedMain] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 8080 (http)
+2026-02-19T21:52:53.019+07:00  INFO 10521 --- [SpringBootCore] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-02-19T21:52:53.019+07:00  INFO 10521 --- [SpringBootCore] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.18]
+2026-02-19T21:52:53.029+07:00  INFO 10521 --- [SpringBootCore] [restartedMain] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 244 ms
+2026-02-19T21:52:53.099+07:00  INFO 10521 --- [SpringBootCore] [restartedMain] org.flywaydb.core.FlywayExecutor         : Database: jdbc:postgresql://127.0.0.1:5431/springbootdb (PostgreSQL 18.1)
+2026-02-19T21:52:53.124+07:00  INFO 10521 --- [SpringBootCore] [restartedMain] o.f.core.internal.command.DbValidate     : Successfully validated 4 migrations (execution time 00:00.008s)
+2026-02-19T21:52:53.153+07:00  INFO 10521 --- [SpringBootCore] [restartedMain] o.f.core.internal.command.DbMigrate      : Current version of schema "public": 4
+2026-02-19T21:52:53.154+07:00  INFO 10521 --- [SpringBootCore] [restartedMain] o.f.core.internal.command.DbMigrate      : Schema "public" is up to date. No migration necessary.
+2026-02-19T21:52:53.176+07:00  INFO 10521 --- [SpringBootCore] [restartedMain] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-02-19T21:52:53.199+07:00  INFO 10521 --- [SpringBootCore] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-02-19T21:52:53.201+07:00  INFO 10521 --- [SpringBootCore] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-5 - Starting...
+2026-02-19T21:52:53.218+07:00  INFO 10521 --- [SpringBootCore] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-5 - Added connection org.postgresql.jdbc.PgConnection@701dd12d
+2026-02-19T21:52:53.219+07:00  INFO 10521 --- [SpringBootCore] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-5 - Start completed.
+2026-02-19T21:52:53.227+07:00  INFO 10521 --- [SpringBootCore] [restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://127.0.0.1:5431/springbootdb]
+	Database driver: PostgreSQL JDBC Driver
+	Database dialect: PostgreSQLDialect
+	Database version: 18.1
+	Default catalog/schema: springbootdb/public
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-02-19T21:52:53.297+07:00  INFO 10521 --- [SpringBootCore] [restartedMain] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-02-19T21:52:53.329+07:00  INFO 10521 --- [SpringBootCore] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-02-19T21:52:53.405+07:00  WARN 10521 --- [SpringBootCore] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-02-19T21:52:53.485+07:00  INFO 10521 --- [SpringBootCore] [restartedMain] o.s.b.h.a.H2ConsoleAutoConfiguration     : H2 console available at '/h2-console'. Database available at 'jdbc:postgresql://127.0.0.1:5431/springbootdb'
+2026-02-19T21:52:53.499+07:00  INFO 10521 --- [SpringBootCore] [restartedMain] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 8080 (http) with context path '/'
+2026-02-19T21:52:53.501+07:00  INFO 10521 --- [SpringBootCore] [restartedMain] c.s.S.SpringBootCoreApplication          : Started SpringBootCoreApplication in 1.173 seconds (process running for 2121.67)
+2026-02-19T21:53:00.905+07:00  INFO 10521 --- [SpringBootCore] [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-02-19T21:53:00.905+07:00  INFO 10521 --- [SpringBootCore] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-02-19T21:53:00.907+07:00  INFO 10521 --- [SpringBootCore] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2026-02-19T22:20:37.858+07:00  INFO 10521 --- [SpringBootCore] [SpringApplicationShutdownHook] o.s.boot.tomcat.GracefulShutdown         : Commencing graceful shutdown. Waiting for active requests to complete
+2026-02-19T22:20:37.861+07:00  INFO 10521 --- [SpringBootCore] [tomcat-shutdown] o.s.boot.tomcat.GracefulShutdown         : Graceful shutdown complete
+2026-02-19T22:20:37.865+07:00  INFO 10521 --- [SpringBootCore] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-02-19T22:20:37.867+07:00  INFO 10521 --- [SpringBootCore] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-5 - Shutdown initiated...
+2026-02-19T22:20:37.872+07:00  INFO 10521 --- [SpringBootCore] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-5 - Shutdown completed.
+2026-02-19T22:20:39.219+07:00  INFO 24494 --- [restartedMain] c.s.S.SpringBootCoreApplication          : Starting SpringBootCoreApplication using Java 21.0.10 with PID 24494 (/home/dev01/projects/All-Tech-Stacks/SpringBootCore/target/classes started by dev01 in /home/dev01/projects/All-Tech-Stacks/SpringBootCore)
+2026-02-19T22:20:39.222+07:00  INFO 24494 --- [restartedMain] c.s.S.SpringBootCoreApplication          : No active profile set, falling back to 1 default profile: "default"
+2026-02-19T22:20:39.291+07:00  INFO 24494 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2026-02-19T22:20:39.291+07:00  INFO 24494 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2026-02-19T22:20:39.326+07:00  INFO 24494 --- [restartedMain] .s.b.d.c.l.DockerComposeLifecycleManager : Using Docker Compose file /home/dev01/projects/All-Tech-Stacks/SpringBootCore/compose.yaml
+2026-02-19T22:20:40.136+07:00  INFO 24494 --- [OutputReader-stderr] o.s.boot.docker.compose.core.DockerCli   :  Container springbootcore-postgres-1 Starting 
+2026-02-19T22:20:40.491+07:00  INFO 24494 --- [OutputReader-stderr] o.s.boot.docker.compose.core.DockerCli   :  Container springbootcore-postgres-1 Started 
+2026-02-19T22:20:40.491+07:00  INFO 24494 --- [OutputReader-stderr] o.s.boot.docker.compose.core.DockerCli   :  Container springbootcore-postgres-1 Waiting 
+2026-02-19T22:20:41.007+07:00  INFO 24494 --- [OutputReader-stderr] o.s.boot.docker.compose.core.DockerCli   :  Container springbootcore-postgres-1 Healthy 
+2026-02-19T22:20:42.109+07:00  INFO 24494 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-02-19T22:20:42.177+07:00  INFO 24494 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 56 ms. Found 2 JPA repository interfaces.
+2026-02-19T22:20:42.772+07:00  INFO 24494 --- [restartedMain] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 8080 (http)
+2026-02-19T22:20:42.798+07:00  INFO 24494 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-02-19T22:20:42.799+07:00  INFO 24494 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.18]
+2026-02-19T22:20:42.851+07:00  INFO 24494 --- [restartedMain] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 1417 ms
+2026-02-19T22:20:43.427+07:00  INFO 24494 --- [restartedMain] org.flywaydb.core.FlywayExecutor         : Database: jdbc:postgresql://127.0.0.1:5431/springbootdb (PostgreSQL 18.1)
+2026-02-19T22:20:43.521+07:00  INFO 24494 --- [restartedMain] o.f.core.internal.command.DbValidate     : Successfully validated 4 migrations (execution time 00:00.034s)
+2026-02-19T22:20:43.558+07:00  INFO 24494 --- [restartedMain] o.f.core.internal.command.DbMigrate      : Current version of schema "public": 4
+2026-02-19T22:20:43.562+07:00  INFO 24494 --- [restartedMain] o.f.core.internal.command.DbMigrate      : Schema "public" is up to date. No migration necessary.
+2026-02-19T22:20:43.664+07:00  INFO 24494 --- [restartedMain] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-02-19T22:20:43.744+07:00  INFO 24494 --- [restartedMain] org.hibernate.orm.core                   : HHH000001: Hibernate ORM core version 7.2.4.Final
+2026-02-19T22:20:44.432+07:00  INFO 24494 --- [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-02-19T22:20:44.474+07:00  INFO 24494 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-02-19T22:20:44.501+07:00  INFO 24494 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@3826d06
+2026-02-19T22:20:44.503+07:00  INFO 24494 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-02-19T22:20:44.590+07:00  INFO 24494 --- [restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://127.0.0.1:5431/springbootdb]
+	Database driver: PostgreSQL JDBC Driver
+	Database dialect: PostgreSQLDialect
+	Database version: 18.1
+	Default catalog/schema: springbootdb/public
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-02-19T22:20:45.672+07:00  INFO 24494 --- [restartedMain] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-02-19T22:20:45.735+07:00  INFO 24494 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-02-19T22:20:45.813+07:00  INFO 24494 --- [restartedMain] o.s.d.j.r.query.QueryEnhancerFactories   : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-02-19T22:20:46.023+07:00  WARN 24494 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-02-19T22:20:46.312+07:00  INFO 24494 --- [restartedMain] o.s.b.h.a.H2ConsoleAutoConfiguration     : H2 console available at '/h2-console'. Database available at 'jdbc:postgresql://127.0.0.1:5431/springbootdb'
+2026-02-19T22:20:46.362+07:00  INFO 24494 --- [restartedMain] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 8080 (http) with context path '/'
+2026-02-19T22:20:46.369+07:00  INFO 24494 --- [restartedMain] c.s.S.SpringBootCoreApplication          : Started SpringBootCoreApplication in 7.745 seconds (process running for 8.373)
+2026-02-19T22:21:37.994+07:00  INFO 24494 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-02-19T22:21:37.995+07:00  INFO 24494 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-02-19T22:21:37.998+07:00  INFO 24494 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2026-02-19T22:22:07.823+07:00  INFO 24494 --- [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2026-02-19T22:22:07.828+07:00  INFO 24494 --- [Thread-1] o.s.boot.tomcat.GracefulShutdown         : Commencing graceful shutdown. Waiting for active requests to complete
+2026-02-19T22:22:07.830+07:00  INFO 24494 --- [tomcat-shutdown] o.s.boot.tomcat.GracefulShutdown         : Graceful shutdown complete
+2026-02-19T22:22:07.833+07:00  INFO 24494 --- [Thread-1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-02-19T22:22:07.836+07:00  INFO 24494 --- [Thread-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-02-19T22:22:07.838+07:00  INFO 24494 --- [Thread-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2026-02-19T22:22:07.908+07:00  INFO 24494 --- [SpringBootCore] [restartedMain] c.s.S.SpringBootCoreApplication          : Starting SpringBootCoreApplication using Java 21.0.10 with PID 24494 (/home/dev01/projects/All-Tech-Stacks/SpringBootCore/target/classes started by dev01 in /home/dev01/projects/All-Tech-Stacks/SpringBootCore)
+2026-02-19T22:22:07.909+07:00  INFO 24494 --- [SpringBootCore] [restartedMain] c.s.S.SpringBootCoreApplication          : No active profile set, falling back to 1 default profile: "default"
+2026-02-19T22:22:07.913+07:00  INFO 24494 --- [SpringBootCore] [restartedMain] .s.b.d.c.l.DockerComposeLifecycleManager : Using Docker Compose file /home/dev01/projects/All-Tech-Stacks/SpringBootCore/compose.yaml
+2026-02-19T22:22:08.195+07:00  INFO 24494 --- [SpringBootCore] [restartedMain] .s.b.d.c.l.DockerComposeLifecycleManager : There are already Docker Compose services running, skipping startup
+2026-02-19T22:22:08.305+07:00  INFO 24494 --- [SpringBootCore] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-02-19T22:22:08.314+07:00  INFO 24494 --- [SpringBootCore] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 7 ms. Found 2 JPA repository interfaces.
+2026-02-19T22:22:08.384+07:00  INFO 24494 --- [SpringBootCore] [restartedMain] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 8080 (http)
+2026-02-19T22:22:08.386+07:00  INFO 24494 --- [SpringBootCore] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-02-19T22:22:08.386+07:00  INFO 24494 --- [SpringBootCore] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.18]
+2026-02-19T22:22:08.396+07:00  INFO 24494 --- [SpringBootCore] [restartedMain] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 199 ms
+2026-02-19T22:22:08.457+07:00  INFO 24494 --- [SpringBootCore] [restartedMain] org.flywaydb.core.FlywayExecutor         : Database: jdbc:postgresql://127.0.0.1:5431/springbootdb?ApplicationName=SpringBootCore (PostgreSQL 18.1)
+2026-02-19T22:22:08.472+07:00  INFO 24494 --- [SpringBootCore] [restartedMain] o.f.core.internal.command.DbValidate     : Successfully validated 4 migrations (execution time 00:00.005s)
+2026-02-19T22:22:08.494+07:00  INFO 24494 --- [SpringBootCore] [restartedMain] o.f.core.internal.command.DbMigrate      : Current version of schema "public": 4
+2026-02-19T22:22:08.494+07:00  INFO 24494 --- [SpringBootCore] [restartedMain] o.f.core.internal.command.DbMigrate      : Schema "public" is up to date. No migration necessary.
+2026-02-19T22:22:08.510+07:00  INFO 24494 --- [SpringBootCore] [restartedMain] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-02-19T22:22:08.525+07:00  INFO 24494 --- [SpringBootCore] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-02-19T22:22:08.526+07:00  INFO 24494 --- [SpringBootCore] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Starting...
+2026-02-19T22:22:08.546+07:00  INFO 24494 --- [SpringBootCore] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-2 - Added connection org.postgresql.jdbc.PgConnection@69fed7e5
+2026-02-19T22:22:08.547+07:00  INFO 24494 --- [SpringBootCore] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Start completed.
+2026-02-19T22:22:08.554+07:00  INFO 24494 --- [SpringBootCore] [restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://127.0.0.1:5431/springbootdb?ApplicationName=SpringBootCore]
+	Database driver: PostgreSQL JDBC Driver
+	Database dialect: PostgreSQLDialect
+	Database version: 18.1
+	Default catalog/schema: springbootdb/public
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-02-19T22:22:08.617+07:00  INFO 24494 --- [SpringBootCore] [restartedMain] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-02-19T22:22:08.627+07:00  INFO 24494 --- [SpringBootCore] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-02-19T22:22:08.685+07:00  WARN 24494 --- [SpringBootCore] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-02-19T22:22:08.747+07:00  INFO 24494 --- [SpringBootCore] [restartedMain] o.s.b.h.a.H2ConsoleAutoConfiguration     : H2 console available at '/h2-console'. Database available at 'jdbc:postgresql://127.0.0.1:5431/springbootdb?ApplicationName=SpringBootCore'
+2026-02-19T22:22:08.759+07:00  INFO 24494 --- [SpringBootCore] [restartedMain] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 8080 (http) with context path '/springbootcore'
+2026-02-19T22:22:08.762+07:00  INFO 24494 --- [SpringBootCore] [restartedMain] c.s.S.SpringBootCoreApplication          : Started SpringBootCoreApplication in 0.874 seconds (process running for 90.752)
+2026-02-19T22:22:10.150+07:00  INFO 24494 --- [SpringBootCore] [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2026-02-19T22:22:10.152+07:00  INFO 24494 --- [SpringBootCore] [Thread-21] o.s.boot.tomcat.GracefulShutdown         : Commencing graceful shutdown. Waiting for active requests to complete
+2026-02-19T22:22:10.154+07:00  INFO 24494 --- [SpringBootCore] [tomcat-shutdown] o.s.boot.tomcat.GracefulShutdown         : Graceful shutdown complete
+2026-02-19T22:22:10.156+07:00  INFO 24494 --- [SpringBootCore] [Thread-21] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-02-19T22:22:10.156+07:00  INFO 24494 --- [SpringBootCore] [Thread-21] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown initiated...
+2026-02-19T22:22:10.158+07:00  INFO 24494 --- [SpringBootCore] [Thread-21] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown completed.
+2026-02-19T22:22:10.232+07:00  INFO 24494 --- [SpringBootCore] [restartedMain] c.s.S.SpringBootCoreApplication          : Starting SpringBootCoreApplication using Java 21.0.10 with PID 24494 (/home/dev01/projects/All-Tech-Stacks/SpringBootCore/target/classes started by dev01 in /home/dev01/projects/All-Tech-Stacks/SpringBootCore)
+2026-02-19T22:22:10.232+07:00  INFO 24494 --- [SpringBootCore] [restartedMain] c.s.S.SpringBootCoreApplication          : No active profile set, falling back to 1 default profile: "default"
+2026-02-19T22:22:10.236+07:00  INFO 24494 --- [SpringBootCore] [restartedMain] .s.b.d.c.l.DockerComposeLifecycleManager : Using Docker Compose file /home/dev01/projects/All-Tech-Stacks/SpringBootCore/compose.yaml
+2026-02-19T22:22:10.502+07:00  INFO 24494 --- [SpringBootCore] [restartedMain] .s.b.d.c.l.DockerComposeLifecycleManager : There are already Docker Compose services running, skipping startup
+2026-02-19T22:22:10.624+07:00  INFO 24494 --- [SpringBootCore] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-02-19T22:22:10.635+07:00  INFO 24494 --- [SpringBootCore] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 8 ms. Found 2 JPA repository interfaces.
+2026-02-19T22:22:10.727+07:00  INFO 24494 --- [SpringBootCore] [restartedMain] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 8080 (http)
+2026-02-19T22:22:10.728+07:00  INFO 24494 --- [SpringBootCore] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-02-19T22:22:10.729+07:00  INFO 24494 --- [SpringBootCore] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.18]
+2026-02-19T22:22:10.737+07:00  INFO 24494 --- [SpringBootCore] [restartedMain] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 234 ms
+2026-02-19T22:22:10.810+07:00  INFO 24494 --- [SpringBootCore] [restartedMain] org.flywaydb.core.FlywayExecutor         : Database: jdbc:postgresql://127.0.0.1:5431/springbootdb (PostgreSQL 18.1)
+2026-02-19T22:22:10.831+07:00  INFO 24494 --- [SpringBootCore] [restartedMain] o.f.core.internal.command.DbValidate     : Successfully validated 4 migrations (execution time 00:00.007s)
+2026-02-19T22:22:10.864+07:00  INFO 24494 --- [SpringBootCore] [restartedMain] o.f.core.internal.command.DbMigrate      : Current version of schema "public": 4
+2026-02-19T22:22:10.865+07:00  INFO 24494 --- [SpringBootCore] [restartedMain] o.f.core.internal.command.DbMigrate      : Schema "public" is up to date. No migration necessary.
+2026-02-19T22:22:10.882+07:00  INFO 24494 --- [SpringBootCore] [restartedMain] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-02-19T22:22:10.899+07:00  INFO 24494 --- [SpringBootCore] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-02-19T22:22:10.900+07:00  INFO 24494 --- [SpringBootCore] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Starting...
+2026-02-19T22:22:10.921+07:00  INFO 24494 --- [SpringBootCore] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-3 - Added connection org.postgresql.jdbc.PgConnection@94ea1a3
+2026-02-19T22:22:10.921+07:00  INFO 24494 --- [SpringBootCore] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Start completed.
+2026-02-19T22:22:10.929+07:00  INFO 24494 --- [SpringBootCore] [restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://127.0.0.1:5431/springbootdb]
+	Database driver: PostgreSQL JDBC Driver
+	Database dialect: PostgreSQLDialect
+	Database version: 18.1
+	Default catalog/schema: springbootdb/public
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-02-19T22:22:11.032+07:00  INFO 24494 --- [SpringBootCore] [restartedMain] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-02-19T22:22:11.069+07:00  INFO 24494 --- [SpringBootCore] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-02-19T22:22:11.241+07:00  WARN 24494 --- [SpringBootCore] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-02-19T22:22:11.389+07:00  INFO 24494 --- [SpringBootCore] [restartedMain] o.s.b.h.a.H2ConsoleAutoConfiguration     : H2 console available at '/h2-console'. Database available at 'jdbc:postgresql://127.0.0.1:5431/springbootdb'
+2026-02-19T22:22:11.421+07:00  INFO 24494 --- [SpringBootCore] [restartedMain] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 8080 (http) with context path '/springbootcore'
+2026-02-19T22:22:11.424+07:00  INFO 24494 --- [SpringBootCore] [restartedMain] c.s.S.SpringBootCoreApplication          : Started SpringBootCoreApplication in 1.216 seconds (process running for 93.414)
+2026-02-19T22:22:11.427+07:00  INFO 24494 --- [SpringBootCore] [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2026-02-19T22:22:35.759+07:00  INFO 24494 --- [SpringBootCore] [SpringApplicationShutdownHook] o.s.boot.tomcat.GracefulShutdown         : Commencing graceful shutdown. Waiting for active requests to complete
+2026-02-19T22:22:35.760+07:00  INFO 24494 --- [SpringBootCore] [tomcat-shutdown] o.s.boot.tomcat.GracefulShutdown         : Graceful shutdown complete
+2026-02-19T22:22:35.763+07:00  INFO 24494 --- [SpringBootCore] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-02-19T22:22:35.764+07:00  INFO 24494 --- [SpringBootCore] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Shutdown initiated...
+2026-02-19T22:22:35.766+07:00  INFO 24494 --- [SpringBootCore] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Shutdown completed.
+2026-02-19T22:23:03.019+07:00  INFO 25611 --- [restartedMain] c.s.S.SpringBootCoreApplication          : Starting SpringBootCoreApplication using Java 21.0.10 with PID 25611 (/home/dev01/projects/All-Tech-Stacks/SpringBootCore/target/classes started by dev01 in /home/dev01/projects/All-Tech-Stacks/SpringBootCore)
+2026-02-19T22:23:03.021+07:00  INFO 25611 --- [restartedMain] c.s.S.SpringBootCoreApplication          : No active profile set, falling back to 1 default profile: "default"
+2026-02-19T22:23:03.053+07:00  INFO 25611 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2026-02-19T22:23:03.054+07:00  INFO 25611 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2026-02-19T22:23:03.070+07:00  INFO 25611 --- [restartedMain] .s.b.d.c.l.DockerComposeLifecycleManager : Using Docker Compose file /home/dev01/projects/All-Tech-Stacks/SpringBootCore/compose.yaml
+2026-02-19T22:23:03.613+07:00  INFO 25611 --- [OutputReader-stderr] o.s.boot.docker.compose.core.DockerCli   :  Container springbootcore-postgres-1 Starting 
+2026-02-19T22:23:03.876+07:00  INFO 25611 --- [OutputReader-stderr] o.s.boot.docker.compose.core.DockerCli   :  Container springbootcore-postgres-1 Started 
+2026-02-19T22:23:03.877+07:00  INFO 25611 --- [OutputReader-stderr] o.s.boot.docker.compose.core.DockerCli   :  Container springbootcore-postgres-1 Waiting 
+2026-02-19T22:23:04.387+07:00  INFO 25611 --- [OutputReader-stderr] o.s.boot.docker.compose.core.DockerCli   :  Container springbootcore-postgres-1 Healthy 
+2026-02-19T22:23:05.258+07:00  INFO 25611 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-02-19T22:23:05.304+07:00  INFO 25611 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 38 ms. Found 2 JPA repository interfaces.
+2026-02-19T22:23:05.702+07:00  INFO 25611 --- [restartedMain] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 8080 (http)
+2026-02-19T22:23:05.717+07:00  INFO 25611 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-02-19T22:23:05.717+07:00  INFO 25611 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.18]
+2026-02-19T22:23:05.757+07:00  INFO 25611 --- [restartedMain] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 996 ms
+2026-02-19T22:23:06.208+07:00  INFO 25611 --- [restartedMain] org.flywaydb.core.FlywayExecutor         : Database: jdbc:postgresql://127.0.0.1:5431/springbootdb (PostgreSQL 18.1)
+2026-02-19T22:23:06.263+07:00  INFO 25611 --- [restartedMain] o.f.core.internal.command.DbValidate     : Successfully validated 4 migrations (execution time 00:00.020s)
+2026-02-19T22:23:06.291+07:00  INFO 25611 --- [restartedMain] o.f.core.internal.command.DbMigrate      : Current version of schema "public": 4
+2026-02-19T22:23:06.294+07:00  INFO 25611 --- [restartedMain] o.f.core.internal.command.DbMigrate      : Schema "public" is up to date. No migration necessary.
+2026-02-19T22:23:06.354+07:00  INFO 25611 --- [restartedMain] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-02-19T22:23:06.391+07:00  INFO 25611 --- [restartedMain] org.hibernate.orm.core                   : HHH000001: Hibernate ORM core version 7.2.4.Final
+2026-02-19T22:23:06.715+07:00  INFO 25611 --- [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-02-19T22:23:06.739+07:00  INFO 25611 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-02-19T22:23:06.766+07:00  INFO 25611 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@4ceffd7b
+2026-02-19T22:23:06.768+07:00  INFO 25611 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-02-19T22:23:06.817+07:00  INFO 25611 --- [restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://127.0.0.1:5431/springbootdb]
+	Database driver: PostgreSQL JDBC Driver
+	Database dialect: PostgreSQLDialect
+	Database version: 18.1
+	Default catalog/schema: springbootdb/public
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-02-19T22:23:07.456+07:00  INFO 25611 --- [restartedMain] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-02-19T22:23:07.492+07:00  INFO 25611 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-02-19T22:23:07.547+07:00  INFO 25611 --- [restartedMain] o.s.d.j.r.query.QueryEnhancerFactories   : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-02-19T22:23:07.696+07:00  WARN 25611 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-02-19T22:23:07.901+07:00  INFO 25611 --- [restartedMain] o.s.b.h.a.H2ConsoleAutoConfiguration     : H2 console available at '/h2-console'. Database available at 'jdbc:postgresql://127.0.0.1:5431/springbootdb'
+2026-02-19T22:23:07.936+07:00  INFO 25611 --- [restartedMain] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 8080 (http) with context path '/springbootcore'
+2026-02-19T22:23:07.941+07:00  INFO 25611 --- [restartedMain] c.s.S.SpringBootCoreApplication          : Started SpringBootCoreApplication in 5.231 seconds (process running for 5.604)
+2026-02-19T22:23:32.424+07:00  INFO 25611 --- [http-nio-8080-exec-3] o.a.c.c.C.[.[.[/springbootcore]          : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-02-19T22:23:32.424+07:00  INFO 25611 --- [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-02-19T22:23:32.425+07:00  INFO 25611 --- [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2026-02-19T22:24:16.427+07:00  INFO 25611 --- [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2026-02-19T22:24:16.431+07:00  INFO 25611 --- [Thread-1] o.s.boot.tomcat.GracefulShutdown         : Commencing graceful shutdown. Waiting for active requests to complete
+2026-02-19T22:24:16.434+07:00  INFO 25611 --- [tomcat-shutdown] o.s.boot.tomcat.GracefulShutdown         : Graceful shutdown complete
+2026-02-19T22:24:16.437+07:00  INFO 25611 --- [Thread-1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-02-19T22:24:16.439+07:00  INFO 25611 --- [Thread-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-02-19T22:24:16.442+07:00  INFO 25611 --- [Thread-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2026-02-19T22:24:16.504+07:00  INFO 25611 --- [SpringBootCore] [restartedMain] c.s.S.SpringBootCoreApplication          : Starting SpringBootCoreApplication using Java 21.0.10 with PID 25611 (/home/dev01/projects/All-Tech-Stacks/SpringBootCore/target/classes started by dev01 in /home/dev01/projects/All-Tech-Stacks/SpringBootCore)
+2026-02-19T22:24:16.504+07:00  INFO 25611 --- [SpringBootCore] [restartedMain] c.s.S.SpringBootCoreApplication          : No active profile set, falling back to 1 default profile: "default"
+2026-02-19T22:24:16.508+07:00  INFO 25611 --- [SpringBootCore] [restartedMain] .s.b.d.c.l.DockerComposeLifecycleManager : Using Docker Compose file /home/dev01/projects/All-Tech-Stacks/SpringBootCore/compose.yaml
+2026-02-19T22:24:16.751+07:00  INFO 25611 --- [SpringBootCore] [restartedMain] .s.b.d.c.l.DockerComposeLifecycleManager : There are already Docker Compose services running, skipping startup
+2026-02-19T22:24:16.855+07:00  INFO 25611 --- [SpringBootCore] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-02-19T22:24:16.863+07:00  INFO 25611 --- [SpringBootCore] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 6 ms. Found 2 JPA repository interfaces.
+2026-02-19T22:24:16.932+07:00  INFO 25611 --- [SpringBootCore] [restartedMain] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 8080 (http)
+2026-02-19T22:24:16.933+07:00  INFO 25611 --- [SpringBootCore] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-02-19T22:24:16.933+07:00  INFO 25611 --- [SpringBootCore] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.18]
+2026-02-19T22:24:16.942+07:00  INFO 25611 --- [SpringBootCore] [restartedMain] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 189 ms
+2026-02-19T22:24:16.997+07:00  INFO 25611 --- [SpringBootCore] [restartedMain] org.flywaydb.core.FlywayExecutor         : Database: jdbc:postgresql://127.0.0.1:5431/springbootdb?ApplicationName=SpringBootCore (PostgreSQL 18.1)
+2026-02-19T22:24:17.012+07:00  INFO 25611 --- [SpringBootCore] [restartedMain] o.f.core.internal.command.DbValidate     : Successfully validated 4 migrations (execution time 00:00.005s)
+2026-02-19T22:24:17.037+07:00  INFO 25611 --- [SpringBootCore] [restartedMain] o.f.core.internal.command.DbMigrate      : Current version of schema "public": 4
+2026-02-19T22:24:17.038+07:00  INFO 25611 --- [SpringBootCore] [restartedMain] o.f.core.internal.command.DbMigrate      : Schema "public" is up to date. No migration necessary.
+2026-02-19T22:24:17.057+07:00  INFO 25611 --- [SpringBootCore] [restartedMain] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-02-19T22:24:17.086+07:00  INFO 25611 --- [SpringBootCore] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-02-19T22:24:17.088+07:00  INFO 25611 --- [SpringBootCore] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Starting...
+2026-02-19T22:24:17.105+07:00  INFO 25611 --- [SpringBootCore] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-2 - Added connection org.postgresql.jdbc.PgConnection@37472fcf
+2026-02-19T22:24:17.106+07:00  INFO 25611 --- [SpringBootCore] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Start completed.
+2026-02-19T22:24:17.112+07:00  INFO 25611 --- [SpringBootCore] [restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://127.0.0.1:5431/springbootdb?ApplicationName=SpringBootCore]
+	Database driver: PostgreSQL JDBC Driver
+	Database dialect: PostgreSQLDialect
+	Database version: 18.1
+	Default catalog/schema: springbootdb/public
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-02-19T22:24:17.170+07:00  INFO 25611 --- [SpringBootCore] [restartedMain] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-02-19T22:24:17.182+07:00  INFO 25611 --- [SpringBootCore] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-02-19T22:24:17.243+07:00  WARN 25611 --- [SpringBootCore] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-02-19T22:24:17.303+07:00  INFO 25611 --- [SpringBootCore] [restartedMain] o.s.b.h.a.H2ConsoleAutoConfiguration     : H2 console available at '/h2-console'. Database available at 'jdbc:postgresql://127.0.0.1:5431/springbootdb?ApplicationName=SpringBootCore'
+2026-02-19T22:24:17.314+07:00  INFO 25611 --- [SpringBootCore] [restartedMain] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 8080 (http) with context path '/springbootcore'
+2026-02-19T22:24:17.317+07:00  INFO 25611 --- [SpringBootCore] [restartedMain] c.s.S.SpringBootCoreApplication          : Started SpringBootCoreApplication in 0.83 seconds (process running for 74.943)
+2026-02-19T22:26:48.366+07:00  INFO 25611 --- [SpringBootCore] [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 18 class path changes (0 additions, 6 deletions, 12 modifications)
+2026-02-19T22:26:48.370+07:00  INFO 25611 --- [SpringBootCore] [Thread-21] o.s.boot.tomcat.GracefulShutdown         : Commencing graceful shutdown. Waiting for active requests to complete
+2026-02-19T22:26:48.374+07:00  INFO 25611 --- [SpringBootCore] [tomcat-shutdown] o.s.boot.tomcat.GracefulShutdown         : Graceful shutdown complete
+2026-02-19T22:26:48.378+07:00  INFO 25611 --- [SpringBootCore] [Thread-21] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-02-19T22:26:48.380+07:00  INFO 25611 --- [SpringBootCore] [Thread-21] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown initiated...
+2026-02-19T22:26:48.387+07:00  INFO 25611 --- [SpringBootCore] [Thread-21] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown completed.
+2026-02-19T22:26:48.525+07:00  INFO 25611 --- [SpringBootCore] [restartedMain] c.s.S.SpringBootCoreApplication          : Starting SpringBootCoreApplication using Java 21.0.10 with PID 25611 (/home/dev01/projects/All-Tech-Stacks/SpringBootCore/target/classes started by dev01 in /home/dev01/projects/All-Tech-Stacks/SpringBootCore)
+2026-02-19T22:26:48.526+07:00  INFO 25611 --- [SpringBootCore] [restartedMain] c.s.S.SpringBootCoreApplication          : No active profile set, falling back to 1 default profile: "default"
+2026-02-19T22:26:48.530+07:00  INFO 25611 --- [SpringBootCore] [restartedMain] .s.b.d.c.l.DockerComposeLifecycleManager : Using Docker Compose file /home/dev01/projects/All-Tech-Stacks/SpringBootCore/compose.yaml
+2026-02-19T22:26:48.995+07:00  INFO 25611 --- [SpringBootCore] [restartedMain] .s.b.d.c.l.DockerComposeLifecycleManager : There are already Docker Compose services running, skipping startup
+2026-02-19T22:26:49.179+07:00  INFO 25611 --- [SpringBootCore] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-02-19T22:26:49.190+07:00  INFO 25611 --- [SpringBootCore] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 9 ms. Found 2 JPA repository interfaces.
+2026-02-19T22:26:49.355+07:00  INFO 25611 --- [SpringBootCore] [restartedMain] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 8080 (http)
+2026-02-19T22:26:49.356+07:00  INFO 25611 --- [SpringBootCore] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-02-19T22:26:49.357+07:00  INFO 25611 --- [SpringBootCore] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.18]
+2026-02-19T22:26:49.371+07:00  INFO 25611 --- [SpringBootCore] [restartedMain] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 375 ms
+2026-02-19T22:26:49.456+07:00  INFO 25611 --- [SpringBootCore] [restartedMain] org.flywaydb.core.FlywayExecutor         : Database: jdbc:postgresql://127.0.0.1:5431/springbootdb?ApplicationName=SpringBootCore (PostgreSQL 18.1)
+2026-02-19T22:26:49.477+07:00  INFO 25611 --- [SpringBootCore] [restartedMain] o.f.core.internal.command.DbValidate     : Successfully validated 4 migrations (execution time 00:00.007s)
+2026-02-19T22:26:49.531+07:00  INFO 25611 --- [SpringBootCore] [restartedMain] o.f.core.internal.command.DbMigrate      : Current version of schema "public": 4
+2026-02-19T22:26:49.533+07:00  INFO 25611 --- [SpringBootCore] [restartedMain] o.f.core.internal.command.DbMigrate      : Schema "public" is up to date. No migration necessary.
+2026-02-19T22:26:49.560+07:00  INFO 25611 --- [SpringBootCore] [restartedMain] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-02-19T22:26:49.594+07:00  INFO 25611 --- [SpringBootCore] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-02-19T22:26:49.596+07:00  INFO 25611 --- [SpringBootCore] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Starting...
+2026-02-19T22:26:49.625+07:00  INFO 25611 --- [SpringBootCore] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-3 - Added connection org.postgresql.jdbc.PgConnection@2c1444bf
+2026-02-19T22:26:49.626+07:00  INFO 25611 --- [SpringBootCore] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Start completed.
+2026-02-19T22:26:49.638+07:00  INFO 25611 --- [SpringBootCore] [restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://127.0.0.1:5431/springbootdb?ApplicationName=SpringBootCore]
+	Database driver: PostgreSQL JDBC Driver
+	Database dialect: PostgreSQLDialect
+	Database version: 18.1
+	Default catalog/schema: springbootdb/public
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-02-19T22:26:49.722+07:00  INFO 25611 --- [SpringBootCore] [restartedMain] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-02-19T22:26:49.738+07:00  INFO 25611 --- [SpringBootCore] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-02-19T22:26:49.834+07:00  WARN 25611 --- [SpringBootCore] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-02-19T22:26:49.941+07:00  INFO 25611 --- [SpringBootCore] [restartedMain] o.s.b.h.a.H2ConsoleAutoConfiguration     : H2 console available at '/h2-console'. Database available at 'jdbc:postgresql://127.0.0.1:5431/springbootdb?ApplicationName=SpringBootCore'
+2026-02-19T22:26:49.960+07:00  INFO 25611 --- [SpringBootCore] [restartedMain] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 8080 (http) with context path '/springbootcore'
+2026-02-19T22:26:49.963+07:00  INFO 25611 --- [SpringBootCore] [restartedMain] c.s.S.SpringBootCoreApplication          : Started SpringBootCoreApplication in 1.465 seconds (process running for 227.552)
+2026-02-19T22:26:49.965+07:00  INFO 25611 --- [SpringBootCore] [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2026-02-19T22:26:51.370+07:00  INFO 25611 --- [SpringBootCore] [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 6 class path changes (6 additions, 0 deletions, 0 modifications)
+2026-02-19T22:26:51.372+07:00  INFO 25611 --- [SpringBootCore] [Thread-33] o.s.boot.tomcat.GracefulShutdown         : Commencing graceful shutdown. Waiting for active requests to complete
+2026-02-19T22:26:51.373+07:00  INFO 25611 --- [SpringBootCore] [tomcat-shutdown] o.s.boot.tomcat.GracefulShutdown         : Graceful shutdown complete
+2026-02-19T22:26:51.375+07:00  INFO 25611 --- [SpringBootCore] [Thread-33] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-02-19T22:26:51.376+07:00  INFO 25611 --- [SpringBootCore] [Thread-33] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Shutdown initiated...
+2026-02-19T22:26:51.378+07:00  INFO 25611 --- [SpringBootCore] [Thread-33] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Shutdown completed.
+2026-02-19T22:26:51.435+07:00  INFO 25611 --- [SpringBootCore] [restartedMain] c.s.S.SpringBootCoreApplication          : Starting SpringBootCoreApplication using Java 21.0.10 with PID 25611 (/home/dev01/projects/All-Tech-Stacks/SpringBootCore/target/classes started by dev01 in /home/dev01/projects/All-Tech-Stacks/SpringBootCore)
+2026-02-19T22:26:51.435+07:00  INFO 25611 --- [SpringBootCore] [restartedMain] c.s.S.SpringBootCoreApplication          : No active profile set, falling back to 1 default profile: "default"
+2026-02-19T22:26:51.438+07:00  INFO 25611 --- [SpringBootCore] [restartedMain] .s.b.d.c.l.DockerComposeLifecycleManager : Using Docker Compose file /home/dev01/projects/All-Tech-Stacks/SpringBootCore/compose.yaml
+2026-02-19T22:26:51.700+07:00  INFO 25611 --- [SpringBootCore] [restartedMain] .s.b.d.c.l.DockerComposeLifecycleManager : There are already Docker Compose services running, skipping startup
+2026-02-19T22:26:51.790+07:00  INFO 25611 --- [SpringBootCore] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-02-19T22:26:51.797+07:00  INFO 25611 --- [SpringBootCore] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 5 ms. Found 2 JPA repository interfaces.
+2026-02-19T22:26:51.851+07:00  INFO 25611 --- [SpringBootCore] [restartedMain] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 8080 (http)
+2026-02-19T22:26:51.852+07:00  INFO 25611 --- [SpringBootCore] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-02-19T22:26:51.852+07:00  INFO 25611 --- [SpringBootCore] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.18]
+2026-02-19T22:26:51.861+07:00  INFO 25611 --- [SpringBootCore] [restartedMain] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 160 ms
+2026-02-19T22:26:51.933+07:00  INFO 25611 --- [SpringBootCore] [restartedMain] org.flywaydb.core.FlywayExecutor         : Database: jdbc:postgresql://127.0.0.1:5431/springbootdb?ApplicationName=SpringBootCore (PostgreSQL 18.1)
+2026-02-19T22:26:51.949+07:00  INFO 25611 --- [SpringBootCore] [restartedMain] o.f.core.internal.command.DbValidate     : Successfully validated 4 migrations (execution time 00:00.005s)
+2026-02-19T22:26:51.976+07:00  INFO 25611 --- [SpringBootCore] [restartedMain] o.f.core.internal.command.DbMigrate      : Current version of schema "public": 4
+2026-02-19T22:26:51.978+07:00  INFO 25611 --- [SpringBootCore] [restartedMain] o.f.core.internal.command.DbMigrate      : Schema "public" is up to date. No migration necessary.
+2026-02-19T22:26:51.995+07:00  INFO 25611 --- [SpringBootCore] [restartedMain] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-02-19T22:26:52.022+07:00  INFO 25611 --- [SpringBootCore] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-02-19T22:26:52.023+07:00  INFO 25611 --- [SpringBootCore] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Starting...
+2026-02-19T22:26:52.051+07:00  INFO 25611 --- [SpringBootCore] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-4 - Added connection org.postgresql.jdbc.PgConnection@79561a2
+2026-02-19T22:26:52.052+07:00  INFO 25611 --- [SpringBootCore] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Start completed.
+2026-02-19T22:26:52.077+07:00  INFO 25611 --- [SpringBootCore] [restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://127.0.0.1:5431/springbootdb?ApplicationName=SpringBootCore]
+	Database driver: PostgreSQL JDBC Driver
+	Database dialect: PostgreSQLDialect
+	Database version: 18.1
+	Default catalog/schema: springbootdb/public
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-02-19T22:26:52.175+07:00  INFO 25611 --- [SpringBootCore] [restartedMain] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-02-19T22:26:52.189+07:00  INFO 25611 --- [SpringBootCore] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-02-19T22:26:52.289+07:00  WARN 25611 --- [SpringBootCore] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-02-19T22:26:52.408+07:00  INFO 25611 --- [SpringBootCore] [restartedMain] o.s.b.h.a.H2ConsoleAutoConfiguration     : H2 console available at '/h2-console'. Database available at 'jdbc:postgresql://127.0.0.1:5431/springbootdb?ApplicationName=SpringBootCore'
+2026-02-19T22:26:52.428+07:00  INFO 25611 --- [SpringBootCore] [restartedMain] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 8080 (http) with context path '/springbootcore'
+2026-02-19T22:26:52.432+07:00  INFO 25611 --- [SpringBootCore] [restartedMain] c.s.S.SpringBootCoreApplication          : Started SpringBootCoreApplication in 1.013 seconds (process running for 229.993)
+2026-02-19T22:26:52.433+07:00  INFO 25611 --- [SpringBootCore] [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2026-02-19T22:32:58.935+07:00  INFO 25611 --- [SpringBootCore] [http-nio-8080-exec-2] o.a.c.c.C.[.[.[/springbootcore]          : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-02-19T22:32:58.935+07:00  INFO 25611 --- [SpringBootCore] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-02-19T22:32:58.937+07:00  INFO 25611 --- [SpringBootCore] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2026-02-19T22:32:58.941+07:00 ERROR 25611 --- [SpringBootCore] [http-nio-8080-exec-2] o.a.c.c.C.[.[.[.[dispatcherServlet]      : Servlet.service() for servlet [dispatcherServlet] in context with path [/springbootcore] threw exception [Request processing failed: java.lang.IllegalStateException: Ambiguous handler methods mapped for '/springbootcore/api/todos/2': {public com.springboot.SpringBootCore.model.Todo com.springboot.SpringBootCore.controller.TodoController.getTodoById(java.lang.Long), public java.util.List com.springboot.SpringBootCore.controller.TodoController.getAllTodos(java.lang.Long)}] with root cause
+
+java.lang.IllegalStateException: Ambiguous handler methods mapped for '/springbootcore/api/todos/2': {public com.springboot.SpringBootCore.model.Todo com.springboot.SpringBootCore.controller.TodoController.getTodoById(java.lang.Long), public java.util.List com.springboot.SpringBootCore.controller.TodoController.getAllTodos(java.lang.Long)}
+	at org.springframework.web.servlet.handler.AbstractHandlerMethodMapping.lookupHandlerMethod(AbstractHandlerMethodMapping.java:424) ~[spring-webmvc-7.0.5.jar:7.0.5]
+	at org.springframework.web.servlet.handler.AbstractHandlerMethodMapping.getHandlerInternal(AbstractHandlerMethodMapping.java:376) ~[spring-webmvc-7.0.5.jar:7.0.5]
+	at org.springframework.web.servlet.mvc.method.RequestMappingInfoHandlerMapping.getHandlerInternal(RequestMappingInfoHandlerMapping.java:116) ~[spring-webmvc-7.0.5.jar:7.0.5]
+	at org.springframework.web.servlet.mvc.method.RequestMappingInfoHandlerMapping.getHandlerInternal(RequestMappingInfoHandlerMapping.java:68) ~[spring-webmvc-7.0.5.jar:7.0.5]
+	at org.springframework.web.servlet.handler.AbstractHandlerMapping.getHandler(AbstractHandlerMapping.java:544) ~[spring-webmvc-7.0.5.jar:7.0.5]
+	at org.springframework.web.servlet.DispatcherServlet.getHandler(DispatcherServlet.java:1157) ~[spring-webmvc-7.0.5.jar:7.0.5]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:951) ~[spring-webmvc-7.0.5.jar:7.0.5]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:866) ~[spring-webmvc-7.0.5.jar:7.0.5]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1000) ~[spring-webmvc-7.0.5.jar:7.0.5]
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:892) ~[spring-webmvc-7.0.5.jar:7.0.5]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:633) ~[jakarta.servlet-api-6.1.0.jar:6.1.0]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:874) ~[spring-webmvc-7.0.5.jar:7.0.5]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:723) ~[jakarta.servlet-api-6.1.0.jar:6.1.0]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:128) ~[tomcat-embed-core-11.0.18.jar:11.0.18]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-embed-websocket-11.0.18.jar:11.0.18]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107) ~[tomcat-embed-core-11.0.18.jar:11.0.18]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-7.0.5.jar:7.0.5]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-7.0.5.jar:7.0.5]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107) ~[tomcat-embed-core-11.0.18.jar:11.0.18]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-7.0.5.jar:7.0.5]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-7.0.5.jar:7.0.5]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107) ~[tomcat-embed-core-11.0.18.jar:11.0.18]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:199) ~[spring-web-7.0.5.jar:7.0.5]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-7.0.5.jar:7.0.5]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107) ~[tomcat-embed-core-11.0.18.jar:11.0.18]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:165) ~[tomcat-embed-core-11.0.18.jar:11.0.18]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:77) ~[tomcat-embed-core-11.0.18.jar:11.0.18]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:492) ~[tomcat-embed-core-11.0.18.jar:11.0.18]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:113) ~[tomcat-embed-core-11.0.18.jar:11.0.18]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:83) ~[tomcat-embed-core-11.0.18.jar:11.0.18]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:72) ~[tomcat-embed-core-11.0.18.jar:11.0.18]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:341) ~[tomcat-embed-core-11.0.18.jar:11.0.18]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:397) ~[tomcat-embed-core-11.0.18.jar:11.0.18]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-11.0.18.jar:11.0.18]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:903) ~[tomcat-embed-core-11.0.18.jar:11.0.18]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1779) ~[tomcat-embed-core-11.0.18.jar:11.0.18]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-11.0.18.jar:11.0.18]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:946) ~[tomcat-embed-core-11.0.18.jar:11.0.18]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:480) ~[tomcat-embed-core-11.0.18.jar:11.0.18]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:57) ~[tomcat-embed-core-11.0.18.jar:11.0.18]
+	at java.base/java.lang.Thread.run(Thread.java:1583) ~[na:na]
+
+2026-02-19T22:33:10.056+07:00  WARN 25611 --- [SpringBootCore] [http-nio-8080-exec-4] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Cannot deserialize value of type `java.time.LocalDateTime` from String "2026-02-08": Failed to deserialize `java.time.LocalDateTime` (with format 'ParseCaseSensitive(false)(Value(Year,4,10,EXCEEDS_PAD)'-'Value(MonthOfYear,2)'-'Value(DayOfMonth,2))'T'(Value(HourOfDay,2)':'Value(MinuteOfHour,2)[':'Value(SecondOfMinute,2)[Fraction(NanoOfSecond,0,9,DecimalPoint)]])'): (java.time.format.DateTimeParseException) Text '2026-02-08' could not be parsed at index 10]
+2026-02-19T22:36:05.634+07:00  WARN 25611 --- [SpringBootCore] [http-nio-8080-exec-6] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Cannot deserialize value of type `java.time.LocalDateTime` from String "2026-02-08": Failed to deserialize `java.time.LocalDateTime` (with format 'ParseCaseSensitive(false)(Value(Year,4,10,EXCEEDS_PAD)'-'Value(MonthOfYear,2)'-'Value(DayOfMonth,2))'T'(Value(HourOfDay,2)':'Value(MinuteOfHour,2)[':'Value(SecondOfMinute,2)[Fraction(NanoOfSecond,0,9,DecimalPoint)]])'): (java.time.format.DateTimeParseException) Text '2026-02-08' could not be parsed at index 10]
+2026-02-19T22:37:59.372+07:00  WARN 25611 --- [SpringBootCore] [http-nio-8080-exec-10] .w.s.m.s.DefaultHandlerExceptionResolver : Ignoring exception, response committed already: org.springframework.http.converter.HttpMessageNotWritableException: Could not write JSON: Document nesting depth (501) exceeds the maximum allowed (500, from `StreamWriteConstraints.getMaxNestingDepth()`)
+2026-02-19T22:37:59.373+07:00  WARN 25611 --- [SpringBootCore] [http-nio-8080-exec-10] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.http.converter.HttpMessageNotWritableException: Could not write JSON: Document nesting depth (501) exceeds the maximum allowed (500, from `StreamWriteConstraints.getMaxNestingDepth()`)]
+2026-02-19T22:38:42.765+07:00  WARN 25611 --- [SpringBootCore] [http-nio-8080-exec-3] .w.s.m.s.DefaultHandlerExceptionResolver : Ignoring exception, response committed already: org.springframework.http.converter.HttpMessageNotWritableException: Could not write JSON: Document nesting depth (501) exceeds the maximum allowed (500, from `StreamWriteConstraints.getMaxNestingDepth()`)
+2026-02-19T22:38:42.766+07:00  WARN 25611 --- [SpringBootCore] [http-nio-8080-exec-3] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.http.converter.HttpMessageNotWritableException: Could not write JSON: Document nesting depth (501) exceeds the maximum allowed (500, from `StreamWriteConstraints.getMaxNestingDepth()`)]
+2026-02-19T22:39:24.948+07:00  WARN 25611 --- [SpringBootCore] [http-nio-8080-exec-4] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Cannot deserialize value of type `java.time.LocalDateTime` from String "2026-02-08": Failed to deserialize `java.time.LocalDateTime` (with format 'ParseCaseSensitive(false)(Value(Year,4,10,EXCEEDS_PAD)'-'Value(MonthOfYear,2)'-'Value(DayOfMonth,2))'T'(Value(HourOfDay,2)':'Value(MinuteOfHour,2)[':'Value(SecondOfMinute,2)[Fraction(NanoOfSecond,0,9,DecimalPoint)]])'): (java.time.format.DateTimeParseException) Text '2026-02-08' could not be parsed at index 10]
+2026-02-19T22:39:33.274+07:00  WARN 25611 --- [SpringBootCore] [http-nio-8080-exec-6] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Cannot deserialize value of type `java.time.LocalDateTime` from String "2026-02-08": Failed to deserialize `java.time.LocalDateTime` (with format 'ParseCaseSensitive(false)(Value(Year,4,10,EXCEEDS_PAD)'-'Value(MonthOfYear,2)'-'Value(DayOfMonth,2))'T'(Value(HourOfDay,2)':'Value(MinuteOfHour,2)[':'Value(SecondOfMinute,2)[Fraction(NanoOfSecond,0,9,DecimalPoint)]])'): (java.time.format.DateTimeParseException) Text '2026-02-08' could not be parsed at index 10]
+2026-02-19T22:40:07.504+07:00  WARN 25611 --- [SpringBootCore] [http-nio-8080-exec-8] .w.s.m.s.DefaultHandlerExceptionResolver : Ignoring exception, response committed already: org.springframework.http.converter.HttpMessageNotWritableException: Could not write JSON: Document nesting depth (501) exceeds the maximum allowed (500, from `StreamWriteConstraints.getMaxNestingDepth()`)
+2026-02-19T22:40:07.505+07:00  WARN 25611 --- [SpringBootCore] [http-nio-8080-exec-8] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.http.converter.HttpMessageNotWritableException: Could not write JSON: Document nesting depth (501) exceeds the maximum allowed (500, from `StreamWriteConstraints.getMaxNestingDepth()`)]

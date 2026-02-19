@@ -104,8 +104,8 @@ logging.file.name=logs/application.log
 {
   "title": "Buy groceries",
   "description": "Milk, eggs, and bread",
-  "created_at": "2026-02-08",
-  "updated_at": "2026-02-08"
+  "created_at": "2026-02-19T10:35:00",
+  "updated_at": "2026-02-19T10:35:00"
 }
 ```
 
