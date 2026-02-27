@@ -1,1 +1,27 @@
 /* You can add global styles to this file, and also import other style files */
+
+/* Hide scrollbars while maintaining scrollable content */
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+}
+
+/* Ensure app-root fills the viewport */
+app-root {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* Webkit browsers (Chrome, Safari, Edge) */
+::-webkit-scrollbar {
+  display: none;
+}
+
+/* Firefox */
+* {
+  scrollbar-width: none;
+}

@@ -1,9 +1,8 @@
 package com.springboot.SpringBootCore.dto;
 
 public record UserRequest(
-        String username,
-        String fullName,
-        String email,
-        String password) {
-
+                String username,
+                String name,
+                String email,
+                String password) {
 }
