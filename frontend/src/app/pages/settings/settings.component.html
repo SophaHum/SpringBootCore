@@ -1,0 +1,416 @@
+<div class="page-container">
+  <div class="page-header animate-fade-in-up">
+    <div>
+      <h1>Settings</h1>
+      <p>Configure your application preferences and integrations.</p>
+    </div>
+  </div>
+
+  <div class="settings-layout">
+    <!-- Sidebar Navigation -->
+    <nav class="settings-nav animate-fade-in-up stagger-1">
+      @for (section of sections; track section.key) {
+        <button
+          class="settings-nav-item"
+          [class.active]="activeSection() === section.key"
+          (click)="activeSection.set(section.key)"
+        >
+          <app-icon [name]="section.icon" [size]="18"/>
+          <span>{{ section.label }}</span>
+        </button>
+      }
+    </nav>
+
+    <!-- Content -->
+    <div class="settings-content">
+      <!-- General -->
+      @if (activeSection() === 'general') {
+        <div class="settings-card animate-fade-in">
+          <div class="settings-card-header">
+            <h3>General Settings</h3>
+            <p>Basic application configuration</p>
+          </div>
+          <div class="settings-card-body">
+            <div class="setting-group">
+              <label>Application Name</label>
+              <input type="text" class="form-input" [(ngModel)]="general.appName"/>
+            </div>
+            <div class="setting-group">
+              <label>Application URL</label>
+              <input type="url" class="form-input" [(ngModel)]="general.appUrl"/>
+            </div>
+            <div class="setting-group">
+              <label>Support Email</label>
+              <input type="email" class="form-input" [(ngModel)]="general.supportEmail"/>
+            </div>
+            <div class="setting-row">
+              <div class="setting-group">
+                <label>Timezone</label>
+                <select class="form-input" [(ngModel)]="general.timezone">
+                  <option value="UTC">UTC</option>
+                  <option value="America/New_York">Eastern Time</option>
+                  <option value="America/Chicago">Central Time</option>
+                  <option value="America/Los_Angeles">Pacific Time</option>
+                  <option value="Europe/London">London</option>
+                  <option value="Asia/Bangkok">Bangkok</option>
+                  <option value="Asia/Tokyo">Tokyo</option>
+                </select>
+              </div>
+              <div class="setting-group">
+                <label>Language</label>
+                <select class="form-input" [(ngModel)]="general.language">
+                  <option value="en">English</option>
+                  <option value="es">Spanish</option>
+                  <option value="fr">French</option>
+                  <option value="de">German</option>
+                  <option value="ja">Japanese</option>
+                  <option value="th">Thai</option>
+                </select>
+              </div>
+            </div>
+            <div class="setting-group">
+              <label>Date Format</label>
+              <select class="form-input" [(ngModel)]="general.dateFormat">
+                <option value="MM/DD/YYYY">MM/DD/YYYY</option>
+                <option value="DD/MM/YYYY">DD/MM/YYYY</option>
+                <option value="YYYY-MM-DD">YYYY-MM-DD</option>
+              </select>
+            </div>
+          </div>
+          <div class="settings-card-footer">
+            <button class="btn btn-primary" (click)="save('General')" [disabled]="saving()">
+              @if (saving()) { <span class="spinner-sm"></span> } @else { <app-icon name="save" [size]="16"/> }
+              <span>{{ saving() ? 'Saving...' : 'Save Changes' }}</span>
+            </button>
+          </div>
+        </div>
+      }
+
+      <!-- Notifications -->
+      @if (activeSection() === 'notifications') {
+        <div class="settings-card animate-fade-in">
+          <div class="settings-card-header">
+            <h3>Notification Preferences</h3>
+            <p>Choose how you want to be notified</p>
+          </div>
+          <div class="settings-card-body">
+            <div class="toggle-setting">
+              <div class="toggle-info">
+                <span class="toggle-label">Email Notifications</span>
+                <span class="toggle-desc">Receive notifications via email</span>
+              </div>
+              <label class="toggle">
+                <input type="checkbox" [(ngModel)]="notifications.emailNotifications"/>
+                <span class="toggle-slider"></span>
+              </label>
+            </div>
+            <div class="toggle-setting">
+              <div class="toggle-info">
+                <span class="toggle-label">Push Notifications</span>
+                <span class="toggle-desc">Browser push notifications</span>
+              </div>
+              <label class="toggle">
+                <input type="checkbox" [(ngModel)]="notifications.pushNotifications"/>
+                <span class="toggle-slider"></span>
+              </label>
+            </div>
+            <div class="toggle-setting">
+              <div class="toggle-info">
+                <span class="toggle-label">Security Alerts</span>
+                <span class="toggle-desc">Get notified about security events</span>
+              </div>
+              <label class="toggle">
+                <input type="checkbox" [(ngModel)]="notifications.securityAlerts"/>
+                <span class="toggle-slider"></span>
+              </label>
+            </div>
+            <div class="toggle-setting">
+              <div class="toggle-info">
+                <span class="toggle-label">Login Alerts</span>
+                <span class="toggle-desc">Notify on new device logins</span>
+              </div>
+              <label class="toggle">
+                <input type="checkbox" [(ngModel)]="notifications.loginAlerts"/>
+                <span class="toggle-slider"></span>
+              </label>
+            </div>
+            <div class="toggle-setting">
+              <div class="toggle-info">
+                <span class="toggle-label">New User Alerts</span>
+                <span class="toggle-desc">Notify when new users register</span>
+              </div>
+              <label class="toggle">
+                <input type="checkbox" [(ngModel)]="notifications.newUserAlerts"/>
+                <span class="toggle-slider"></span>
+              </label>
+            </div>
+            <div class="toggle-setting">
+              <div class="toggle-info">
+                <span class="toggle-label">Weekly Digest</span>
+                <span class="toggle-desc">Weekly summary of activity</span>
+              </div>
+              <label class="toggle">
+                <input type="checkbox" [(ngModel)]="notifications.weeklyDigest"/>
+                <span class="toggle-slider"></span>
+              </label>
+            </div>
+            <div class="toggle-setting">
+              <div class="toggle-info">
+                <span class="toggle-label">System Updates</span>
+                <span class="toggle-desc">Notifications about system updates</span>
+              </div>
+              <label class="toggle">
+                <input type="checkbox" [(ngModel)]="notifications.systemUpdates"/>
+                <span class="toggle-slider"></span>
+              </label>
+            </div>
+          </div>
+          <div class="settings-card-footer">
+            <button class="btn btn-primary" (click)="save('Notification')" [disabled]="saving()">
+              @if (saving()) { <span class="spinner-sm"></span> } @else { <app-icon name="save" [size]="16"/> }
+              <span>{{ saving() ? 'Saving...' : 'Save Changes' }}</span>
+            </button>
+          </div>
+        </div>
+      }
+
+      <!-- Security -->
+      @if (activeSection() === 'security') {
+        <div class="settings-card animate-fade-in">
+          <div class="settings-card-header">
+            <h3>Security Settings</h3>
+            <p>Configure authentication and security policies</p>
+          </div>
+          <div class="settings-card-body">
+            <div class="toggle-setting">
+              <div class="toggle-info">
+                <span class="toggle-label">Two-Factor Authentication</span>
+                <span class="toggle-desc">Require 2FA for all users</span>
+              </div>
+              <label class="toggle">
+                <input type="checkbox" [(ngModel)]="security.twoFactorAuth"/>
+                <span class="toggle-slider"></span>
+              </label>
+            </div>
+            <div class="toggle-setting">
+              <div class="toggle-info">
+                <span class="toggle-label">Audit Logging</span>
+                <span class="toggle-desc">Log all user actions for compliance</span>
+              </div>
+              <label class="toggle">
+                <input type="checkbox" [(ngModel)]="security.auditLogging"/>
+                <span class="toggle-slider"></span>
+              </label>
+            </div>
+            <div class="toggle-setting">
+              <div class="toggle-info">
+                <span class="toggle-label">IP Whitelist</span>
+                <span class="toggle-desc">Restrict access to specific IPs</span>
+              </div>
+              <label class="toggle">
+                <input type="checkbox" [(ngModel)]="security.ipWhitelist"/>
+                <span class="toggle-slider"></span>
+              </label>
+            </div>
+            <div class="toggle-setting">
+              <div class="toggle-info">
+                <span class="toggle-label">Force Password Change</span>
+                <span class="toggle-desc">Require password change on first login</span>
+              </div>
+              <label class="toggle">
+                <input type="checkbox" [(ngModel)]="security.forcePasswordChange"/>
+                <span class="toggle-slider"></span>
+              </label>
+            </div>
+            <div class="setting-row">
+              <div class="setting-group">
+                <label>Session Timeout (minutes)</label>
+                <input type="number" class="form-input" [(ngModel)]="security.sessionTimeout" min="5" max="1440"/>
+              </div>
+              <div class="setting-group">
+                <label>Max Login Attempts</label>
+                <input type="number" class="form-input" [(ngModel)]="security.maxLoginAttempts" min="3" max="20"/>
+              </div>
+            </div>
+            <div class="setting-group">
+              <label>Password Expiry (days)</label>
+              <input type="number" class="form-input" [(ngModel)]="security.passwordExpiry" min="0" max="365"/>
+              <span class="setting-hint">Set to 0 to disable password expiry</span>
+            </div>
+          </div>
+          <div class="settings-card-footer">
+            <button class="btn btn-primary" (click)="save('Security')" [disabled]="saving()">
+              @if (saving()) { <span class="spinner-sm"></span> } @else { <app-icon name="save" [size]="16"/> }
+              <span>{{ saving() ? 'Saving...' : 'Save Changes' }}</span>
+            </button>
+          </div>
+        </div>
+      }
+
+      <!-- Appearance -->
+      @if (activeSection() === 'appearance') {
+        <div class="settings-card animate-fade-in">
+          <div class="settings-card-header">
+            <h3>Appearance</h3>
+            <p>Customize the look and feel</p>
+          </div>
+          <div class="settings-card-body">
+            <div class="setting-group">
+              <label>Theme</label>
+              <div class="theme-options">
+                <button class="theme-option" [class.active]="appearance.theme === 'light'" (click)="onThemeChange('light')">
+                  <div class="theme-preview light-preview">
+                    <div class="preview-sidebar"></div>
+                    <div class="preview-content">
+                      <div class="preview-line"></div>
+                      <div class="preview-line short"></div>
+                    </div>
+                  </div>
+                  <span>Light</span>
+                </button>
+                <button class="theme-option" [class.active]="appearance.theme === 'dark'" (click)="onThemeChange('dark')">
+                  <div class="theme-preview dark-preview">
+                    <div class="preview-sidebar"></div>
+                    <div class="preview-content">
+                      <div class="preview-line"></div>
+                      <div class="preview-line short"></div>
+                    </div>
+                  </div>
+                  <span>Dark</span>
+                </button>
+                <button class="theme-option" [class.active]="appearance.theme === 'system'" (click)="onThemeChange('system')">
+                  <div class="theme-preview system-preview">
+                    <div class="preview-sidebar"></div>
+                    <div class="preview-content">
+                      <div class="preview-line"></div>
+                      <div class="preview-line short"></div>
+                    </div>
+                  </div>
+                  <span>System</span>
+                </button>
+              </div>
+            </div>
+            <div class="toggle-setting">
+              <div class="toggle-info">
+                <span class="toggle-label">Compact Mode</span>
+                <span class="toggle-desc">Reduce spacing for denser layouts</span>
+              </div>
+              <label class="toggle">
+                <input type="checkbox" [(ngModel)]="appearance.compactMode"/>
+                <span class="toggle-slider"></span>
+              </label>
+            </div>
+            <div class="toggle-setting">
+              <div class="toggle-info">
+                <span class="toggle-label">Animations</span>
+                <span class="toggle-desc">Enable smooth transitions and animations</span>
+              </div>
+              <label class="toggle">
+                <input type="checkbox" [(ngModel)]="appearance.animationsEnabled"/>
+                <span class="toggle-slider"></span>
+              </label>
+            </div>
+            <div class="setting-group">
+              <label>Font Size</label>
+              <select class="form-input" [(ngModel)]="appearance.fontSize">
+                <option value="small">Small</option>
+                <option value="medium">Medium (Default)</option>
+                <option value="large">Large</option>
+              </select>
+            </div>
+          </div>
+          <div class="settings-card-footer">
+            <button class="btn btn-primary" (click)="save('Appearance')" [disabled]="saving()">
+              @if (saving()) { <span class="spinner-sm"></span> } @else { <app-icon name="save" [size]="16"/> }
+              <span>{{ saving() ? 'Saving...' : 'Save Changes' }}</span>
+            </button>
+          </div>
+        </div>
+      }
+
+      <!-- OAuth2 -->
+      @if (activeSection() === 'oauth') {
+        <div class="settings-card animate-fade-in">
+          <div class="settings-card-header">
+            <h3>OAuth2 / Single Sign-On</h3>
+            <p>Configure third-party authentication providers</p>
+          </div>
+          <div class="settings-card-body">
+            <div class="toggle-setting highlight">
+              <div class="toggle-info">
+                <span class="toggle-label">Enable OAuth2</span>
+                <span class="toggle-desc">Allow users to sign in with third-party providers</span>
+              </div>
+              <label class="toggle">
+                <input type="checkbox" [(ngModel)]="oauth.enabled"/>
+                <span class="toggle-slider"></span>
+              </label>
+            </div>
+
+            @if (oauth.enabled) {
+              <div class="oauth-providers animate-fade-in">
+                <!-- Google -->
+                <div class="oauth-provider">
+                  <div class="provider-header">
+                    <div class="provider-info">
+                      <app-icon name="chrome" [size]="20"/>
+                      <span class="provider-name">Google</span>
+                    </div>
+                    <label class="toggle">
+                      <input type="checkbox" [(ngModel)]="oauth.googleEnabled"/>
+                      <span class="toggle-slider"></span>
+                    </label>
+                  </div>
+                  @if (oauth.googleEnabled) {
+                    <div class="provider-config animate-fade-in">
+                      <div class="setting-group">
+                        <label>Client ID</label>
+                        <input type="text" class="form-input" [(ngModel)]="oauth.googleClientId" placeholder="Enter Google Client ID"/>
+                      </div>
+                      <div class="setting-group">
+                        <label>Client Secret</label>
+                        <input type="password" class="form-input" [(ngModel)]="oauth.googleClientSecret" placeholder="Enter Google Client Secret"/>
+                      </div>
+                    </div>
+                  }
+                </div>
+
+                <!-- GitHub -->
+                <div class="oauth-provider">
+                  <div class="provider-header">
+                    <div class="provider-info">
+                      <app-icon name="github" [size]="20"/>
+                      <span class="provider-name">GitHub</span>
+                    </div>
+                    <label class="toggle">
+                      <input type="checkbox" [(ngModel)]="oauth.githubEnabled"/>
+                      <span class="toggle-slider"></span>
+                    </label>
+                  </div>
+                  @if (oauth.githubEnabled) {
+                    <div class="provider-config animate-fade-in">
+                      <div class="setting-group">
+                        <label>Client ID</label>
+                        <input type="text" class="form-input" [(ngModel)]="oauth.githubClientId" placeholder="Enter GitHub Client ID"/>
+                      </div>
+                      <div class="setting-group">
+                        <label>Client Secret</label>
+                        <input type="password" class="form-input" [(ngModel)]="oauth.githubClientSecret" placeholder="Enter GitHub Client Secret"/>
+                      </div>
+                    </div>
+                  }
+                </div>
+              </div>
+            }
+          </div>
+          <div class="settings-card-footer">
+            <button class="btn btn-primary" (click)="save('OAuth2')" [disabled]="saving()">
+              @if (saving()) { <span class="spinner-sm"></span> } @else { <app-icon name="save" [size]="16"/> }
+              <span>{{ saving() ? 'Saving...' : 'Save Changes' }}</span>
+            </button>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</div>

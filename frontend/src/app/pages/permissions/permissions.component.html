@@ -1,0 +1,178 @@
+<div class="page-container">
+  <div class="page-header animate-fade-in-up">
+    <div>
+      <h1>Permission Management</h1>
+      <p>Define granular permissions and assign them to roles.</p>
+    </div>
+    <div class="header-actions">
+      <div class="view-toggle">
+        <button class="toggle-btn" [class.active]="activeView() === 'matrix'" (click)="activeView.set('matrix')">
+          <app-icon name="grid" [size]="14"/>
+          <span>Matrix</span>
+        </button>
+        <button class="toggle-btn" [class.active]="activeView() === 'tree'" (click)="activeView.set('tree')">
+          <app-icon name="list" [size]="14"/>
+          <span>Tree</span>
+        </button>
+      </div>
+      <button class="btn btn-primary" (click)="showCreateModal.set(true)">
+        <app-icon name="plus" [size]="18"/>
+        <span>Add Permission</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Matrix View -->
+  @if (activeView() === 'matrix') {
+    <div class="matrix-wrapper animate-fade-in">
+      <div class="matrix-scroll">
+        <table class="matrix-table">
+          <thead>
+            <tr>
+              <th class="perm-header">Permission</th>
+              @for (role of roles; track role.id) {
+                <th class="role-header">
+                  <span class="role-dot" [style.background]="role.color"></span>
+                  {{ role.name }}
+                </th>
+              }
+            </tr>
+          </thead>
+          <tbody>
+            @for (cat of categories; track cat.key) {
+              <tr class="category-row" (click)="toggleCategory(cat.key)">
+                <td [attr.colspan]="roles.length + 1">
+                  <div class="category-header">
+                    <app-icon [name]="isCategoryExpanded(cat.key) ? 'chevron-down' : 'chevron-right'" [size]="16"/>
+                    <app-icon [name]="cat.icon" [size]="16"/>
+                    <span class="category-name">{{ cat.label }}</span>
+                    <span class="category-count">{{ getPermissionsByCategory(cat.key).length }} permissions</span>
+                  </div>
+                </td>
+              </tr>
+              @if (isCategoryExpanded(cat.key)) {
+                @for (perm of getPermissionsByCategory(cat.key); track perm.id; let i = $index) {
+                  <tr class="perm-row" [style.animation-delay]="(i * 30) + 'ms'">
+                    <td class="perm-cell">
+                      <div class="perm-info">
+                        <span class="perm-name">{{ perm.name }}</span>
+                        <span class="perm-desc">{{ perm.description }}</span>
+                      </div>
+                    </td>
+                    @for (role of roles; track role.id) {
+                      <td class="check-cell">
+                        <label class="matrix-check">
+                          <input
+                            type="checkbox"
+                            [checked]="isGranted(role.id, perm.id)"
+                            (change)="togglePermission(role.id, perm.id)"
+                          />
+                          <span class="check-visual" [class.granted]="isGranted(role.id, perm.id)">
+                            @if (isGranted(role.id, perm.id)) {
+                              <app-icon name="check" [size]="14"/>
+                            }
+                          </span>
+                        </label>
+                      </td>
+                    }
+                  </tr>
+                }
+              }
+            }
+          </tbody>
+        </table>
+      </div>
+
+      <div class="matrix-footer">
+        <button class="btn btn-primary" (click)="savePermissions()" [disabled]="saving()">
+          @if (saving()) {
+            <span class="spinner-sm"></span>
+            <span>Saving...</span>
+          } @else {
+            <app-icon name="save" [size]="16"/>
+            <span>Save Changes</span>
+          }
+        </button>
+      </div>
+    </div>
+  }
+
+  <!-- Tree View -->
+  @if (activeView() === 'tree') {
+    <div class="tree-view animate-fade-in">
+      @for (cat of categories; track cat.key) {
+        <div class="tree-category">
+          <div class="tree-category-header" (click)="toggleCategory(cat.key)">
+            <app-icon [name]="isCategoryExpanded(cat.key) ? 'chevron-down' : 'chevron-right'" [size]="16"/>
+            <app-icon [name]="cat.icon" [size]="18"/>
+            <span class="tree-category-name">{{ cat.label }}</span>
+            <span class="tree-category-count">{{ getPermissionsByCategory(cat.key).length }}</span>
+          </div>
+          @if (isCategoryExpanded(cat.key)) {
+            <div class="tree-permissions">
+              @for (perm of getPermissionsByCategory(cat.key); track perm.id) {
+                <div class="tree-perm">
+                  <div class="tree-perm-info">
+                    <span class="tree-perm-name">{{ perm.name }}</span>
+                    <span class="tree-perm-desc">{{ perm.description }}</span>
+                    <span class="tree-perm-id">{{ perm.id }}</span>
+                  </div>
+                  <div class="tree-perm-roles">
+                    @for (role of roles; track role.id) {
+                      <button
+                        class="role-chip"
+                        [class.active]="isGranted(role.id, perm.id)"
+                        [style.--chip-color]="role.color"
+                        (click)="togglePermission(role.id, perm.id)"
+                      >
+                        {{ role.name }}
+                      </button>
+                    }
+                  </div>
+                </div>
+              }
+            </div>
+          }
+        </div>
+      }
+
+      <div class="tree-footer">
+        <button class="btn btn-primary" (click)="savePermissions()" [disabled]="saving()">
+          @if (saving()) {
+            <span class="spinner-sm"></span>
+            <span>Saving...</span>
+          } @else {
+            <app-icon name="save" [size]="16"/>
+            <span>Save Changes</span>
+          }
+        </button>
+      </div>
+    </div>
+  }
+</div>
+
+<!-- Create Permission Modal -->
+<app-modal [isOpen]="showCreateModal()" title="Add Permission" (close)="showCreateModal.set(false)">
+  <div class="modal-form">
+    <div class="form-group">
+      <label>Permission Name</label>
+      <input type="text" class="form-input" [(ngModel)]="newPermission.name" placeholder="e.g., Export Data"/>
+    </div>
+    <div class="form-group">
+      <label>Description</label>
+      <input type="text" class="form-input" [(ngModel)]="newPermission.description" placeholder="What does this permission allow?"/>
+    </div>
+    <div class="form-group">
+      <label>Category</label>
+      <select class="form-input" [(ngModel)]="newPermission.category">
+        @for (cat of categories; track cat.key) {
+          <option [value]="cat.key">{{ cat.label }}</option>
+        }
+      </select>
+    </div>
+  </div>
+  <div modal-footer>
+    <button class="btn btn-ghost" (click)="showCreateModal.set(false)">Cancel</button>
+    <button class="btn btn-primary" (click)="createPermission()" [disabled]="!newPermission.name">Create</button>
+  </div>
+</app-modal>

@@ -49,7 +49,13 @@ export class AuthService {
   }
 
   login(credentials: LoginRequest): Observable<AuthResponse> {
-    return this.http.post<AuthResponse>(`${this.apiUrl}/auth/login`, credentials)
+    // Backend LoginRequest record uses 'email' and 'password'
+    const loginData = {
+      email: credentials.email,
+      password: credentials.password
+    };
+
+    return this.http.post<AuthResponse>(`${this.apiUrl}/auth/login`, loginData)
       .pipe(
         map(response => {
           if (response.token) {
@@ -61,7 +67,7 @@ export class AuthService {
                 const normalizedUser = {
                   ...response.user,
                   email: response.user.email || response.user.username,
-                  name: response.user.fullName || response.user.name || response.user.username
+                  name: response.user.name || response.user.fullName || response.user.username
                 };
                 localStorage.setItem('currentUser', JSON.stringify(normalizedUser));
                 this.currentUserSubject.next(normalizedUser);
@@ -78,26 +84,30 @@ export class AuthService {
   }
 
   register(data: RegisterRequest): Observable<AuthResponse> {
-    return this.http.post<AuthResponse>(`${this.apiUrl}/auth/register`, data)
+    // Backend UserRequest record uses 'username', 'name', 'email', 'password'
+    const backendData = {
+      username: data.email, // Using email as username
+      name: data.name,
+      email: data.email,
+      password: data.password
+    };
+
+    return this.http.post<AuthResponse>(`${this.apiUrl}/auth/register`, backendData)
       .pipe(
         map(response => {
-          if (response.token) {
-            if (typeof localStorage !== 'undefined') {
+          if (response.token || (response as any).id) {
+            if (response.token && typeof localStorage !== 'undefined') {
               localStorage.setItem('authToken', response.token);
               if (response.user) {
-                // Normalize user data (handle both username and email fields)
                 const normalizedUser = {
                   ...response.user,
                   email: response.user.email || response.user.username,
-                  name: response.user.fullName || response.user.name || response.user.username
+                  name: response.user.name || response.user.fullName || response.user.username
                 };
                 localStorage.setItem('currentUser', JSON.stringify(normalizedUser));
                 this.currentUserSubject.next(normalizedUser);
               }
-            } else {
-              this.currentUserSubject.next(response.user);
             }
-            // Mark as successful
             response.success = true;
           }
           return response;

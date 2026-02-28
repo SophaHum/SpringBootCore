@@ -1,51 +1,166 @@
-<div class="login-container">
-  <div class="login-box">
-    <h2>Login</h2>
+<div class="auth-page">
+  <!-- Theme toggle -->
+  <button class="theme-toggle-float" (click)="themeService.toggle()">
+    @if (themeService.isDark()) {
+      <app-icon name="sun" [size]="18"/>
+    } @else {
+      <app-icon name="moon" [size]="18"/>
+    }
+  </button>
 
-    <div *ngIf="error" class="alert alert-error">
-      {{ error }}
+  <div class="auth-container animate-fade-in-up">
+    <!-- Left decorative panel -->
+    <div class="auth-brand hide-mobile">
+      <div class="brand-content">
+        <div class="brand-logo">
+          <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+            <rect width="48" height="48" rx="14" fill="currentColor" opacity="0.15"/>
+            <path d="M14 24l8 8 14-14" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <h1 class="brand-title">CoreApp</h1>
+        <p class="brand-subtitle">Modern admin dashboard with complete user management, role-based access control, and beautiful UI.</p>
+        <div class="brand-features">
+          <div class="brand-feature">
+            <app-icon name="shield" [size]="18"/>
+            <span>Role-based access control</span>
+          </div>
+          <div class="brand-feature">
+            <app-icon name="users" [size]="18"/>
+            <span>User management</span>
+          </div>
+          <div class="brand-feature">
+            <app-icon name="zap" [size]="18"/>
+            <span>Lightning fast performance</span>
+          </div>
+        </div>
+      </div>
+      <div class="brand-decoration">
+        <div class="decoration-circle c1"></div>
+        <div class="decoration-circle c2"></div>
+        <div class="decoration-circle c3"></div>
+      </div>
     </div>
 
-    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-      <div class="form-group">
-        <label for="email">Email</label>
-        <input
-          type="email"
-          id="email"
-          class="form-control"
-          formControlName="email"
-          [class.is-invalid]="submitted && f['email'].errors"
-          placeholder="Enter your email"
-        />
-        <div *ngIf="submitted && f['email'].errors" class="invalid-feedback">
-          <small *ngIf="f['email'].errors['required']">Email is required</small>
-          <small *ngIf="f['email'].errors['email']">Email is invalid</small>
+    <!-- Login form -->
+    <div class="auth-form-panel">
+      <div class="auth-form-wrapper">
+        <div class="auth-header">
+          <h2>Welcome back</h2>
+          <p>Sign in to your account to continue</p>
         </div>
-      </div>
 
-      <div class="form-group">
-        <label for="password">Password</label>
-        <input
-          type="password"
-          id="password"
-          class="form-control"
-          formControlName="password"
-          [class.is-invalid]="submitted && f['password'].errors"
-          placeholder="Enter your password"
-        />
-        <div *ngIf="submitted && f['password'].errors" class="invalid-feedback">
-          <small *ngIf="f['password'].errors['required']">Password is required</small>
-          <small *ngIf="f['password'].errors['minlength']">Password must be at least 6 characters</small>
+        @if (error()) {
+          <div class="alert alert-error animate-shake">
+            <app-icon name="alert-triangle" [size]="16"/>
+            <span>{{ error() }}</span>
+          </div>
+        }
+
+        @if (success()) {
+          <div class="alert alert-success animate-scale-in">
+            <svg class="checkmark" width="24" height="24" viewBox="0 0 24 24">
+              <circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/>
+              <path class="checkmark-path" d="M8 12l3 3 5-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span>Login successful! Redirecting...</span>
+          </div>
+        }
+
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" [class.form-success]="success()">
+          <div class="form-group">
+            <label for="email">Email address</label>
+            <div class="input-wrapper" [class.input-error]="submitted() && f['email'].errors" [class.input-focus]="true">
+              <app-icon name="mail" [size]="18"/>
+              <input
+                type="email"
+                id="email"
+                formControlName="email"
+                placeholder="name@company.com"
+                autocomplete="email"
+              />
+            </div>
+            @if (submitted() && f['email'].errors) {
+              <div class="field-error animate-fade-in">
+                @if (f['email'].errors['required']) {
+                  <small>Email is required</small>
+                } @else if (f['email'].errors['email']) {
+                  <small>Please enter a valid email</small>
+                }
+              </div>
+            }
+          </div>
+
+          <div class="form-group">
+            <div class="label-row">
+              <label for="password">Password</label>
+              <a href="#" class="forgot-link">Forgot password?</a>
+            </div>
+            <div class="input-wrapper" [class.input-error]="submitted() && f['password'].errors">
+              <app-icon name="lock" [size]="18"/>
+              <input
+                [type]="showPassword() ? 'text' : 'password'"
+                id="password"
+                formControlName="password"
+                placeholder="Enter your password"
+                autocomplete="current-password"
+              />
+              <button type="button" class="input-action" (click)="togglePassword()">
+                <app-icon [name]="showPassword() ? 'eye-off' : 'eye'" [size]="16"/>
+              </button>
+            </div>
+            @if (submitted() && f['password'].errors) {
+              <div class="field-error animate-fade-in">
+                @if (f['password'].errors['required']) {
+                  <small>Password is required</small>
+                } @else if (f['password'].errors['minlength']) {
+                  <small>Password must be at least 6 characters</small>
+                }
+              </div>
+            }
+          </div>
+
+          <div class="form-group-inline">
+            <label class="checkbox-label">
+              <input type="checkbox" formControlName="remember"/>
+              <span class="checkbox-custom"></span>
+              <span>Remember me</span>
+            </label>
+          </div>
+
+          <button type="submit" class="btn-primary" [disabled]="loading()" [class.btn-loading]="loading()" [class.btn-success]="success()">
+            @if (loading()) {
+              <span class="spinner"></span>
+              <span>Signing in...</span>
+            } @else if (success()) {
+              <app-icon name="check" [size]="20"/>
+              <span>Success!</span>
+            } @else {
+              <span>Sign in</span>
+              <app-icon name="arrow-right" [size]="18"/>
+            }
+          </button>
+        </form>
+
+        <div class="auth-divider">
+          <span>or continue with</span>
         </div>
+
+        <div class="social-buttons">
+          <button class="btn-social" disabled title="OAuth2 disabled - Enable in Settings">
+            <app-icon name="github" [size]="18"/>
+            <span>GitHub</span>
+          </button>
+          <button class="btn-social" disabled title="OAuth2 disabled - Enable in Settings">
+            <app-icon name="chrome" [size]="18"/>
+            <span>Google</span>
+          </button>
+        </div>
+
+        <p class="auth-footer">
+          Don't have an account? <a routerLink="/register">Create account</a>
+        </p>
       </div>
-
-      <button type="submit" class="btn btn-primary" [disabled]="loading">
-        {{ loading ? 'Logging in...' : 'Login' }}
-      </button>
-    </form>
-
-    <p class="register-link">
-      Don't have an account? <a routerLink="/register">Register here</a>
-    </p>
+    </div>
   </div>
 </div>

@@ -1,0 +1,186 @@
+<div class="page-container">
+  <div class="page-header animate-fade-in-up">
+    <div>
+      <h1>My Profile</h1>
+      <p>Manage your account settings and preferences.</p>
+    </div>
+  </div>
+
+  <!-- Tabs -->
+  <div class="tabs animate-fade-in-up stagger-1">
+    <button class="tab" [class.active]="activeTab() === 'profile'" (click)="activeTab.set('profile')">
+      <app-icon name="user" [size]="16"/>
+      <span>Profile</span>
+    </button>
+    <button class="tab" [class.active]="activeTab() === 'security'" (click)="activeTab.set('security')">
+      <app-icon name="lock" [size]="16"/>
+      <span>Security</span>
+    </button>
+    <button class="tab" [class.active]="activeTab() === 'sessions'" (click)="activeTab.set('sessions')">
+      <app-icon name="monitor" [size]="16"/>
+      <span>Sessions</span>
+    </button>
+  </div>
+
+  <!-- Profile Tab -->
+  @if (activeTab() === 'profile') {
+    <div class="tab-content animate-fade-in">
+      <div class="profile-grid">
+        <!-- Avatar Section -->
+        <div class="card">
+          <div class="card-body avatar-section">
+            <div class="avatar-wrapper">
+              @if (avatarUrl()) {
+                <img [src]="avatarUrl()" alt="Avatar" class="avatar-img"/>
+              } @else {
+                <div class="avatar-placeholder">{{ getInitials() }}</div>
+              }
+              <label class="avatar-upload" for="avatar-input">
+                <app-icon name="camera" [size]="16"/>
+              </label>
+              <input type="file" id="avatar-input" accept="image/*" (change)="onAvatarChange($event)" hidden/>
+            </div>
+            <h3>{{ profile.name }}</h3>
+            <p class="avatar-email">{{ profile.email }}</p>
+            <p class="avatar-bio">{{ profile.bio }}</p>
+          </div>
+        </div>
+
+        <!-- Profile Form -->
+        <div class="card">
+          <div class="card-header">
+            <h3>Personal Information</h3>
+          </div>
+          <div class="card-body">
+            <div class="form-grid">
+              <div class="form-group">
+                <label>Full Name</label>
+                <input type="text" class="form-input" [(ngModel)]="profile.name"/>
+              </div>
+              <div class="form-group">
+                <label>Email</label>
+                <input type="email" class="form-input" [(ngModel)]="profile.email"/>
+              </div>
+              <div class="form-group">
+                <label>Phone</label>
+                <input type="tel" class="form-input" [(ngModel)]="profile.phone"/>
+              </div>
+              <div class="form-group">
+                <label>Location</label>
+                <input type="text" class="form-input" [(ngModel)]="profile.location"/>
+              </div>
+              <div class="form-group">
+                <label>Company</label>
+                <input type="text" class="form-input" [(ngModel)]="profile.company"/>
+              </div>
+              <div class="form-group">
+                <label>Website</label>
+                <input type="url" class="form-input" [(ngModel)]="profile.website"/>
+              </div>
+              <div class="form-group full-width">
+                <label>Bio</label>
+                <textarea class="form-input form-textarea" [(ngModel)]="profile.bio" rows="3"></textarea>
+              </div>
+            </div>
+            <div class="form-actions">
+              <button class="btn btn-primary" (click)="saveProfile()" [disabled]="saving()">
+                @if (saving()) {
+                  <span class="spinner-sm"></span>
+                  <span>Saving...</span>
+                } @else {
+                  <app-icon name="save" [size]="16"/>
+                  <span>Save Changes</span>
+                }
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  }
+
+  <!-- Security Tab -->
+  @if (activeTab() === 'security') {
+    <div class="tab-content animate-fade-in">
+      <div class="card">
+        <div class="card-header">
+          <h3>Change Password</h3>
+        </div>
+        <div class="card-body">
+          <div class="security-form">
+            <div class="form-group">
+              <label>Current Password</label>
+              <input type="password" class="form-input" [(ngModel)]="security.currentPassword" placeholder="Enter current password"/>
+            </div>
+            <div class="form-group">
+              <label>New Password</label>
+              <input type="password" class="form-input" [(ngModel)]="security.newPassword" placeholder="Enter new password"/>
+            </div>
+            <div class="form-group">
+              <label>Confirm New Password</label>
+              <input type="password" class="form-input" [(ngModel)]="security.confirmPassword" placeholder="Confirm new password"/>
+            </div>
+            <div class="form-actions">
+              <button class="btn btn-primary" (click)="changePassword()" [disabled]="saving()">
+                @if (saving()) {
+                  <span class="spinner-sm"></span>
+                  <span>Updating...</span>
+                } @else {
+                  <app-icon name="lock" [size]="16"/>
+                  <span>Update Password</span>
+                }
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  }
+
+  <!-- Sessions Tab -->
+  @if (activeTab() === 'sessions') {
+    <div class="tab-content animate-fade-in">
+      <div class="card">
+        <div class="card-header">
+          <h3>Active Sessions</h3>
+          <button class="btn btn-outline btn-sm" (click)="revokeAllSessions()">
+            <app-icon name="log-out" [size]="14"/>
+            <span>Revoke All</span>
+          </button>
+        </div>
+        <div class="card-body">
+          <div class="sessions-list">
+            @for (session of sessions; track session.id) {
+              <div class="session-item" [class.current]="session.current">
+                <div class="session-icon">
+                  <app-icon [name]="session.icon" [size]="20"/>
+                </div>
+                <div class="session-info">
+                  <div class="session-device">
+                    {{ session.device }}
+                    @if (session.current) {
+                      <span class="current-badge">Current</span>
+                    }
+                  </div>
+                  <div class="session-meta">
+                    <span>{{ session.ip }}</span>
+                    <span>•</span>
+                    <span>{{ session.location }}</span>
+                    <span>•</span>
+                    <span>{{ session.lastActive }}</span>
+                  </div>
+                </div>
+                @if (!session.current) {
+                  <button class="btn btn-ghost btn-sm" (click)="revokeSession(session.id)">
+                    <app-icon name="x" [size]="14"/>
+                    <span>Revoke</span>
+                  </button>
+                }
+              </div>
+            }
+          </div>
+        </div>
+      </div>
+    </div>
+  }
+</div>

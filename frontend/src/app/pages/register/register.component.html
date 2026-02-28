@@ -1,83 +1,217 @@
-<div class="register-container">
-  <div class="register-box">
-    <h2>Create Account</h2>
+<div class="auth-page">
+  <button class="theme-toggle-float" (click)="themeService.toggle()">
+    @if (themeService.isDark()) {
+      <app-icon name="sun" [size]="18"/>
+    } @else {
+      <app-icon name="moon" [size]="18"/>
+    }
+  </button>
 
-    <div *ngIf="error" class="alert alert-error">
-      {{ error }}
+  <div class="auth-container animate-fade-in-up">
+    <!-- Brand Panel -->
+    <div class="auth-brand hide-mobile">
+      <div class="brand-content">
+        <div class="brand-logo">
+          <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+            <rect width="48" height="48" rx="14" fill="currentColor" opacity="0.15"/>
+            <path d="M14 24l8 8 14-14" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <h1 class="brand-title">Join CoreApp</h1>
+        <p class="brand-subtitle">Create your account and start managing your applications with our powerful admin dashboard.</p>
+        <div class="brand-features">
+          <div class="brand-feature">
+            <app-icon name="check" [size]="18"/>
+            <span>Free to get started</span>
+          </div>
+          <div class="brand-feature">
+            <app-icon name="check" [size]="18"/>
+            <span>No credit card required</span>
+          </div>
+          <div class="brand-feature">
+            <app-icon name="check" [size]="18"/>
+            <span>Full feature access</span>
+          </div>
+        </div>
+      </div>
+      <div class="brand-decoration">
+        <div class="decoration-circle c1"></div>
+        <div class="decoration-circle c2"></div>
+        <div class="decoration-circle c3"></div>
+      </div>
     </div>
 
-    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
-      <div class="form-group">
-        <label for="name">Full Name</label>
-        <input
-          type="text"
-          id="name"
-          class="form-control"
-          formControlName="name"
-          [class.is-invalid]="submitted && f['name'].errors"
-          placeholder="Enter your full name"
-        />
-        <div *ngIf="submitted && f['name'].errors" class="invalid-feedback">
-          <small *ngIf="f['name'].errors['required']">Name is required</small>
-          <small *ngIf="f['name'].errors['minlength']">Name must be at least 2 characters</small>
+    <!-- Register Form -->
+    <div class="auth-form-panel">
+      <div class="auth-form-wrapper">
+        <div class="auth-header">
+          <h2>Create account</h2>
+          <p>Fill in your details to get started</p>
         </div>
+
+        @if (error()) {
+          <div class="alert alert-error animate-shake">
+            <app-icon name="alert-triangle" [size]="16"/>
+            <span>{{ error() }}</span>
+          </div>
+        }
+
+        @if (success()) {
+          <div class="alert alert-success animate-scale-in">
+            <svg class="checkmark" width="24" height="24" viewBox="0 0 24 24">
+              <circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/>
+              <path class="checkmark-path" d="M8 12l3 3 5-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span>Account created! Redirecting...</span>
+          </div>
+        }
+
+        <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" [class.form-success]="success()">
+          <div class="form-group">
+            <label for="name">Full name</label>
+            <div class="input-wrapper" [class.input-error]="submitted() && f['name'].errors">
+              <app-icon name="user" [size]="18"/>
+              <input
+                type="text"
+                id="name"
+                formControlName="name"
+                placeholder="John Doe"
+                autocomplete="name"
+              />
+            </div>
+            @if (submitted() && f['name'].errors) {
+              <div class="field-error animate-fade-in">
+                @if (f['name'].errors['required']) {
+                  <small>Name is required</small>
+                } @else if (f['name'].errors['minlength']) {
+                  <small>Name must be at least 2 characters</small>
+                }
+              </div>
+            }
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email address</label>
+            <div class="input-wrapper" [class.input-error]="submitted() && f['email'].errors">
+              <app-icon name="mail" [size]="18"/>
+              <input
+                type="email"
+                id="email"
+                formControlName="email"
+                placeholder="name@company.com"
+                autocomplete="email"
+              />
+            </div>
+            @if (submitted() && f['email'].errors) {
+              <div class="field-error animate-fade-in">
+                @if (f['email'].errors['required']) {
+                  <small>Email is required</small>
+                } @else if (f['email'].errors['email']) {
+                  <small>Please enter a valid email</small>
+                }
+              </div>
+            }
+          </div>
+
+          <div class="form-group">
+            <label for="password">Password</label>
+            <div class="input-wrapper" [class.input-error]="submitted() && f['password'].errors">
+              <app-icon name="lock" [size]="18"/>
+              <input
+                [type]="showPassword() ? 'text' : 'password'"
+                id="password"
+                formControlName="password"
+                placeholder="Create a strong password"
+                autocomplete="new-password"
+              />
+              <button type="button" class="input-action" (click)="showPassword.set(!showPassword())">
+                <app-icon [name]="showPassword() ? 'eye-off' : 'eye'" [size]="16"/>
+              </button>
+            </div>
+            @if (f['password'].value) {
+              <div class="password-strength">
+                <div class="strength-bars">
+                  @for (i of [1,2,3,4]; track i) {
+                    <div
+                      class="strength-bar"
+                      [class.active]="passwordStrength() >= i"
+                      [style.background]="passwordStrength() >= i ? passwordStrengthColor() : ''"
+                    ></div>
+                  }
+                </div>
+                <span class="strength-label" [style.color]="passwordStrengthColor()">
+                  {{ passwordStrengthLabel() }}
+                </span>
+              </div>
+            }
+            @if (submitted() && f['password'].errors) {
+              <div class="field-error animate-fade-in">
+                @if (f['password'].errors['required']) {
+                  <small>Password is required</small>
+                } @else if (f['password'].errors['minlength']) {
+                  <small>Password must be at least 8 characters</small>
+                }
+              </div>
+            }
+          </div>
+
+          <div class="form-group">
+            <label for="confirmPassword">Confirm password</label>
+            <div class="input-wrapper" [class.input-error]="submitted() && f['confirmPassword'].errors">
+              <app-icon name="lock" [size]="18"/>
+              <input
+                [type]="showConfirmPassword() ? 'text' : 'password'"
+                id="confirmPassword"
+                formControlName="confirmPassword"
+                placeholder="Confirm your password"
+                autocomplete="new-password"
+              />
+              <button type="button" class="input-action" (click)="showConfirmPassword.set(!showConfirmPassword())">
+                <app-icon [name]="showConfirmPassword() ? 'eye-off' : 'eye'" [size]="16"/>
+              </button>
+            </div>
+            @if (submitted() && f['confirmPassword'].errors) {
+              <div class="field-error animate-fade-in">
+                @if (f['confirmPassword'].errors['required']) {
+                  <small>Please confirm your password</small>
+                } @else if (f['confirmPassword'].errors['passwordMismatch']) {
+                  <small>Passwords do not match</small>
+                }
+              </div>
+            }
+          </div>
+
+          <div class="form-group-inline">
+            <label class="checkbox-label">
+              <input type="checkbox" formControlName="terms"/>
+              <span class="checkbox-custom"></span>
+              <span>I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a></span>
+            </label>
+            @if (submitted() && f['terms'].errors) {
+              <div class="field-error animate-fade-in">
+                <small>You must accept the terms</small>
+              </div>
+            }
+          </div>
+
+          <button type="submit" class="btn-primary" [disabled]="loading()" [class.btn-loading]="loading()" [class.btn-success]="success()">
+            @if (loading()) {
+              <span class="spinner"></span>
+              <span>Creating account...</span>
+            } @else if (success()) {
+              <app-icon name="check" [size]="20"/>
+              <span>Account created!</span>
+            } @else {
+              <span>Create account</span>
+              <app-icon name="arrow-right" [size]="18"/>
+            }
+          </button>
+        </form>
+
+        <p class="auth-footer">
+          Already have an account? <a routerLink="/login">Sign in</a>
+        </p>
       </div>
-
-      <div class="form-group">
-        <label for="email">Email</label>
-        <input
-          type="email"
-          id="email"
-          class="form-control"
-          formControlName="email"
-          [class.is-invalid]="submitted && f['email'].errors"
-          placeholder="Enter your email"
-        />
-        <div *ngIf="submitted && f['email'].errors" class="invalid-feedback">
-          <small *ngIf="f['email'].errors['required']">Email is required</small>
-          <small *ngIf="f['email'].errors['email']">Email is invalid</small>
-        </div>
-      </div>
-
-      <div class="form-group">
-        <label for="password">Password</label>
-        <input
-          type="password"
-          id="password"
-          class="form-control"
-          formControlName="password"
-          [class.is-invalid]="submitted && f['password'].errors"
-          placeholder="Enter your password"
-        />
-        <div *ngIf="submitted && f['password'].errors" class="invalid-feedback">
-          <small *ngIf="f['password'].errors['required']">Password is required</small>
-          <small *ngIf="f['password'].errors['minlength']">Password must be at least 6 characters</small>
-        </div>
-      </div>
-
-      <div class="form-group">
-        <label for="confirmPassword">Confirm Password</label>
-        <input
-          type="password"
-          id="confirmPassword"
-          class="form-control"
-          formControlName="confirmPassword"
-          [class.is-invalid]="submitted && (f['confirmPassword'].errors || registerForm.errors?.['passwordMismatch'])"
-          placeholder="Confirm your password"
-        />
-        <div *ngIf="submitted && (f['confirmPassword'].errors || registerForm.errors?.['passwordMismatch'])" class="invalid-feedback">
-          <small *ngIf="f['confirmPassword'].errors?.['required']">Password confirmation is required</small>
-          <small *ngIf="registerForm.errors?.['passwordMismatch']">Passwords do not match</small>
-        </div>
-      </div>
-
-      <button type="submit" class="btn btn-primary" [disabled]="loading">
-        {{ loading ? 'Creating Account...' : 'Register' }}
-      </button>
-    </form>
-
-    <p class="login-link">
-      Already have an account? <a routerLink="/login">Login here</a>
-    </p>
+    </div>
   </div>
 </div>

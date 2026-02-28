@@ -1,23 +1,73 @@
-<div class="dashboard-container">
-  <nav class="navbar">
-    <div class="nav-brand">Dashboard</div>
-    <div class="nav-menu">
-      <span *ngIf="currentUser$ | async as user" class="user-info">
-        Welcome, {{ user.name }}
-      </span>
-      <button class="btn-logout" (click)="logout()">Logout</button>
+<div class="dashboard">
+  <!-- Welcome Section -->
+  <div class="welcome-section animate-fade-in-up">
+    <div class="welcome-text">
+      <h1>Welcome back, {{ getUserName() }} 👋</h1>
+      <p>Here's what's happening with your application today.</p>
     </div>
-  </nav>
+  </div>
 
-  <div class="content">
-    <h1>Welcome to Your Dashboard</h1>
-    <p>You are successfully logged in!</p>
-    
-    <div *ngIf="currentUser$ | async as user" class="user-card">
-      <h2>Your Profile</h2>
-      <p><strong>Name:</strong> {{ user.name }}</p>
-      <p><strong>Email:</strong> {{ user.email }}</p>
-      <p><strong>ID:</strong> {{ user.id }}</p>
+  <!-- Stats Grid -->
+  <div class="stats-grid">
+    @for (stat of stats; track stat.label; let i = $index) {
+      <div class="stat-card animate-fade-in-up" [style.animation-delay]="(i * 80) + 'ms'">
+        <div class="stat-icon" [style.background]="stat.color + '15'" [style.color]="stat.color">
+          <app-icon [name]="stat.icon" [size]="22"/>
+        </div>
+        <div class="stat-content">
+          <span class="stat-label">{{ stat.label }}</span>
+          <span class="stat-value">{{ stat.value }}</span>
+          <span class="stat-change" [class.up]="stat.trend === 'up'" [class.down]="stat.trend === 'down'">
+            {{ stat.change }}
+          </span>
+        </div>
+      </div>
+    }
+  </div>
+
+  <div class="dashboard-grid">
+    <!-- Quick Actions -->
+    <div class="card animate-fade-in-up stagger-4">
+      <div class="card-header">
+        <h3>Quick Actions</h3>
+      </div>
+      <div class="card-body">
+        <div class="quick-actions">
+          @for (action of quickActions; track action.label) {
+            <a class="quick-action" [routerLink]="action.route">
+              <div class="quick-action-icon" [style.background]="action.color + '15'" [style.color]="action.color">
+                <app-icon [name]="action.icon" [size]="20"/>
+              </div>
+              <span class="quick-action-label">{{ action.label }}</span>
+              <app-icon name="chevron-right" [size]="16" class="quick-action-arrow"/>
+            </a>
+          }
+        </div>
+      </div>
+    </div>
+
+    <!-- Recent Activity -->
+    <div class="card animate-fade-in-up stagger-5">
+      <div class="card-header">
+        <h3>Recent Activity</h3>
+        <a href="#" class="card-link">View all</a>
+      </div>
+      <div class="card-body">
+        <div class="activity-list">
+          @for (item of recentActivity; track item.time; let i = $index) {
+            <div class="activity-item">
+              <div class="activity-icon">
+                <app-icon [name]="item.icon" [size]="16"/>
+              </div>
+              <div class="activity-content">
+                <span class="activity-user">{{ item.user }}</span>
+                <span class="activity-action">{{ item.action }}</span>
+              </div>
+              <span class="activity-time">{{ item.time }}</span>
+            </div>
+          }
+        </div>
+      </div>
     </div>
   </div>
 </div>

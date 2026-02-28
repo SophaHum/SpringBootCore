@@ -1,0 +1,134 @@
+<div class="page-container">
+  <div class="page-header animate-fade-in-up">
+    <div>
+      <h1>User Management</h1>
+      <p>Manage user accounts, roles, and access permissions.</p>
+    </div>
+    <button class="btn btn-primary" (click)="showCreateModal.set(true)">
+      <app-icon name="plus" [size]="18"/>
+      <span>Add User</span>
+    </button>
+  </div>
+
+  <app-data-table
+    [columns]="columns"
+    [data]="users"
+    searchPlaceholder="Search users..."
+    (edit)="onEdit($event)"
+    (delete)="onDelete($event)"
+  >
+    <div table-actions>
+      <button class="btn btn-outline btn-sm">
+        <app-icon name="filter" [size]="14"/>
+        <span>Filter</span>
+      </button>
+      <button class="btn btn-outline btn-sm">
+        <app-icon name="download" [size]="14"/>
+        <span>Export</span>
+      </button>
+    </div>
+  </app-data-table>
+</div>
+
+<!-- Create User Modal -->
+<app-modal
+  [isOpen]="showCreateModal()"
+  title="Create New User"
+  (close)="showCreateModal.set(false)"
+>
+  <div class="modal-form">
+    <div class="form-group">
+      <label>Full Name</label>
+      <input type="text" class="form-input" [(ngModel)]="newUser.name" placeholder="Enter full name"/>
+    </div>
+    <div class="form-group">
+      <label>Email Address</label>
+      <input type="email" class="form-input" [(ngModel)]="newUser.email" placeholder="Enter email"/>
+    </div>
+    <div class="form-row">
+      <div class="form-group">
+        <label>Role</label>
+        <select class="form-input" [(ngModel)]="newUser.role">
+          <option value="Admin">Admin</option>
+          <option value="Manager">Manager</option>
+          <option value="Editor">Editor</option>
+          <option value="Viewer">Viewer</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Status</label>
+        <select class="form-input" [(ngModel)]="newUser.status">
+          <option value="Active">Active</option>
+          <option value="Inactive">Inactive</option>
+          <option value="Pending">Pending</option>
+        </select>
+      </div>
+    </div>
+  </div>
+  <div modal-footer>
+    <button class="btn btn-ghost" (click)="showCreateModal.set(false)">Cancel</button>
+    <button class="btn btn-primary" (click)="saveNewUser()">Create User</button>
+  </div>
+</app-modal>
+
+<!-- Edit User Modal -->
+<app-modal
+  [isOpen]="showEditModal()"
+  title="Edit User"
+  (close)="showEditModal.set(false)"
+>
+  @if (selectedUser()) {
+    <div class="modal-form">
+      <div class="form-group">
+        <label>Full Name</label>
+        <input type="text" class="form-input" [(ngModel)]="selectedUser()!.name" placeholder="Enter full name"/>
+      </div>
+      <div class="form-group">
+        <label>Email Address</label>
+        <input type="email" class="form-input" [(ngModel)]="selectedUser()!.email" placeholder="Enter email"/>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Role</label>
+          <select class="form-input" [(ngModel)]="selectedUser()!.role">
+            <option value="Admin">Admin</option>
+            <option value="Manager">Manager</option>
+            <option value="Editor">Editor</option>
+            <option value="Viewer">Viewer</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Status</label>
+          <select class="form-input" [(ngModel)]="selectedUser()!.status">
+            <option value="Active">Active</option>
+            <option value="Inactive">Inactive</option>
+            <option value="Pending">Pending</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  }
+  <div modal-footer>
+    <button class="btn btn-ghost" (click)="showEditModal.set(false)">Cancel</button>
+    <button class="btn btn-primary" (click)="saveEditUser()">Save Changes</button>
+  </div>
+</app-modal>
+
+<!-- Delete Confirmation Modal -->
+<app-modal
+  [isOpen]="showDeleteModal()"
+  title="Delete User"
+  size="sm"
+  (close)="showDeleteModal.set(false)"
+>
+  <div class="delete-confirm">
+    <div class="delete-icon">
+      <app-icon name="alert-triangle" [size]="24"/>
+    </div>
+    <p>Are you sure you want to delete <strong>{{ selectedUser()?.name }}</strong>? This action cannot be undone.</p>
+  </div>
+  <div modal-footer>
+    <button class="btn btn-ghost" (click)="showDeleteModal.set(false)">Cancel</button>
+    <button class="btn btn-danger" (click)="confirmDelete()">Delete User</button>
+  </div>
+</app-modal>

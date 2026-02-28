@@ -21,7 +21,7 @@ public class TodoController {
 
     private final TodoService todoService;
 
-    @GetMapping("/{userId}")
+    @GetMapping("/user/{userId}")
     public List<Todo> getAllTodos(@PathVariable Long userId) {
         return todoService.getTodosByUser(userId);
     }

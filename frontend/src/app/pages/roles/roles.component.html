@@ -1,0 +1,165 @@
+<div class="page-container">
+  <div class="page-header animate-fade-in-up">
+    <div>
+      <h1>Role Management</h1>
+      <p>Define roles and manage access levels for your application.</p>
+    </div>
+    <button class="btn btn-primary" (click)="showCreateModal.set(true)">
+      <app-icon name="plus" [size]="18"/>
+      <span>Create Role</span>
+    </button>
+  </div>
+
+  <!-- Search & Sort -->
+  <div class="controls animate-fade-in-up stagger-1">
+    <div class="search-box">
+      <app-icon name="search" [size]="16"/>
+      <input
+        type="text"
+        placeholder="Search roles..."
+        [ngModel]="searchQuery()"
+        (ngModelChange)="searchQuery.set($event)"
+      />
+    </div>
+    <div class="sort-controls">
+      <span class="sort-label">Sort by:</span>
+      <button class="sort-btn" [class.active]="sortKey() === 'name'" (click)="onSort('name')">
+        Name
+        @if (sortKey() === 'name') {
+          <span>{{ sortDir() === 'asc' ? '↑' : '↓' }}</span>
+        }
+      </button>
+      <button class="sort-btn" [class.active]="sortKey() === 'usersCount'" (click)="onSort('usersCount')">
+        Users
+        @if (sortKey() === 'usersCount') {
+          <span>{{ sortDir() === 'asc' ? '↑' : '↓' }}</span>
+        }
+      </button>
+    </div>
+  </div>
+
+  <!-- Roles Table -->
+  <div class="roles-table animate-fade-in-up stagger-2">
+    <table>
+      <thead>
+        <tr>
+          <th class="sortable" (click)="onSort('name')">
+            Role
+            @if (sortKey() === 'name') { <span class="sort-indicator">{{ sortDir() === 'asc' ? '↑' : '↓' }}</span> }
+          </th>
+          <th>Description</th>
+          <th class="sortable" (click)="onSort('usersCount')">
+            Users
+            @if (sortKey() === 'usersCount') { <span class="sort-indicator">{{ sortDir() === 'asc' ? '↑' : '↓' }}</span> }
+          </th>
+          <th>Permissions</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (role of filteredRoles; track role.id; let i = $index) {
+          <tr class="role-row" [style.animation-delay]="(i * 40) + 'ms'">
+            <td>
+              @if (role.isEditing) {
+                <input type="text" class="inline-input" [(ngModel)]="role.editName" (keyup.enter)="saveEdit(role)" (keyup.escape)="cancelEdit(role)"/>
+              } @else {
+                <div class="role-name">
+                  <span class="role-dot" [style.background]="role.color"></span>
+                  <span>{{ role.name }}</span>
+                </div>
+              }
+            </td>
+            <td>
+              @if (role.isEditing) {
+                <input type="text" class="inline-input" [(ngModel)]="role.editDescription" (keyup.enter)="saveEdit(role)" (keyup.escape)="cancelEdit(role)"/>
+              } @else {
+                <span class="role-desc">{{ role.description }}</span>
+              }
+            </td>
+            <td>
+              <span class="user-count">{{ role.usersCount }}</span>
+            </td>
+            <td>
+              <div class="permission-tags">
+                @for (perm of role.permissions.slice(0, 3); track perm) {
+                  <span class="perm-tag">{{ perm }}</span>
+                }
+                @if (role.permissions.length > 3) {
+                  <span class="perm-tag more">+{{ role.permissions.length - 3 }}</span>
+                }
+              </div>
+            </td>
+            <td>
+              <div class="row-actions">
+                @if (role.isEditing) {
+                  <button class="action-btn success" title="Save" (click)="saveEdit(role)">
+                    <app-icon name="check" [size]="15"/>
+                  </button>
+                  <button class="action-btn" title="Cancel" (click)="cancelEdit(role)">
+                    <app-icon name="x" [size]="15"/>
+                  </button>
+                } @else {
+                  <button class="action-btn" title="Edit" (click)="startEdit(role)">
+                    <app-icon name="edit" [size]="15"/>
+                  </button>
+                  <button class="action-btn danger" title="Delete" (click)="confirmDelete(role)">
+                    <app-icon name="trash" [size]="15"/>
+                  </button>
+                }
+              </div>
+            </td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- Create Role Modal -->
+<app-modal [isOpen]="showCreateModal()" title="Create New Role" (close)="showCreateModal.set(false)">
+  <div class="modal-form">
+    <div class="form-group">
+      <label>Role Name</label>
+      <input type="text" class="form-input" [(ngModel)]="newRole.name" placeholder="e.g., Content Manager"/>
+    </div>
+    <div class="form-group">
+      <label>Description</label>
+      <textarea class="form-input" [(ngModel)]="newRole.description" rows="3" placeholder="Describe the role's purpose..."></textarea>
+    </div>
+    <div class="form-group">
+      <label>Color</label>
+      <div class="color-picker">
+        @for (color of ['#ef4444','#f59e0b','#10b981','#3b82f6','#6366f1','#8b5cf6']; track color) {
+          <button
+            class="color-option"
+            [style.background]="color"
+            [class.selected]="newRole.color === color"
+            (click)="newRole.color = color"
+          ></button>
+        }
+      </div>
+    </div>
+  </div>
+  <div modal-footer>
+    <button class="btn btn-ghost" (click)="showCreateModal.set(false)">Cancel</button>
+    <button class="btn btn-primary" (click)="createRole()" [disabled]="!newRole.name">Create Role</button>
+  </div>
+</app-modal>
+
+<!-- Delete Modal -->
+<app-modal [isOpen]="showDeleteModal()" title="Delete Role" size="sm" (close)="showDeleteModal.set(false)">
+  <div class="delete-confirm">
+    <div class="delete-icon">
+      <app-icon name="alert-triangle" [size]="24"/>
+    </div>
+    <p>Are you sure you want to delete <strong>{{ selectedRole()?.name }}</strong>?
+      @if (selectedRole()?.usersCount) {
+        This will affect <strong>{{ selectedRole()?.usersCount }}</strong> users.
+      }
+    </p>
+  </div>
+  <div modal-footer>
+    <button class="btn btn-ghost" (click)="showDeleteModal.set(false)">Cancel</button>
+    <button class="btn btn-danger" (click)="deleteRole()">Delete Role</button>
+  </div>
+</app-modal>

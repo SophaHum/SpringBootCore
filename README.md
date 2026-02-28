@@ -196,3 +196,8 @@ docker exec -it <container_id_or_name> bash
 - [Spring Guides](https://spring.io/guides)
 - [Spring Security Docs](https://docs.spring.io/spring-security/reference/index.html)
 - [Docker Docs](https://docs.docker.com/)
+
+
+# User login
+- email: verify-user@example.com
+- password: password123

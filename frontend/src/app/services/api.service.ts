@@ -66,7 +66,8 @@ export class ApiService {
    * Usage: this.apiService.getUsers()
    */
   getUsers(): Observable<any> {
-    return this.get('users');
+    // Adding trailing slash to match documentation in README.md Section 7
+    return this.get('users/');
   }
 
   /**
