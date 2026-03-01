@@ -109,22 +109,30 @@
 }
 
 .form-input {
+  @extend .premium-input;
+}
+
+/* Fallback for environments where @extend is not used directly in CSS */
+.form-input {
   width: 100%;
   padding: var(--space-2) var(--space-3);
-  background: var(--color-bg-tertiary);
-  border: 1.5px solid var(--color-border);
+  background: var(--input-bg);
+  border: 1px solid var(--input-border);
   border-radius: var(--radius-lg);
   font-size: var(--font-size-sm);
   color: var(--color-text);
   font-family: var(--font-family);
   transition: all var(--transition-fast);
   outline: none;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
 }
 
 .form-input:focus {
-  border-color: var(--color-primary);
-  box-shadow: 0 0 0 3px rgba(var(--color-primary-rgb), 0.1);
+  border-color: var(--input-focus-border);
+  box-shadow: var(--input-focus-shadow);
   background: var(--color-bg-secondary);
+  transform: translateY(-1px);
 }
 
 .form-input::placeholder {

@@ -15,6 +15,7 @@
   --color-primary-light: #e0e7ff;
   --color-primary-dark: #3730a3;
   --color-primary-rgb: 99, 102, 241;
+  --color-primary-alpha: rgba(99, 102, 241, 0.1);
 
   --color-secondary: #8b5cf6;
   --color-secondary-hover: #7c3aed;
@@ -54,6 +55,12 @@
   --color-text-tertiary: #94a3b8;
   --color-text-inverse: #ffffff;
   --color-text-link: #6366f1;
+
+  /* Premium Light Input Tokens */
+  --input-bg: #ffffff;
+  --input-border: #e2e8f0;
+  --input-focus-border: #6366f1;
+  --input-focus-shadow: 0 0 0 4px rgba(99, 102, 241, 0.1);
 
   /* Sidebar */
   --sidebar-bg: #0f172a;
@@ -151,6 +158,7 @@
   --color-primary-light: rgba(99, 102, 241, 0.15);
   --color-primary-dark: #a5b4fc;
   --color-primary-rgb: 129, 140, 248;
+  --color-primary-alpha: rgba(129, 140, 248, 0.25);
 
   --color-secondary: #a78bfa;
   --color-secondary-hover: #8b5cf6;
@@ -189,6 +197,12 @@
   --color-text-tertiary: #64748b;
   --color-text-inverse: #0f172a;
   --color-text-link: #818cf8;
+
+  /* Premium Dark Input Tokens */
+  --input-bg: rgba(15, 23, 42, 0.6);
+  --input-border: rgba(51, 65, 85, 0.8);
+  --input-focus-border: #818cf8;
+  --input-focus-shadow: 0 0 0 4px rgba(129, 140, 248, 0.15), inset 0 2px 4px 0 rgba(0, 0, 0, 0.05);
 
   --sidebar-bg: #0b1120;
   --sidebar-text: #94a3b8;
@@ -285,6 +299,37 @@ app-root {
 }
 
 /* ============================================================
+   Premium Form Elements
+   ============================================================ */
+.premium-input {
+  width: 100%;
+  padding: var(--space-2) var(--space-3);
+  background: var(--input-bg);
+  border: 1px solid var(--input-border);
+  border-radius: var(--radius-lg);
+  font-size: var(--font-size-sm);
+  color: var(--color-text);
+  font-family: var(--font-family);
+  transition: all var(--transition-fast);
+  outline: none;
+  box-shadow: var(--shadow-xs);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.premium-input:focus {
+  border-color: var(--input-focus-border);
+  box-shadow: var(--input-focus-shadow);
+  background: var(--color-bg-secondary);
+  transform: translateY(-1px);
+}
+
+.premium-input:hover:not(:focus) {
+  border-color: rgba(var(--color-primary-rgb), 0.5);
+  background: rgba(var(--color-bg-tertiary-rgb), 0.4);
+}
+
+/* ============================================================
    Typography
    ============================================================ */
 h1, h2, h3, h4, h5, h6 {
@@ -329,8 +374,8 @@ a:hover {
 :focus-visible {
   outline: 2px solid var(--color-primary);
   outline-offset: 2px;
-  border-radius: var(--radius-sm);
 }
+
 
 /* ============================================================
    Animation Keyframes
