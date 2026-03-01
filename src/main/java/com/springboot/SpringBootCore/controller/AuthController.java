@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Map;
 
+import com.springboot.SpringBootCore.dto.ApiResponse;
 @RestController
 @RequestMapping("/api/auth")
 @RequiredArgsConstructor
@@ -23,18 +24,23 @@ public class AuthController {
     private final JwtUtils jwtUtils;
 
     @PostMapping("/login")
-    public ResponseEntity<?> login(@RequestBody LoginRequest loginRequest) {
+    public ResponseEntity<ApiResponse<LoginResponse>> login(@RequestBody LoginRequest loginRequest) {
         try {
             User user = userService.login(loginRequest.email(), loginRequest.password());
             String token = jwtUtils.generateToken(user.getEmail());
-            return ResponseEntity.ok(new LoginResponse(token, user));
+            return ResponseEntity.ok(ApiResponse.success(new LoginResponse(token, user)));
         } catch (RuntimeException e) {
-            return ResponseEntity.status(401).body(Map.of("message", e.getMessage()));
+            return ResponseEntity.status(401).body(ApiResponse.error(e.getMessage()));
         }
     }
 
     @PostMapping("/register")
-    public ResponseEntity<User> register(@RequestBody UserRequest userRequest) {
-        return ResponseEntity.ok(userService.createUser(userRequest));
+    public ResponseEntity<ApiResponse<User>> register(@RequestBody UserRequest userRequest) {
+        try {
+            User user = userService.createUser(userRequest);
+            return ResponseEntity.ok(ApiResponse.success(user));
+        } catch (RuntimeException e) {
+            return ResponseEntity.status(400).body(ApiResponse.error(e.getMessage()));
+        }
     }
 }

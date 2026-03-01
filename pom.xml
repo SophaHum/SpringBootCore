@@ -147,6 +147,17 @@
 					</excludes>
 				</configuration>
 			</plugin>
+			<plugin>
+				<groupId>org.flywaydb</groupId>
+				<artifactId>flyway-maven-plugin</artifactId>
+				<version>11.3.3</version>
+				<configuration>
+					<url>jdbc:postgresql://localhost:5431/springbootdb</url>
+					<user>sopha</user>
+					<password>passwordSopha123</password>
+					<cleanDisabled>false</cleanDisabled>
+				</configuration>
+			</plugin>
 		</plugins>
 	</build>
 	<repositories>
