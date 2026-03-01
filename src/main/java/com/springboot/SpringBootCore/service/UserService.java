@@ -1,81 +1,105 @@
 package com.springboot.SpringBootCore.service;
 
-import org.springframework.stereotype.Service;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import com.springboot.SpringBootCore.dto.UserRequest;
+import com.springboot.SpringBootCore.model.Role;
 import com.springboot.SpringBootCore.model.User;
+import com.springboot.SpringBootCore.repository.RoleRepository;
 import com.springboot.SpringBootCore.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
-
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
 public class UserService {
     private final UserRepository userRepository;
+    private final RoleRepository roleRepository;
     private final PasswordEncoder passwordEncoder;
 
+    @Transactional
     public User createUser(UserRequest userRequest) {
-        User user = new User();
-        user.setUsername(userRequest.username() != null ? userRequest.username() : userRequest.email());
-        user.setFullName(userRequest.name());
-        user.setEmail(userRequest.email());
-        user.setPassword(passwordEncoder.encode(userRequest.password()));
+        String username = userRequest.username() != null ? userRequest.username() : userRequest.email();
+        
+        if (userRepository.findByEmail(userRequest.email()).isPresent()) {
+            throw new RuntimeException("Email already exists");
+        }
+
+        User user = User.builder()
+                .username(username)
+                .email(userRequest.email())
+                .fullName(userRequest.name())
+                .password(passwordEncoder.encode(userRequest.password()))
+                .status(userRequest.status() != null ? userRequest.status() : "Active")
+                .build();
+
+        if (userRequest.roleIds() != null && !userRequest.roleIds().isEmpty()) {
+            Set<Role> roles = userRequest.roleIds().stream()
+                    .map(id -> roleRepository.findById(id).orElseThrow(() -> new RuntimeException("Role not found: " + id)))
+                    .collect(Collectors.toSet());
+            user.setRoles(roles);
+        } else {
+            // Default to Viewer role if it exists
+            roleRepository.findByName("Viewer").ifPresent(role -> user.setRoles(Set.of(role)));
+        }
+
         return userRepository.save(user);
-    }
-
-    public User getUserById(Long id) {
-        return userRepository.findById(id).orElseThrow(() -> new RuntimeException("User not found"));
-    }
-
-    public User getUserByUsername(String username) {
-        return userRepository.findByUsername(username).orElseThrow(() -> new RuntimeException("User not found"));
-    }
-
-    public User getUserByEmail(String email) {
-        return userRepository.findByEmail(email).orElseThrow(() -> new RuntimeException("User not found"));
-    }
-
-    public User updateUser(Long id, UserRequest userRequest) {
-        User existingUser = userRepository.findById(id).orElseThrow(() -> new RuntimeException("User not found"));
-        existingUser.setFullName(userRequest.name());
-        existingUser.setEmail(userRequest.email());
-        existingUser.setPassword(passwordEncoder.encode(userRequest.password()));
-        return userRepository.save(existingUser);
-    }
-
-    public void deleteUser(Long id) {
-        userRepository.deleteById(id);
     }
 
     public List<User> getAllUsers() {
         return userRepository.findAll();
     }
 
+    public User getUserByEmail(String email) {
+        return userRepository.findByEmail(email).orElseThrow(() -> new RuntimeException("User not found"));
+    }
+
+    public User getUserById(Long id) {
+        return userRepository.findById(id).orElseThrow(() -> new RuntimeException("User not found"));
+    }
+
+    @Transactional
+    public User updateUser(Long id, UserRequest userRequest) {
+        User user = getUserById(id);
+        user.setFullName(userRequest.name());
+        user.setEmail(userRequest.email());
+        user.setStatus(userRequest.status());
+
+        if (userRequest.password() != null && !userRequest.password().isEmpty()) {
+            user.setPassword(passwordEncoder.encode(userRequest.password()));
+        }
+
+        if (userRequest.roleIds() != null) {
+            Set<Role> roles = userRequest.roleIds().stream()
+                    .map(rid -> roleRepository.findById(rid).orElseThrow(() -> new RuntimeException("Role not found: " + rid)))
+                    .collect(Collectors.toSet());
+            user.setRoles(roles);
+        }
+
+        return userRepository.save(user);
+    }
+
+    public void deleteUser(Long id) {
+        userRepository.deleteById(id);
+    }
+
     public User login(String email, String password) {
         User user = userRepository.findByEmail(email)
                 .orElseThrow(() -> new RuntimeException("Invalid email or password"));
 
-        boolean matches = false;
-        String storedPassword = user.getPassword();
-
-        // Check if stored password is BCrypt hashed (starts with $2a$ or $2b$)
-        if (storedPassword.startsWith("$2a$") || storedPassword.startsWith("$2b$")) {
-            matches = passwordEncoder.matches(password, storedPassword);
-        } else {
-            // Fallback for plain-text passwords
-            matches = storedPassword.equals(password);
-
-            // Transparent migration: if plain-text matches, hash and update
-            if (matches) {
-                user.setPassword(passwordEncoder.encode(password));
-                userRepository.save(user);
-            }
-        }
-
-        if (!matches) {
+        if (!passwordEncoder.matches(password, user.getPassword())) {
             throw new RuntimeException("Invalid email or password");
         }
-        return user;
+
+        if (!user.isEnabled()) {
+            throw new RuntimeException("User account is " + user.getStatus());
+        }
+
+        user.setLastLoginAt(LocalDateTime.now());
+        return userRepository.save(user);
     }
 }

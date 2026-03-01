@@ -49,21 +49,19 @@ export class AuthService {
   }
 
   login(credentials: LoginRequest): Observable<AuthResponse> {
-    // Backend LoginRequest record uses 'email' and 'password'
     const loginData = {
       email: credentials.email,
       password: credentials.password
     };
 
-    return this.http.post<AuthResponse>(`${this.apiUrl}/auth/login`, loginData)
+    return this.http.post<{success: boolean, data: AuthResponse}>(`${this.apiUrl}/auth/login`, loginData)
       .pipe(
-        map(response => {
+        map(res => {
+          const response = res.data;
           if (response.token) {
-            // Store token and user info in localStorage
             if (typeof localStorage !== 'undefined') {
               localStorage.setItem('authToken', response.token);
               if (response.user) {
-                // Normalize user data (handle both username and email fields)
                 const normalizedUser = {
                   ...response.user,
                   email: response.user.email || response.user.username,
@@ -72,10 +70,7 @@ export class AuthService {
                 localStorage.setItem('currentUser', JSON.stringify(normalizedUser));
                 this.currentUserSubject.next(normalizedUser);
               }
-            } else {
-              this.currentUserSubject.next(response.user);
             }
-            // Mark as successful
             response.success = true;
           }
           return response;
@@ -84,17 +79,17 @@ export class AuthService {
   }
 
   register(data: RegisterRequest): Observable<AuthResponse> {
-    // Backend UserRequest record uses 'username', 'name', 'email', 'password'
     const backendData = {
-      username: data.email, // Using email as username
+      username: data.email,
       name: data.name,
       email: data.email,
       password: data.password
     };
 
-    return this.http.post<AuthResponse>(`${this.apiUrl}/auth/register`, backendData)
+    return this.http.post<{success: boolean, data: AuthResponse}>(`${this.apiUrl}/auth/register`, backendData)
       .pipe(
-        map(response => {
+        map(res => {
+          const response = res.data;
           if (response.token || (response as any).id) {
             if (response.token && typeof localStorage !== 'undefined') {
               localStorage.setItem('authToken', response.token);

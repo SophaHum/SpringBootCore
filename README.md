@@ -88,27 +88,6 @@ logging.file.name=logs/application.log
 }
 ```
 
-#### Todo API (`/springbootcore/api/todos`)
-
-| Method | Endpoint | Description |
-| --- | --- | --- |
-| GET | `/springbootcore/api/todos/{userId}` | Get all todos for a user |
-| POST | `/springbootcore/api/todos/{userId}` | Create a todo for a user |
-| GET | `/springbootcore/api/todos/{id}` | Get todo by ID |
-| PUT | `/springbootcore/api/todos/{id}` | Update todo by ID |
-| DELETE | `/springbootcore/api/todos/{id}` | Delete todo by ID |
-
-**Todo Request Body:**
-
-```json
-{
-  "title": "Buy groceries",
-  "description": "Milk, eggs, and bread",
-  "created_at": "2026-02-19T10:35:00",
-  "updated_at": "2026-02-19T10:35:00"
-}
-```
-
 ### 8. Logging
 
 Application logs are written to a file for easier debugging.

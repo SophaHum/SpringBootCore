@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 import { environment } from '../../environments/environment';
 
 export interface ApiResponse<T> {
@@ -23,7 +24,9 @@ export class ApiService {
    * Usage: this.apiService.get<User>('users/profile')
    */
   get<T>(endpoint: string): Observable<T> {
-    return this.http.get<T>(`${this.apiUrl}/${endpoint}`);
+    return this.http.get<ApiResponse<T>>(`${this.apiUrl}/${endpoint}`).pipe(
+      map(res => res.data)
+    );
   }
 
   /**
@@ -33,7 +36,9 @@ export class ApiService {
    * Usage: this.apiService.post<User>('users', userdata)
    */
   post<T>(endpoint: string, data: any): Observable<T> {
-    return this.http.post<T>(`${this.apiUrl}/${endpoint}`, data);
+    return this.http.post<ApiResponse<T>>(`${this.apiUrl}/${endpoint}`, data).pipe(
+      map(res => res.data)
+    );
   }
 
   /**
@@ -42,7 +47,9 @@ export class ApiService {
    * @param data The request body
    */
   put<T>(endpoint: string, data: any): Observable<T> {
-    return this.http.put<T>(`${this.apiUrl}/${endpoint}`, data);
+    return this.http.put<ApiResponse<T>>(`${this.apiUrl}/${endpoint}`, data).pipe(
+      map(res => res.data)
+    );
   }
 
   /**
@@ -50,7 +57,9 @@ export class ApiService {
    * @param endpoint The endpoint path
    */
   delete<T>(endpoint: string): Observable<T> {
-    return this.http.delete<T>(`${this.apiUrl}/${endpoint}`);
+    return this.http.delete<ApiResponse<T>>(`${this.apiUrl}/${endpoint}`).pipe(
+      map(res => res.data)
+    );
   }
 
   /**

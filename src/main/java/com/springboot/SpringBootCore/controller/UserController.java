@@ -1,20 +1,18 @@
 package com.springboot.SpringBootCore.controller;
 
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-import org.springframework.http.ResponseEntity;
+import com.springboot.SpringBootCore.dto.UserRequest;
+import com.springboot.SpringBootCore.model.User;
 import com.springboot.SpringBootCore.service.UserService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import com.springboot.SpringBootCore.model.User;
-import com.springboot.SpringBootCore.dto.UserRequest;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.web.bind.annotation.*;
+import java.util.List;
+
+import org.springframework.security.access.prepost.PreAuthorize;
+
+import com.springboot.SpringBootCore.dto.ApiResponse;
 
 @RestController
 @RequestMapping("/api/users")
@@ -22,35 +20,44 @@ import org.springframework.security.core.context.SecurityContextHolder;
 public class UserController {
     private final UserService userService;
 
-    // create user
+    @GetMapping
+    @PreAuthorize("hasAuthority('users.view')")
+    public ResponseEntity<ApiResponse<List<User>>> getAllUsers() {
+        return ResponseEntity.ok(ApiResponse.success(userService.getAllUsers()));
+    }
+
     @PostMapping
-    public ResponseEntity<User> createUser(@RequestBody UserRequest userRequest) {
-        return ResponseEntity.ok(userService.createUser(userRequest));
+    @PreAuthorize("hasAuthority('users.create')")
+    public ResponseEntity<ApiResponse<User>> createUser(@RequestBody UserRequest userRequest) {
+        return ResponseEntity.ok(ApiResponse.success(userService.createUser(userRequest)));
     }
 
-    // get user by id
     @GetMapping("/{id}")
-    public ResponseEntity<User> getUserById(@PathVariable Long id) {
-        return ResponseEntity.ok(userService.getUserById(id));
+    @PreAuthorize("hasAuthority('users.view')")
+    public ResponseEntity<ApiResponse<User>> getUserById(@PathVariable Long id) {
+        return ResponseEntity.ok(ApiResponse.success(userService.getUserById(id)));
     }
 
-    // update user
     @PutMapping("/{id}")
-    public ResponseEntity<User> updateUser(@PathVariable Long id, @RequestBody UserRequest userRequest) {
-        return ResponseEntity.ok(userService.updateUser(id, userRequest));
+    @PreAuthorize("hasAuthority('users.edit')")
+    public ResponseEntity<ApiResponse<User>> updateUser(@PathVariable Long id, @RequestBody UserRequest userRequest) {
+        return ResponseEntity.ok(ApiResponse.success(userService.updateUser(id, userRequest)));
     }
 
-    // delete user
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteUser(@PathVariable Long id) {
+    @PreAuthorize("hasAuthority('users.delete')")
+    public ResponseEntity<ApiResponse<Void>> deleteUser(@PathVariable Long id) {
         userService.deleteUser(id);
-        return ResponseEntity.noContent().build();
+        return ResponseEntity.ok(ApiResponse.success(null));
     }
 
     @GetMapping("/profile")
-    public ResponseEntity<User> getProfile() {
+    public ResponseEntity<ApiResponse<User>> getProfile() {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        if (authentication == null || !(authentication.getPrincipal() instanceof User)) {
+            return ResponseEntity.status(401).body(ApiResponse.error("Unauthorized"));
+        }
         User user = (User) authentication.getPrincipal();
-        return ResponseEntity.ok(user);
+        return ResponseEntity.ok(ApiResponse.success(user));
     }
 }
