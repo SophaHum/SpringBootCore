@@ -46,7 +46,8 @@
   --color-surface-hover: #f8fafc;
   --color-surface-active: #f1f5f9;
 
-  --color-border: #e2e8f0;
+  --color-border: #ebf0e2;
+  --color-border-dark: #374151;
   --color-border-light: #f1f5f9;
   --color-border-focus: #6366f1;
 

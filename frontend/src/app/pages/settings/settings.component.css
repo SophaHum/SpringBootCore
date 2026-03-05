@@ -175,10 +175,16 @@
 
 .toggle input { opacity: 0; width: 0; height: 0; }
 
+@media (prefers-color-scheme: dark) {
+  :root {
+    --toggle-slider-bg: var(--color-border-dark);
+  }
+}
+
 .toggle-slider {
   position: absolute;
   inset: 0;
-  background: var(--color-border);
+  background: var(--color-border-dark);
   border-radius: var(--radius-full);
   transition: all var(--transition-fast);
 }
@@ -356,6 +362,7 @@
   .settings-layout {
     grid-template-columns: 1fr;
   }
+  
 
   .settings-nav {
     flex-direction: row;
