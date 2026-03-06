@@ -178,5 +178,5 @@ docker exec -it <container_id_or_name> bash
 
 
 # User login
-- email: verify-user@example.com
+- email: admin@gmail.com
 - password: password123

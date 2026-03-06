@@ -1,16 +1,17 @@
-import { Component, signal, inject } from '@angular/core';
+import { Component, signal, inject, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IconComponent } from '../../shared/components/icon/icon.component';
 import { ModalComponent } from '../../shared/components/modal/modal.component';
 import { ToastService } from '../../services/toast.service';
+import { ApiService } from '../../services/api.service';
 
 interface Role {
   id: number;
   name: string;
   description: string;
   usersCount: number;
-  permissions: string[];
+  permissionNames: string[];
   color: string;
   isEditing?: boolean;
   editName?: string;
@@ -24,8 +25,9 @@ interface Role {
   templateUrl: './roles.component.html',
   styleUrls: ['./roles.component.css']
 })
-export class RolesComponent {
+export class RolesComponent implements OnInit {
   private toastService = inject(ToastService);
+  private apiService = inject(ApiService);
 
   searchQuery = signal('');
   sortKey = signal('name');
@@ -36,17 +38,21 @@ export class RolesComponent {
 
   newRole = { name: '', description: '', color: '#6366f1' };
 
-  roles: Role[] = [
-    { id: 1, name: 'Super Admin', description: 'Full system access with all permissions', usersCount: 2, permissions: ['all'], color: '#ef4444' },
-    { id: 2, name: 'Admin', description: 'Administrative access to manage users and settings', usersCount: 5, permissions: ['users.manage', 'roles.manage', 'settings.manage'], color: '#6366f1' },
-    { id: 3, name: 'Manager', description: 'Can manage team members and view reports', usersCount: 12, permissions: ['users.view', 'users.edit', 'reports.view'], color: '#8b5cf6' },
-    { id: 4, name: 'Editor', description: 'Can create and edit content', usersCount: 24, permissions: ['content.create', 'content.edit', 'content.delete'], color: '#3b82f6' },
-    { id: 5, name: 'Viewer', description: 'Read-only access to view content and reports', usersCount: 156, permissions: ['content.view', 'reports.view'], color: '#10b981' },
-    { id: 6, name: 'Support', description: 'Customer support access with limited permissions', usersCount: 8, permissions: ['tickets.manage', 'users.view'], color: '#f59e0b' },
-  ];
+  roles = signal<Role[]>([]);
+
+  ngOnInit(): void {
+    this.loadRoles();
+  }
+
+  loadRoles(): void {
+    this.apiService.getRoles().subscribe({
+      next: (data: any[]) => this.roles.set(data),
+      error: () => this.toastService.error('Error', 'Failed to load roles')
+    });
+  }
 
   get filteredRoles(): Role[] {
-    let result = [...this.roles];
+    let result = [...this.roles()];
     const query = this.searchQuery().toLowerCase();
 
     if (query) {
@@ -90,10 +96,18 @@ export class RolesComponent {
 
   saveEdit(role: Role): void {
     if (role.editName && role.editDescription) {
-      role.name = role.editName;
-      role.description = role.editDescription;
-      role.isEditing = false;
-      this.toastService.success('Role updated', `${role.name} has been saved.`);
+      const updatedRole = {
+        ...role,
+        name: role.editName,
+        description: role.editDescription
+      };
+      this.apiService.put(`roles/${role.id}`, updatedRole).subscribe({
+        next: () => {
+          this.toastService.success('Role updated', `${updatedRole.name} has been saved.`);
+          this.loadRoles();
+        },
+        error: () => this.toastService.error('Error', 'Failed to update role')
+      });
     }
   }
 
@@ -105,24 +119,26 @@ export class RolesComponent {
   deleteRole(): void {
     const role = this.selectedRole();
     if (role) {
-      this.roles = this.roles.filter(r => r.id !== role.id);
-      this.toastService.success('Role deleted', `${role.name} has been removed.`);
+      this.apiService.delete(`roles/${role.id}`).subscribe({
+        next: () => {
+          this.toastService.success('Role deleted', `${role.name} has been removed.`);
+          this.loadRoles();
+          this.showDeleteModal.set(false);
+        },
+        error: () => this.toastService.error('Error', 'Failed to delete role')
+      });
     }
-    this.showDeleteModal.set(false);
   }
 
   createRole(): void {
-    const id = Math.max(...this.roles.map(r => r.id)) + 1;
-    this.roles = [...this.roles, {
-      id,
-      name: this.newRole.name,
-      description: this.newRole.description,
-      usersCount: 0,
-      permissions: [],
-      color: this.newRole.color,
-    }];
-    this.newRole = { name: '', description: '', color: '#6366f1' };
-    this.showCreateModal.set(false);
-    this.toastService.success('Role created', 'New role has been added.');
+    this.apiService.post('roles', this.newRole).subscribe({
+      next: () => {
+        this.toastService.success('Role created', 'New role has been added.');
+        this.loadRoles();
+        this.newRole = { name: '', description: '', color: '#6366f1' };
+        this.showCreateModal.set(false);
+      },
+      error: () => this.toastService.error('Error', 'Failed to create role')
+    });
   }
 }

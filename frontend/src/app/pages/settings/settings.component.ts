@@ -1,9 +1,10 @@
-import { Component, signal, inject } from '@angular/core';
+import { Component, signal, inject, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IconComponent } from '../../shared/components/icon/icon.component';
 import { ThemeService } from '../../services/theme.service';
 import { ToastService } from '../../services/toast.service';
+import { ApiService } from '../../services/api.service';
 
 @Component({
   selector: 'app-settings',
@@ -12,9 +13,10 @@ import { ToastService } from '../../services/toast.service';
   templateUrl: './settings.component.html',
   styleUrls: ['./settings.component.css']
 })
-export class SettingsComponent {
+export class SettingsComponent implements OnInit {
   themeService = inject(ThemeService);
   private toastService = inject(ToastService);
+  private apiService = inject(ApiService);
 
   activeSection = signal('general');
   saving = signal(false);
@@ -76,17 +78,52 @@ export class SettingsComponent {
     githubClientSecret: '',
   };
 
+  ngOnInit(): void {
+    this.loadSettings();
+  }
+
+  loadSettings(): void {
+    this.apiService.get<any>('settings').subscribe({
+      next: (data) => {
+        if (data) {
+          if (data.general) this.general = { ...this.general, ...data.general };
+          if (data.notifications) this.notifications = { ...this.notifications, ...data.notifications };
+          if (data.security) this.security = { ...this.security, ...data.security };
+          if (data.appearance) {
+            this.appearance = { ...this.appearance, ...data.appearance };
+            this.onThemeChange(this.appearance.theme);
+          }
+          if (data.oauth) this.oauth = { ...this.oauth, ...data.oauth };
+        }
+      },
+      error: () => this.toastService.error('Error', 'Failed to load settings')
+    });
+  }
+
   save(section: string): void {
     this.saving.set(true);
     this.saveSuccess.set(false);
 
-    setTimeout(() => {
-      this.saving.set(false);
-      this.saveSuccess.set(true);
-      this.toastService.success('Settings saved', `${section} settings have been updated.`);
+    const fullSettings = {
+      general: this.general,
+      notifications: this.notifications,
+      security: this.security,
+      appearance: this.appearance,
+      oauth: this.oauth
+    };
 
-      setTimeout(() => this.saveSuccess.set(false), 2000);
-    }, 800);
+    this.apiService.put('settings', fullSettings).subscribe({
+      next: () => {
+        this.saving.set(false);
+        this.saveSuccess.set(true);
+        this.toastService.success('Settings saved', `${section} settings have been updated.`);
+        setTimeout(() => this.saveSuccess.set(false), 2000);
+      },
+      error: () => {
+        this.saving.set(false);
+        this.toastService.error('Error', 'Failed to save settings');
+      }
+    });
   }
 
   onThemeChange(theme: string): void {

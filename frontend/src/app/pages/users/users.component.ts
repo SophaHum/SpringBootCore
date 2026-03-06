@@ -1,10 +1,11 @@
-import { Component, signal, inject } from '@angular/core';
+import { Component, signal, inject, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { DataTableComponent, TableColumn } from '../../shared/components/data-table/data-table.component';
 import { ModalComponent } from '../../shared/components/modal/modal.component';
 import { IconComponent } from '../../shared/components/icon/icon.component';
 import { ToastService } from '../../services/toast.service';
+import { ApiService } from '../../services/api.service';
 
 @Component({
   selector: 'app-users',
@@ -13,13 +14,14 @@ import { ToastService } from '../../services/toast.service';
   templateUrl: './users.component.html',
   styleUrls: ['./users.component.css']
 })
-export class UsersComponent {
+export class UsersComponent implements OnInit {
   private toastService = inject(ToastService);
+  private apiService = inject(ApiService);
 
   columns: TableColumn[] = [
-    { key: 'name', label: 'Name', sortable: true, type: 'avatar' },
+    { key: 'fullName', label: 'Name', sortable: true, type: 'avatar' },
     { key: 'email', label: 'Email', sortable: true },
-    { key: 'role', label: 'Role', sortable: true, type: 'badge', badgeColors: {
+    { key: 'roles', label: 'Role', sortable: true, type: 'badge', badgeColors: {
       'Admin': 'rgba(99, 102, 241, 0.15)',
       'Editor': 'rgba(139, 92, 246, 0.15)',
       'Viewer': 'rgba(59, 130, 246, 0.15)',
@@ -28,26 +30,13 @@ export class UsersComponent {
     { key: 'status', label: 'Status', sortable: true, type: 'badge', badgeColors: {
       'Active': 'rgba(16, 185, 129, 0.15)',
       'Inactive': 'rgba(239, 68, 68, 0.15)',
-      'Pending': 'rgba(245, 158, 11, 0.15)',
     }},
-    { key: 'lastLogin', label: 'Last Login', sortable: true },
+    { key: 'enabled', label: 'Enabled', type: 'toggle' },
+    { key: 'lastLoginAt', label: 'Last Login', sortable: true },
     { key: 'actions', label: 'Actions', type: 'actions', width: '100px' },
   ];
 
-  users = [
-    { id: 1, name: 'John Doe', email: 'john@example.com', role: 'Admin', status: 'Active', lastLogin: '2 min ago' },
-    { id: 2, name: 'Jane Smith', email: 'jane@example.com', role: 'Editor', status: 'Active', lastLogin: '1 hour ago' },
-    { id: 3, name: 'Mike Johnson', email: 'mike@example.com', role: 'Viewer', status: 'Inactive', lastLogin: '3 days ago' },
-    { id: 4, name: 'Sarah Wilson', email: 'sarah@example.com', role: 'Manager', status: 'Active', lastLogin: '5 min ago' },
-    { id: 5, name: 'Tom Brown', email: 'tom@example.com', role: 'Editor', status: 'Pending', lastLogin: 'Never' },
-    { id: 6, name: 'Emily Davis', email: 'emily@example.com', role: 'Viewer', status: 'Active', lastLogin: '30 min ago' },
-    { id: 7, name: 'Chris Lee', email: 'chris@example.com', role: 'Admin', status: 'Active', lastLogin: '1 day ago' },
-    { id: 8, name: 'Anna Martinez', email: 'anna@example.com', role: 'Editor', status: 'Active', lastLogin: '4 hours ago' },
-    { id: 9, name: 'David Garcia', email: 'david@example.com', role: 'Viewer', status: 'Inactive', lastLogin: '1 week ago' },
-    { id: 10, name: 'Lisa Anderson', email: 'lisa@example.com', role: 'Manager', status: 'Active', lastLogin: '10 min ago' },
-    { id: 11, name: 'Robert Taylor', email: 'robert@example.com', role: 'Viewer', status: 'Active', lastLogin: '2 hours ago' },
-    { id: 12, name: 'Jennifer Thomas', email: 'jennifer@example.com', role: 'Editor', status: 'Pending', lastLogin: 'Never' },
-  ];
+  users = signal<any[]>([]);
 
   showCreateModal = signal(false);
   showEditModal = signal(false);
@@ -57,9 +46,29 @@ export class UsersComponent {
   newUser = {
     name: '',
     email: '',
-    role: 'Viewer',
+    roleIds: [3], // Default to Viewer role ID
+    password: 'password123', // Default password for new users in this demo
     status: 'Active'
   };
+
+  ngOnInit(): void {
+    this.loadUsers();
+  }
+
+  loadUsers(): void {
+    this.apiService.get<any[]>('users').subscribe({
+      next: (data) => {
+        // Map roles to a string for display if needed by the DataTable
+        const processedData = data.map(user => ({
+          ...user,
+          roles: user.roles?.map((r: any) => r.name).join(', ') || 'Viewer',
+          enabled: user.status === 'Active'
+        }));
+        this.users.set(processedData);
+      },
+      error: (err) => this.toastService.error('Error', 'Failed to load users')
+    });
+  }
 
   onEdit(user: any): void {
     this.selectedUser.set({ ...user });
@@ -71,29 +80,67 @@ export class UsersComponent {
     this.showDeleteModal.set(true);
   }
 
+  toggleStatus(user: any): void {
+    this.apiService.toggleUserStatus(user.id).subscribe({
+      next: () => {
+        this.toastService.success('Status Updated', `Status for ${user.fullName} has been toggled.`);
+        this.loadUsers();
+      },
+      error: () => this.toastService.error('Error', 'Failed to toggle status')
+    });
+  }
+
+  onToggleStatus(event: { row: any, key: string }): void {
+    if (event.key === 'enabled') {
+      this.toggleStatus(event.row);
+    }
+  }
+
   confirmDelete(): void {
     const user = this.selectedUser();
     if (user) {
-      this.users = this.users.filter(u => u.id !== user.id);
-      this.toastService.success('User deleted', `${user.name} has been removed.`);
+      this.apiService.delete(`users/${user.id}`).subscribe({
+        next: () => {
+          this.toastService.success('User deleted', `${user.fullName} has been removed.`);
+          this.loadUsers();
+          this.showDeleteModal.set(false);
+        },
+        error: () => this.toastService.error('Error', 'Failed to delete user')
+      });
     }
-    this.showDeleteModal.set(false);
   }
 
   saveNewUser(): void {
-    const id = Math.max(...this.users.map(u => u.id)) + 1;
-    this.users = [...this.users, { ...this.newUser, id, lastLogin: 'Never' }];
-    this.newUser = { name: '', email: '', role: 'Viewer', status: 'Active' };
-    this.showCreateModal.set(false);
-    this.toastService.success('User created', 'New user has been added successfully.');
+    this.apiService.post('users', this.newUser).subscribe({
+      next: () => {
+        this.toastService.success('User created', 'New user has been added successfully.');
+        this.loadUsers();
+        this.showCreateModal.set(false);
+        this.newUser = { name: '', email: '', roleIds: [3], password: 'password123', status: 'Active' };
+      },
+      error: () => this.toastService.error('Error', 'Failed to create user')
+    });
   }
 
   saveEditUser(): void {
     const user = this.selectedUser();
     if (user) {
-      this.users = this.users.map(u => u.id === user.id ? { ...user } : u);
-      this.toastService.success('User updated', `${user.name}'s details have been saved.`);
+      // Prepare the request body expected by UserRequest DTO
+      const updateRequest = {
+        name: user.fullName,
+        email: user.email,
+        status: user.status,
+        roleIds: user.roleIds || user.roles_list?.map((r: any) => r.id) // Assuming role IDs are available
+      };
+
+      this.apiService.put(`users/${user.id}`, updateRequest).subscribe({
+        next: () => {
+          this.toastService.success('User updated', `${user.fullName}'s details have been saved.`);
+          this.loadUsers();
+          this.showEditModal.set(false);
+        },
+        error: () => this.toastService.error('Error', 'Failed to update user')
+      });
     }
-    this.showEditModal.set(false);
   }
 }

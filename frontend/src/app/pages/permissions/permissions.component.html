@@ -30,10 +30,12 @@
           <thead>
             <tr>
               <th class="perm-header">Permission</th>
-              @for (role of roles; track role.id) {
+              @for (role of rolesData(); track role.id) {
                 <th class="role-header">
-                  <span class="role-dot" [style.background]="role.color"></span>
-                  {{ role.name }}
+                  <div class="role-header-content">
+                    <span class="role-dot" [style.background]="role.color"></span>
+                    {{ role.name }}
+                  </div>
                 </th>
               }
             </tr>
@@ -41,9 +43,9 @@
           <tbody>
             @for (cat of categories; track cat.key) {
               <tr class="category-row" (click)="toggleCategory(cat.key)">
-                <td [attr.colspan]="roles.length + 1">
+                <td [attr.colspan]="rolesData().length + 1">
                   <div class="category-header">
-                    <app-icon [name]="isCategoryExpanded(cat.key) ? 'chevron-down' : 'chevron-right'" [size]="16"/>
+                    <app-icon name="chevron-right" class="category-icon-chevron" [class.expanded]="isCategoryExpanded(cat.key)" [size]="16"/>
                     <app-icon [name]="cat.icon" [size]="16"/>
                     <span class="category-name">{{ cat.label }}</span>
                     <span class="category-count">{{ getPermissionsByCategory(cat.key).length }} permissions</span>
@@ -59,7 +61,7 @@
                         <span class="perm-desc">{{ perm.description }}</span>
                       </div>
                     </td>
-                    @for (role of roles; track role.id) {
+                    @for (role of rolesData(); track role.id) {
                       <td class="check-cell">
                         <label class="matrix-check">
                           <input
@@ -103,7 +105,7 @@
       @for (cat of categories; track cat.key) {
         <div class="tree-category">
           <div class="tree-category-header" (click)="toggleCategory(cat.key)">
-            <app-icon [name]="isCategoryExpanded(cat.key) ? 'chevron-down' : 'chevron-right'" [size]="16"/>
+            <app-icon name="chevron-right" class="category-icon-chevron" [class.expanded]="isCategoryExpanded(cat.key)" [size]="16"/>
             <app-icon [name]="cat.icon" [size]="18"/>
             <span class="tree-category-name">{{ cat.label }}</span>
             <span class="tree-category-count">{{ getPermissionsByCategory(cat.key).length }}</span>
@@ -118,7 +120,7 @@
                     <span class="tree-perm-id">{{ perm.id }}</span>
                   </div>
                   <div class="tree-perm-roles">
-                    @for (role of roles; track role.id) {
+                    @for (role of rolesData(); track role.id) {
                       <button
                         class="role-chip"
                         [class.active]="isGranted(role.id, perm.id)"

@@ -40,9 +40,9 @@
               </label>
               <input type="file" id="avatar-input" accept="image/*" (change)="onAvatarChange($event)" hidden/>
             </div>
-            <h3>{{ profile.name }}</h3>
-            <p class="avatar-email">{{ profile.email }}</p>
-            <p class="avatar-bio">{{ profile.bio }}</p>
+            <h3>{{ profileForm.fullName }}</h3>
+            <p class="avatar-email">{{ profileForm.email }}</p>
+            <p class="avatar-bio">{{ profileForm.bio }}</p>
           </div>
         </div>
 
@@ -55,31 +55,31 @@
             <div class="form-grid">
               <div class="form-group">
                 <label>Full Name</label>
-                <input type="text" class="form-input" [(ngModel)]="profile.name"/>
+                <input type="text" class="form-input" [(ngModel)]="profileForm.fullName"/>
               </div>
               <div class="form-group">
                 <label>Email</label>
-                <input type="email" class="form-input" [(ngModel)]="profile.email"/>
+                <input type="email" class="form-input" [(ngModel)]="profileForm.email"/>
               </div>
               <div class="form-group">
                 <label>Phone</label>
-                <input type="tel" class="form-input" [(ngModel)]="profile.phone"/>
+                <input type="tel" class="form-input" [(ngModel)]="profileForm.phone"/>
               </div>
               <div class="form-group">
                 <label>Location</label>
-                <input type="text" class="form-input" [(ngModel)]="profile.location"/>
+                <input type="text" class="form-input" [(ngModel)]="profileForm.location"/>
               </div>
               <div class="form-group">
                 <label>Company</label>
-                <input type="text" class="form-input" [(ngModel)]="profile.company"/>
+                <input type="text" class="form-input" [(ngModel)]="profileForm.company"/>
               </div>
               <div class="form-group">
                 <label>Website</label>
-                <input type="url" class="form-input" [(ngModel)]="profile.website"/>
+                <input type="url" class="form-input" [(ngModel)]="profileForm.website"/>
               </div>
               <div class="form-group full-width">
                 <label>Bio</label>
-                <textarea class="form-input form-textarea" [(ngModel)]="profile.bio" rows="3"></textarea>
+                <textarea class="form-input form-textarea" [(ngModel)]="profileForm.bio" rows="3"></textarea>
               </div>
             </div>
             <div class="form-actions">
@@ -150,7 +150,7 @@
         </div>
         <div class="card-body">
           <div class="sessions-list">
-            @for (session of sessions; track session.id) {
+            @for (session of sessions(); track session.id) {
               <div class="session-item" [class.current]="session.current">
                 <div class="session-icon">
                   <app-icon [name]="session.icon" [size]="20"/>

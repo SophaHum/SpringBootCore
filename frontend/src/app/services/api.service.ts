@@ -63,6 +63,53 @@ export class ApiService {
   }
 
   /**
+   * Generic PATCH request
+   * @param endpoint The endpoint path
+   * @param data The request body
+   */
+  patch<T>(endpoint: string, data: any): Observable<T> {
+    return this.http.patch<ApiResponse<T>>(`${this.apiUrl}/${endpoint}`, data).pipe(
+      map(res => res.data)
+    );
+  }
+
+  /**
+   * EXAMPLE: Toggle user status
+   * Usage: this.apiService.toggleUserStatus(1)
+   */
+  toggleUserStatus(id: number): Observable<any> {
+    return this.patch(`users/${id}/toggle-status`, {});
+  }
+
+  /**
+   * Fetch dashboard statistics
+   */
+  getDashboardStats(): Observable<any> {
+    return this.get('dashboard/stats');
+  }
+
+  /**
+   * Fetch recent dashboard activity
+   */
+  getDashboardActivity(): Observable<any> {
+    return this.get('dashboard/activity');
+  }
+
+  /**
+   * Fetch all roles
+   */
+  getRoles(): Observable<any[]> {
+    return this.get('roles');
+  }
+
+  /**
+   * Fetch all permissions
+   */
+  getPermissions(): Observable<any[]> {
+    return this.get('permissions');
+  }
+
+  /**
    * EXAMPLE: Fetch user profile
    * Usage: this.apiService.getUserProfile()
    */

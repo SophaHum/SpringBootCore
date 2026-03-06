@@ -73,3 +73,12 @@ INSERT INTO permissions (id, name, description, category) VALUES
 -- Link Super Admin to all (id 1)
 INSERT INTO role_permissions (role_id, permission_id) 
 SELECT 1, id FROM permissions;
+
+-- Link Admin to some permissions (id 2)
+INSERT INTO role_permissions (role_id, permission_id) VALUES
+(2, 'users.view'), (2, 'users.create'), (2, 'users.edit'),
+(2, 'roles.view');
+
+-- Link Viewer to basic read permissions (id 3)
+INSERT INTO role_permissions (role_id, permission_id) VALUES
+(3, 'users.view'), (3, 'roles.view');

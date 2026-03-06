@@ -44,13 +44,17 @@
       <thead>
         <tr>
           <th class="sortable" (click)="onSort('name')">
-            Role
-            @if (sortKey() === 'name') { <span class="sort-indicator">{{ sortDir() === 'asc' ? '↑' : '↓' }}</span> }
+            <div class="th-content">
+              Role
+              @if (sortKey() === 'name') { <span class="sort-indicator">{{ sortDir() === 'asc' ? '↑' : '↓' }}</span> }
+            </div>
           </th>
           <th>Description</th>
           <th class="sortable" (click)="onSort('usersCount')">
-            Users
-            @if (sortKey() === 'usersCount') { <span class="sort-indicator">{{ sortDir() === 'asc' ? '↑' : '↓' }}</span> }
+            <div class="th-content">
+              Users
+              @if (sortKey() === 'usersCount') { <span class="sort-indicator">{{ sortDir() === 'asc' ? '↑' : '↓' }}</span> }
+            </div>
           </th>
           <th>Permissions</th>
           <th>Actions</th>
@@ -81,13 +85,13 @@
             </td>
             <td>
               <div class="permission-tags">
-                @for (perm of role.permissions.slice(0, 3); track perm) {
-                  <span class="perm-tag">{{ perm }}</span>
-                }
-                @if (role.permissions.length > 3) {
-                  <span class="perm-tag more">+{{ role.permissions.length - 3 }}</span>
-                }
-              </div>
+                  @for (perm of role.permissionNames.slice(0, 3); track perm) {
+                    <span class="perm-tag">{{ perm }}</span>
+                  }
+                  @if (role.permissionNames.length > 3) {
+                    <span class="perm-tag more">+{{ role.permissionNames.length - 3 }}</span>
+                  }
+                </div>
             </td>
             <td>
               <div class="row-actions">

@@ -24,7 +24,7 @@ public class UserService {
     @Transactional
     public User createUser(UserRequest userRequest) {
         String username = userRequest.username() != null ? userRequest.username() : userRequest.email();
-        
+
         if (userRepository.findByEmail(userRequest.email()).isPresent()) {
             throw new RuntimeException("Email already exists");
         }
@@ -39,7 +39,8 @@ public class UserService {
 
         if (userRequest.roleIds() != null && !userRequest.roleIds().isEmpty()) {
             Set<Role> roles = userRequest.roleIds().stream()
-                    .map(id -> roleRepository.findById(id).orElseThrow(() -> new RuntimeException("Role not found: " + id)))
+                    .map(id -> roleRepository.findById(id)
+                            .orElseThrow(() -> new RuntimeException("Role not found: " + id)))
                     .collect(Collectors.toSet());
             user.setRoles(roles);
         } else {
@@ -75,7 +76,8 @@ public class UserService {
 
         if (userRequest.roleIds() != null) {
             Set<Role> roles = userRequest.roleIds().stream()
-                    .map(rid -> roleRepository.findById(rid).orElseThrow(() -> new RuntimeException("Role not found: " + rid)))
+                    .map(rid -> roleRepository.findById(rid)
+                            .orElseThrow(() -> new RuntimeException("Role not found: " + rid)))
                     .collect(Collectors.toSet());
             user.setRoles(roles);
         }
@@ -85,6 +87,14 @@ public class UserService {
 
     public void deleteUser(Long id) {
         userRepository.deleteById(id);
+    }
+
+    @Transactional
+    public User toggleUserStatus(Long id) {
+        User user = getUserById(id);
+        String newStatus = "Active".equals(user.getStatus()) ? "Inactive" : "Active";
+        user.setStatus(newStatus);
+        return userRepository.save(user);
     }
 
     public User login(String email, String password) {

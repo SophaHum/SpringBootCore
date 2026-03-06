@@ -27,18 +27,23 @@ public class UserSetting {
     @JoinColumn(name = "user_id")
     private User user;
 
+    @org.hibernate.annotations.JdbcTypeCode(org.hibernate.type.SqlTypes.JSON)
     @Column(name = "general_settings", columnDefinition = "jsonb")
-    private String generalSettings;
+    private java.util.Map<String, Object> generalSettings;
 
+    @org.hibernate.annotations.JdbcTypeCode(org.hibernate.type.SqlTypes.JSON)
     @Column(name = "notification_settings", columnDefinition = "jsonb")
-    private String notificationSettings;
+    private java.util.Map<String, Object> notificationSettings;
 
+    @org.hibernate.annotations.JdbcTypeCode(org.hibernate.type.SqlTypes.JSON)
     @Column(name = "security_settings", columnDefinition = "jsonb")
-    private String securitySettings;
+    private java.util.Map<String, Object> securitySettings;
 
+    @org.hibernate.annotations.JdbcTypeCode(org.hibernate.type.SqlTypes.JSON)
     @Column(name = "appearance_settings", columnDefinition = "jsonb")
-    private String appearanceSettings;
+    private java.util.Map<String, Object> appearanceSettings;
 
+    @org.hibernate.annotations.JdbcTypeCode(org.hibernate.type.SqlTypes.JSON)
     @Column(name = "oauth_settings", columnDefinition = "jsonb")
-    private String oauthSettings;
+    private java.util.Map<String, Object> oauthSettings;
 }

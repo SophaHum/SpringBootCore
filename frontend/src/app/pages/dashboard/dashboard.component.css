@@ -1,18 +1,6 @@
-.dashboard {
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
 /* Welcome */
 .welcome-section {
   margin-bottom: var(--space-6);
-}
-
-.welcome-text h1 {
-  font-size: var(--font-size-2xl);
-  font-weight: var(--font-weight-bold);
-  color: var(--color-text);
-  margin-bottom: var(--space-1);
 }
 
 .welcome-text p {
@@ -88,28 +76,6 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: var(--space-6);
-}
-
-/* Card */
-.card {
-  background: var(--color-surface);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-xl);
-  overflow: hidden;
-}
-
-.card-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: var(--space-5) var(--space-5) 0;
-}
-
-.card-header h3 {
-  font-size: var(--font-size-md);
-  font-weight: var(--font-weight-semibold);
-  color: var(--color-text);
-  margin: 0;
 }
 
 .card-link {

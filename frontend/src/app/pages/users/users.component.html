@@ -12,10 +12,11 @@
 
   <app-data-table
     [columns]="columns"
-    [data]="users"
+    [data]="users()"
     searchPlaceholder="Search users..."
     (edit)="onEdit($event)"
     (delete)="onDelete($event)"
+    (toggleChange)="onToggleStatus($event)"
   >
     <div table-actions>
       <button class="btn btn-outline btn-sm">
@@ -45,14 +46,17 @@
       <label>Email Address</label>
       <input type="email" class="form-input" [(ngModel)]="newUser.email" placeholder="Enter email"/>
     </div>
+    <div class="form-group">
+      <label>Password</label>
+      <input type="password" class="form-input" [(ngModel)]="newUser.password" placeholder="Enter password"/>
+    </div>
     <div class="form-row">
       <div class="form-group">
-        <label>Role</label>
-        <select class="form-input" [(ngModel)]="newUser.role">
-          <option value="Admin">Admin</option>
-          <option value="Manager">Manager</option>
-          <option value="Editor">Editor</option>
-          <option value="Viewer">Viewer</option>
+        <label>Roles</label>
+        <select class="form-input" [(ngModel)]="newUser.roleIds[0]">
+          <option [value]="1">Super Admin</option>
+          <option [value]="2">Admin</option>
+          <option [value]="3">Viewer</option>
         </select>
       </div>
       <div class="form-group">
@@ -81,22 +85,13 @@
     <div class="modal-form">
       <div class="form-group">
         <label>Full Name</label>
-        <input type="text" class="form-input" [(ngModel)]="selectedUser()!.name" placeholder="Enter full name"/>
+        <input type="text" class="form-input" [(ngModel)]="selectedUser()!.fullName" placeholder="Enter full name"/>
       </div>
       <div class="form-group">
         <label>Email Address</label>
         <input type="email" class="form-input" [(ngModel)]="selectedUser()!.email" placeholder="Enter email"/>
       </div>
       <div class="form-row">
-        <div class="form-group">
-          <label>Role</label>
-          <select class="form-input" [(ngModel)]="selectedUser()!.role">
-            <option value="Admin">Admin</option>
-            <option value="Manager">Manager</option>
-            <option value="Editor">Editor</option>
-            <option value="Viewer">Viewer</option>
-          </select>
-        </div>
         <div class="form-group">
           <label>Status</label>
           <select class="form-input" [(ngModel)]="selectedUser()!.status">
@@ -125,7 +120,7 @@
     <div class="delete-icon">
       <app-icon name="alert-triangle" [size]="24"/>
     </div>
-    <p>Are you sure you want to delete <strong>{{ selectedUser()?.name }}</strong>? This action cannot be undone.</p>
+    <p>Are you sure you want to delete <strong>{{ selectedUser()?.fullName }}</strong>? This action cannot be undone.</p>
   </div>
   <div modal-footer>
     <button class="btn btn-ghost" (click)="showDeleteModal.set(false)">Cancel</button>

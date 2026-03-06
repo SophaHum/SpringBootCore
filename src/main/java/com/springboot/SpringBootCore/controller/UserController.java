@@ -51,6 +51,12 @@ public class UserController {
         return ResponseEntity.ok(ApiResponse.success(null));
     }
 
+    @PatchMapping("/{id}/toggle-status")
+    @PreAuthorize("hasAuthority('users.edit')")
+    public ResponseEntity<ApiResponse<User>> toggleUserStatus(@PathVariable Long id) {
+        return ResponseEntity.ok(ApiResponse.success(userService.toggleUserStatus(id)));
+    }
+
     @GetMapping("/profile")
     public ResponseEntity<ApiResponse<User>> getProfile() {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
