@@ -11,7 +11,8 @@
   position: sticky;
   top: 0;
   z-index: var(--z-sticky);
-  transition: background var(--transition-slow), border-color var(--transition-slow);
+  transition:
+    border-color var(--transition-slow);
 }
 
 .header-left {

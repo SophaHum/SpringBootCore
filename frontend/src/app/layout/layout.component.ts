@@ -36,7 +36,6 @@ import { HeaderComponent } from './header/header.component';
     .layout {
       display: flex;
       height: 100vh;
-      overflow: hidden;
     }
 
     .layout-main {
@@ -72,7 +71,7 @@ import { HeaderComponent } from './header/header.component';
       }
       to {
         opacity: 1;
-        transform: translateY(0);
+        transform: none;
       }
     }
 

@@ -1,5 +1,5 @@
-import { Component, Input, Output, EventEmitter, HostListener } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Component, Input, Output, EventEmitter, HostListener, OnInit, OnDestroy, ElementRef, Renderer2, Inject, PLATFORM_ID } from '@angular/core';
+import { CommonModule, DOCUMENT, isPlatformBrowser } from '@angular/common';
 import { IconComponent } from '../icon/icon.component';
 
 @Component({
@@ -36,7 +36,7 @@ import { IconComponent } from '../icon/icon.component';
       display: flex;
       align-items: center;
       justify-content: center;
-      z-index: var(--z-modal);
+      z-index: var(--z-modal-backdrop);
       padding: var(--space-4);
       animation: backdropIn 200ms ease-out;
     }
@@ -50,6 +50,7 @@ import { IconComponent } from '../icon/icon.component';
       display: flex;
       flex-direction: column;
       animation: modalIn 300ms cubic-bezier(0.22, 1, 0.36, 1);
+      z-index: var(--z-modal);
     }
 
     .modal-sm { max-width: 400px; }
@@ -125,12 +126,36 @@ import { IconComponent } from '../icon/icon.component';
     }
   `]
 })
-export class ModalComponent {
+export class ModalComponent implements OnInit, OnDestroy {
   @Input() isOpen = false;
   @Input() title = '';
   @Input() size: 'sm' | 'md' | 'lg' | 'xl' = 'md';
   @Input() showFooter = true;
   @Output() close = new EventEmitter<void>();
+
+  constructor(
+    private elementRef: ElementRef,
+    private renderer: Renderer2,
+    @Inject(DOCUMENT) private document: Document,
+    @Inject(PLATFORM_ID) private platformId: Object
+  ) {}
+
+  ngOnInit(): void {
+    if (isPlatformBrowser(this.platformId)) {
+      // Move the component element to the body root to break stacking context
+      this.renderer.appendChild(this.document.body, this.elementRef.nativeElement);
+    }
+  }
+
+  ngOnDestroy(): void {
+    if (isPlatformBrowser(this.platformId)) {
+      // Clean up when component is destroyed
+      const nativeElement = this.elementRef.nativeElement;
+      if (nativeElement && nativeElement.parentNode) {
+        this.renderer.removeChild(nativeElement.parentNode, nativeElement);
+      }
+    }
+  }
 
   @HostListener('document:keydown.escape')
   onEscape(): void {
