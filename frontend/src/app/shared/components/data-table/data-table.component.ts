@@ -1,4 +1,4 @@
-import { Component, Input, Output, EventEmitter, signal, computed } from '@angular/core';
+import { Component, input, Output, EventEmitter, signal, computed } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IconComponent } from '../icon/icon.component';
@@ -25,7 +25,7 @@ export interface TableColumn {
           <input
             type="text"
             class="table-search-input"
-            [placeholder]="searchPlaceholder"
+            [placeholder]="searchPlaceholder()"
             [ngModel]="searchQuery()"
             (ngModelChange)="onSearch($event)"
           />
@@ -40,7 +40,7 @@ export interface TableColumn {
         <table class="table">
           <thead>
             <tr>
-              @for (col of columns; track col.key) {
+              @for (col of columns(); track col.key) {
                 <th
                   [style.width]="col.width || 'auto'"
                   [class.sortable]="col.sortable"
@@ -65,10 +65,10 @@ export interface TableColumn {
             </tr>
           </thead>
           <tbody>
-            @if (loading) {
+            @if (loading()) {
               @for (i of skeletonRows; track i) {
                 <tr class="skeleton-row">
-                  @for (col of columns; track col.key) {
+                  @for (col of columns(); track col.key) {
                     <td>
                       <div class="skeleton skeleton-text" [style.width]="getSkeletonWidth()"></div>
                     </td>
@@ -77,7 +77,7 @@ export interface TableColumn {
               }
             } @else if (filteredData().length === 0) {
               <tr>
-                <td [attr.colspan]="columns.length" class="empty-state">
+                <td [attr.colspan]="columns().length" class="empty-state">
                   <div class="empty-content">
                     <app-icon name="search" [size]="40"/>
                     <p>No results found</p>
@@ -87,7 +87,7 @@ export interface TableColumn {
             } @else {
               @for (row of paginatedData(); track trackByFn(row); let i = $index) {
                 <tr class="data-row" [class.animate-fade-in-up]="true" [style.animation-delay]="(i * 30) + 'ms'">
-                  @for (col of columns; track col.key) {
+                  @for (col of columns(); track col.key) {
                     <td>
                       @switch (col.type) {
                         @case ('badge') {
@@ -171,12 +171,12 @@ export interface TableColumn {
   styleUrl: './data-table.component.css'
 })
 export class DataTableComponent {
-  @Input() columns: TableColumn[] = [];
-  @Input() data: any[] = [];
-  @Input() loading = false;
-  @Input() searchPlaceholder = 'Search...';
-  @Input() pageSize = 10;
-  @Input() trackByKey = 'id';
+  columns = input<TableColumn[]>([]);
+  data = input<any[]>([]);
+  loading = input(false);
+  searchPlaceholder = input('Search...');
+  pageSize = input(10);
+  trackByKey = input('id');
 
   @Output() edit = new EventEmitter<any>();
   @Output() delete = new EventEmitter<any>();
@@ -190,7 +190,7 @@ export class DataTableComponent {
   skeletonRows = Array.from({ length: 5 }, (_, i) => i);
 
   filteredData = computed(() => {
-    let result = [...this.data];
+    let result = [...this.data()];
     const query = this.searchQuery().toLowerCase();
 
     if (query) {
@@ -216,20 +216,20 @@ export class DataTableComponent {
     return result;
   });
 
-  totalPages = computed(() => Math.ceil(this.filteredData().length / this.pageSize) || 1);
+  totalPages = computed(() => Math.ceil(this.filteredData().length / this.pageSize()) || 1);
 
   paginatedData = computed(() => {
-    const start = (this.currentPage() - 1) * this.pageSize;
-    return this.filteredData().slice(start, start + this.pageSize);
+    const start = (this.currentPage() - 1) * this.pageSize();
+    return this.filteredData().slice(start, start + this.pageSize());
   });
 
   paginationStart = computed(() => {
     if (this.filteredData().length === 0) return 0;
-    return (this.currentPage() - 1) * this.pageSize + 1;
+    return (this.currentPage() - 1) * this.pageSize() + 1;
   });
 
   paginationEnd = computed(() => {
-    return Math.min(this.currentPage() * this.pageSize, this.filteredData().length);
+    return Math.min(this.currentPage() * this.pageSize(), this.filteredData().length);
   });
 
   visiblePages = computed(() => {
@@ -276,7 +276,7 @@ export class DataTableComponent {
   }
 
   trackByFn(row: any): any {
-    return row[this.trackByKey] ?? row;
+    return row[this.trackByKey()] ?? row;
   }
 
   getInitials(name: string): string {
